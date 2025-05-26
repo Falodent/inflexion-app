@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "./font.css";
+@import "./animation.css";
+
+@theme {
+  /* Font */
+  --font-helvetica: "HelveticaNowDisplay", sans-serif;
+
+  /* Black */
+  --color-black-100: #030303;
+  --color-black-200: #050505;
+  --color-black-300: #0f0f0f;
+
+  /* Blue */
+  --color-blue-100: #0000ff;
+  --color-blue-200: #1f6cff;
+
+  /* Grey */
+  --color-grey-100: #d0d5dc;
+}
+
+/* html {
+  scroll-behavior: smooth;
+} */
+
+body {
+  @apply font-helvetica;
+}
+
+/* No scrollbar */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

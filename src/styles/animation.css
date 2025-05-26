@@ -1,0 +1,60 @@
+@import "./keyframes.css";
+
+/* Typewriter Animation */
+.typewriter {
+  display: flex;
+  justify-content: center;
+}
+
+.typewriter p {
+  margin-inline: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(8) forwards, blink 1s step-end infinite;
+  border-right: 1px solid;
+}
+/* End */
+
+/* Underline Hover Animation */
+.underline-hover {
+  position: relative;
+}
+
+.underline-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 5px;
+  background-color: #0000ff;
+  transition: width 0.4s ease-in-out;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
+}
+/* End */
+
+/* Slide Animations */
+.slideDown {
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+.slideUp {
+  animation: slideUp 0.5s ease-in forwards;
+}
+
+/* Text Fill */
+.text-fill {
+  color: #03030333;
+  background: linear-gradient(45deg, #030303, #030303);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: textFill forwards linear;
+  animation-timeline: view(y);
+  animation-range: entry 70% contain 50%;
+}
+
