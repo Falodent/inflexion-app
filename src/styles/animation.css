@@ -44,6 +44,7 @@
 .slideUp {
   animation: slideUp 0.5s ease-in forwards;
 }
+/* End */
 
 /* Text Fill */
 .text-fill {
@@ -57,4 +58,10 @@
   animation-timeline: view(y);
   animation-range: entry 70% contain 50%;
 }
+/* End */
 
+/* Loop */
+.loop {
+  animation: loop 20s linear infinite;
+}
+/* End */

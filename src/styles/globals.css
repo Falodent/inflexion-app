@@ -5,11 +5,13 @@
 @theme {
   /* Font */
   --font-helvetica: "HelveticaNowDisplay", sans-serif;
+  --font-jetbrains: "JetBrains", monospace;
 
   /* Black */
   --color-black-100: #030303;
   --color-black-200: #050505;
   --color-black-300: #0f0f0f;
+  --color-black-400: #101010;
 
   /* Blue */
   --color-blue-100: #0000ff;
@@ -17,11 +19,8 @@
 
   /* Grey */
   --color-grey-100: #d0d5dc;
+  --color-grey-200: #d6dae0;
 }
-
-/* html {
-  scroll-behavior: smooth;
-} */
 
 body {
   @apply font-helvetica;

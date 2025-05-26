@@ -44,3 +44,8 @@
       format("woff");
   font-weight: 900;
 }
+
+@font-face {
+  font-family: JetBrains;
+  src: url("../../public/fonts/jetbrains/jetbrains-font.ttf") format("truetype");
+}

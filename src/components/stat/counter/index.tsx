@@ -38,7 +38,7 @@ const Counter = () => {
 
     const start = 70;
     const end = 99.9;
-    const duration = 4000;
+    const duration = 2500;
     const startTime = performance.now();
 
     const animate = (currentTime: number) => {
@@ -67,7 +67,7 @@ const Counter = () => {
         }
         return prev - 1;
       });
-    }, 70);
+    }, 50);
 
     return () => clearInterval(interval);
   }, [visible, timer]);
@@ -77,7 +77,7 @@ const Counter = () => {
 
     const start = 500_000_000;
     const end = 1_000_000_000;
-    const duration = 4500;
+    const duration = 3000;
     const startTime = performance.now();
 
     const animate = (time: number) => {
