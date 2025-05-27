@@ -11,6 +11,10 @@ const Clients = () => {
       </p>
 
       <div className="relative w-full overflow-hidden h-6">
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-10 z-10 bg-gradient-to-r from-white to-transparent" />
+
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-10 z-10 bg-gradient-to-l from-white to-transparent" />
+
         <div className="absolute left-0 top-0 flex loop w-max gap-[70px]">
           {[...PartnersList, ...PartnersList].map((partner, index) => (
             <div

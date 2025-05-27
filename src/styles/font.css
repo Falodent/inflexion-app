@@ -45,6 +45,8 @@
   font-weight: 900;
 }
 
+/* JetBrains Mono */
+
 @font-face {
   font-family: JetBrains;
   src: url("../../public/fonts/jetbrains/jetbrains-font.ttf") format("truetype");

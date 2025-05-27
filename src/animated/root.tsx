@@ -1,0 +1,31 @@
+const Root = () => {
+  return (
+    <div className="shrink-0">
+      <svg
+        width="2418"
+        height="580"
+        viewBox="0 0 2418 580"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 291L834.828 291L2418 291"
+          stroke="#2A71FA"
+          strokeDasharray="4 4"
+        />
+        <path
+          d="M2416.72 0.999987L2347.91 0.99999C2325.82 0.999991 2307.91 18.9086 2307.91 41L2307.91 250.131C2307.91 272.222 2290 290.131 2267.91 290.131L2112 290.131"
+          stroke="#2A71FA"
+          strokeDasharray="4 4"
+        />
+        <path
+          d="M2416.35 579.262L2347.94 579.262C2325.85 579.262 2307.94 561.353 2307.94 539.262L2307.94 330.131C2307.94 308.04 2290.03 290.131 2267.94 290.131L2211.8 290.131"
+          stroke="#2A71FA"
+          strokeDasharray="4 4"
+        />
+      </svg>
+    </div>
+  );
+};
+
+export default Root;

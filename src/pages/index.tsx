@@ -1,5 +1,6 @@
 import About from "@/layout/about";
 import Hero from "@/layout/hero";
+import HowItWorks from "@/layout/how-it-works";
 import Navbar from "@/layout/navbar";
 import Partners from "@/layout/partners";
 import Services from "@/layout/services";
@@ -12,6 +13,7 @@ const Home = () => {
       <About />
       <Services />
       <Partners />
+      <HowItWorks />
     </>
   );
 };

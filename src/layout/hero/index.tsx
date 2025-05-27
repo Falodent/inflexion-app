@@ -1,8 +1,10 @@
 const Hero = () => {
   return (
     <section className="w-full flex flex-col pl-7 pr-9 pb-16 gap-[150px]">
-      <h1 className="w-full max-w-[1233px] uppercase font-[800] text-[150px] leading-[140px] -tracking-[0.05em]">
-        <span className="text-fill pr-2">we turn finance audio into data</span>{" "}
+      <h1 className="w-full max-w-[1233px] uppercase font-[700] text-[150px] leading-[140px] -tracking-[0.05em]">
+        <span className="text-fill pr-4 w-fit">
+          we turn finance audio &nbsp; into data
+        </span>{" "}
         <span className="-ml-8 text-blue-100">.</span>
       </h1>
 

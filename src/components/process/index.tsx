@@ -1,0 +1,21 @@
+import Image from "next/image";
+
+const Process = () => {
+  return (
+    <div className="w-[360px] flex flex-col gap-4.5 shrink-0 absolute top-0 right-0">
+      <h3 className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black">
+        We enhance before we process
+      </h3>
+
+      <Image
+        src="/assets/svg/pointer.svg"
+        alt="Process"
+        width={50}
+        height={190}
+        className="object-contain ml-10"
+      />
+    </div>
+  );
+};
+
+export default Process;
