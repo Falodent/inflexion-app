@@ -81,7 +81,7 @@ export default function Tree() {
         />
         <motion.rect
           x="0"
-          y="57"
+          y="54"
           width="4.98575"
           height="4.98575"
           fill="black"
@@ -89,7 +89,7 @@ export default function Tree() {
         />
         <motion.rect
           x="0"
-          y="83"
+          y="78"
           width="4.98575"
           height="4.98575"
           fill="black"
@@ -97,7 +97,7 @@ export default function Tree() {
         />
         <motion.rect
           x="0"
-          y="176"
+          y="172"
           width="4.98575"
           height="4.98575"
           fill="black"
@@ -105,7 +105,7 @@ export default function Tree() {
         />
         <motion.rect
           x="0"
-          y="264"
+          y="260"
           width="4.98575"
           height="4.98575"
           fill="black"
@@ -113,7 +113,7 @@ export default function Tree() {
         />
         <motion.rect
           x="0"
-          y="292"
+          y="285"
           width="4.98575"
           height="4.98575"
           fill="black"
@@ -121,7 +121,7 @@ export default function Tree() {
         />
         <motion.rect
           x="0"
-          y="378"
+          y="372"
           width="4.98575"
           height="4.98575"
           fill="black"

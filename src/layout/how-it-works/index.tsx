@@ -35,11 +35,11 @@ const HowItWorks = () => {
   return (
     <div
       ref={scrollContainerRef}
-      className="h-screen overflow-y-scroll overflow-x-hidden sticky top-0"
+      className="w-full h-screen overflow-y-scroll overflow-x-hidden sticky top-0 scrollbar-none"
     >
       <div
         style={{
-          height: "720vh",
+          height: "8500px",
         }}
       >
         <section className="sticky top-0 h-screen pl-8 grid grid-cols-[600px_1fr] overflow-x-hidden overflow-y-hidden">
@@ -67,12 +67,12 @@ const HowItWorks = () => {
 
           <div
             ref={horizontalRef}
-            className="h-screen overflow-x-hidden overflow-y-hidden pointer-events-none pt-[140px] relative"
+            className="h-screen overflow-x-hidden overflow-y-hidden pointer-events-none pt-[75px] pb-5 pl-2 relative"
           >
             <div
               className="flex items-center h-full"
               style={{
-                width: "500vw",
+                width: "6400px",
                 pointerEvents: "auto",
               }}
             >

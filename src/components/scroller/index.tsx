@@ -1,6 +1,13 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { MoveRight } from "lucide-react";
+import {
+  AudioLines,
+  Landmark,
+  MoveRight,
+  Percent,
+  Search,
+  Text,
+} from "lucide-react";
 
 // animated
 import Tree from "@/animated/tree";
@@ -12,12 +19,14 @@ import Process from "../process";
 import Button from "../button";
 import Finance from "../finance";
 import Transcript from "../transcript";
+import Info from "../info";
+import Frame from "../frame";
 
 const Scroller = () => {
   return (
     <div
       className={clsx(
-        "w-full h-full sticky top-0 overflow-x-auto overflow-y-hidden scrollbar-none"
+        "w-[98%] h-full sticky top-0 overflow-x-auto overflow-y-hidden scrollbar-none"
       )}
       style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
     >
@@ -56,7 +65,30 @@ const Scroller = () => {
             AI TRANSCRIPTION
           </Button>
 
-          <div className="w-[480px] flex flex-col gap-4.5 shrink-0 absolute top-0 right-[450px]">
+          <Info
+            position="-top-7 left-[540px]"
+            dropPosition="-bottom-30 -right-50"
+          >
+            <Percent />
+          </Info>
+
+          <Info position="top-35 left-[560px]">
+            <AudioLines />
+          </Info>
+
+          <Info position="top-[50%] transform -translate-y-[50%] left-[555px]">
+            <AudioLines />
+          </Info>
+
+          <Info position="bottom-36 left-[560px]">
+            <Text />
+          </Info>
+
+          <Info position="-bottom-7 left-[540px]" dropPosition="-top-30">
+            <Search />
+          </Info>
+
+          <div className="w-[480px] flex flex-col gap-4.5 shrink-0 absolute top-0 right-[600px]">
             <h3 className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black">
               We don&apos;t just transcribe, we understand
             </h3>
@@ -65,7 +97,7 @@ const Scroller = () => {
           <Button
             variant="scroller"
             size="scroller"
-            className="shrink-0 absolute top-[50%] right-28 transform -translate-y-[50%]"
+            className="shrink-0 absolute top-[50%] right-38 transform -translate-y-[50%]"
           >
             HUMAN PERFECTION
           </Button>
@@ -93,9 +125,29 @@ const Scroller = () => {
           >
             WHERE OUR TRANSCRIPTS GO TO WORK
           </Button>
+
+          <Frame
+            icon={<Landmark />}
+            title="For Earnings Calls"
+            content="Investor calls, analyst Q&A, and management commentary captured live. Real-time streaming lets buy-side teams act before the market by feeding models within seconds."
+          />
+
+          <Frame
+            icon={<div className="h-1" />}
+            position="top-[50%] transform -translate-y-[50%]"
+            title="For Public Events"
+            content="Conferences, round-tables, and off-stage interviews from industry forums. Near-real-time transcripts surface sentiment shifts and competitive signals while sessions are still in progress."
+          />
+
+          <Frame
+            icon={<div className="h-1" />}
+            position="-bottom-20"
+            title="For Expert Calls"
+            content="Private consultant calls, insight-library sessions, and specialist forums. Our 99.9% human-edited tier turns the transcript itself into a saleable asset for firms that licence expert content."
+          />
         </div>
 
-        <div className="px-30">
+        <div className="px-50">
           <Button className="shrink-0">
             <p className="whitespace-nowrap">BOOK A DEMO</p>
             <MoveRight />
