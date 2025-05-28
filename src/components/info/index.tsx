@@ -1,14 +1,24 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 interface Props {
   position: string;
   children: React.ReactNode;
   dropPosition?: string;
+  delay: number;
 }
 
-const Info = ({ position, children, dropPosition = "-bottom-40" }: Props) => {
+const Info = ({
+  position,
+  children,
+  dropPosition = "-bottom-36",
+  delay,
+}: Props) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeInOut", delay: delay }}
       className={clsx(
         "group absolute w-12 h-12 border-2 bg-white border-black text-black rounded-lg flex items-center justify-center",
         "hover:bg-blue-100 hover:border-blue-100 hover:text-white",
@@ -36,7 +46,7 @@ const Info = ({ position, children, dropPosition = "-bottom-40" }: Props) => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

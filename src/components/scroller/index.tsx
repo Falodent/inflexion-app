@@ -13,6 +13,7 @@ import {
 import Tree from "@/animated/tree";
 import Branch from "@/animated/branch";
 import Root from "@/animated/root";
+import Move from "@/animated/move";
 
 // components
 import Process from "../process";
@@ -57,50 +58,64 @@ const Scroller = () => {
         <div className="relative">
           <Branch />
 
-          <Button
-            variant="scroller"
-            size="scroller"
-            className="shrink-0 absolute top-[50%] transform -translate-y-[50%]"
+          <Move
+            delay={1.2}
+            className="-left-10 shrink-0 absolute top-[50%] transform -translate-y-[50%]"
           >
-            AI TRANSCRIPTION
-          </Button>
+            <Button variant="scroller" size="scroller">
+              AI TRANSCRIPTION
+            </Button>
+          </Move>
 
           <Info
-            position="-top-7 left-[540px]"
-            dropPosition="-bottom-30 -right-50"
+            position="-top-7 left-[348px]"
+            dropPosition="-bottom-28 -right-50"
+            delay={0.3}
           >
             <Percent />
           </Info>
 
-          <Info position="top-35 left-[560px]">
+          <Info
+            position="top-32 left-[410px]"
+            dropPosition="-bottom-28"
+            delay={0.8}
+          >
             <AudioLines />
           </Info>
 
-          <Info position="top-[50%] transform -translate-y-[50%] left-[555px]">
+          <Info
+            position="top-[50%] transform -translate-y-[50%] left-[485px]"
+            delay={1.3}
+          >
             <AudioLines />
           </Info>
 
-          <Info position="bottom-36 left-[560px]">
+          <Info position="bottom-30 left-[430px]" delay={1.8}>
             <Text />
           </Info>
 
-          <Info position="-bottom-7 left-[540px]" dropPosition="-top-30">
+          <Info
+            position="-bottom-11 left-[345px]"
+            dropPosition="-top-30"
+            delay={2.3}
+          >
             <Search />
           </Info>
 
-          <div className="w-[480px] flex flex-col gap-4.5 shrink-0 absolute top-0 right-[600px]">
+          <Move className="w-[480px] flex flex-col gap-4.5 shrink-0 absolute top-0 right-[720px]">
             <h3 className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black">
               We don&apos;t just transcribe, we understand
             </h3>
-          </div>
+          </Move>
 
-          <Button
-            variant="scroller"
-            size="scroller"
-            className="shrink-0 absolute top-[50%] right-38 transform -translate-y-[50%]"
+          <Move
+            delay={1.2}
+            className="shrink-0 absolute top-[50%] right-90 transform -translate-y-[50%]"
           >
-            HUMAN PERFECTION
-          </Button>
+            <Button variant="scroller" size="scroller">
+              HUMAN PERFECTION
+            </Button>
+          </Move>
         </div>
 
         <div className="relative pr-30">
@@ -108,31 +123,29 @@ const Scroller = () => {
 
           <Finance />
 
-          <Button
-            variant="scroller"
-            size="scroller"
-            className="shrink-0 absolute top-[50%] left-200 transform -translate-y-[50%]"
-          >
-            INTELLIGENT OUTPUT
-          </Button>
+          <Move className="shrink-0 absolute top-[50%] left-170 transform -translate-y-[50%]">
+            <Button variant="scroller" size="scroller">
+              INTELLIGENT OUTPUT
+            </Button>
+          </Move>
 
           <Transcript />
 
-          <Button
-            variant="scroller"
-            size="scroller"
-            className="shrink-0 absolute top-[50%] left-460 transform -translate-y-[50%]"
-          >
-            WHERE OUR TRANSCRIPTS GO TO WORK
-          </Button>
+          <Move className="shrink-0 absolute top-[50%] left-440 transform -translate-y-[50%]">
+            <Button variant="scroller" size="scroller">
+              WHERE OUR TRANSCRIPTS GO TO WORK
+            </Button>
+          </Move>
 
           <Frame
+            delay={0.5}
             icon={<Landmark />}
             title="For Earnings Calls"
             content="Investor calls, analyst Q&A, and management commentary captured live. Real-time streaming lets buy-side teams act before the market by feeding models within seconds."
           />
 
           <Frame
+            delay={1}
             icon={<div className="h-1" />}
             position="top-[50%] transform -translate-y-[50%]"
             title="For Public Events"
@@ -140,6 +153,7 @@ const Scroller = () => {
           />
 
           <Frame
+            delay={1.5}
             icon={<div className="h-1" />}
             position="-bottom-20"
             title="For Expert Calls"

@@ -1,19 +1,27 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 interface Props {
   position?: string;
   icon?: React.ReactNode;
   title: string;
   content: string;
+  delay: number;
 }
 
-const Frame = ({ position = "-top-18", icon, title, content }: Props) => {
+const Frame = ({
+  position = "-top-18",
+  icon,
+  title,
+  content,
+  delay,
+}: Props) => {
   return (
-    <div
-      className={clsx(
-        "absolute -right-17.5 w-[190px] h-[210px]",
-        position
-      )}
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeInOut", delay }}
+      className={clsx("absolute -right-17.5 w-[190px] h-[210px]", position)}
     >
       <div className="relative w-[190px] h-[210px]">
         <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-xl bg-black"></div>
@@ -26,7 +34,7 @@ const Frame = ({ position = "-top-18", icon, title, content }: Props) => {
           <p className="text-xs text-black leading-[130%]">{content}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

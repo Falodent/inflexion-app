@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Tabs from "../tabs";
+import Move from "@/animated/move";
 
 const Transcript = () => {
   return (
     <div className="w-[472px] flex flex-col  shrink-0 absolute top-0 left-310">
-      <h3 className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black">
+      <Move className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black -ml-4">
         Transcripts that work how you work
-      </h3>
+      </Move>
 
       <Image
         src="/assets/svg/pointer.svg"

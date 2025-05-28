@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Tabs from "../tabs";
+import Move from "@/animated/move";
 
 const Finance = () => {
   return (
-    <div className="w-[545px] flex flex-col shrink-0 absolute top-0 left-44">
-      <h3 className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black">
+    <div className="w-[545px] flex flex-col shrink-0 absolute top-0 left-20">
+      <Move className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black -ml-4">
         Finance Editorial Team. Not Generic Transcribers
-      </h3>
+      </Move>
 
       <Image
         src="/assets/svg/pointer.svg"
         alt="Process"
         width={50}
         height={190}
-        className="object-contain ml-11 mt-18.5 mb-2"
+        className="object-contain ml-11 mt-18.5 mb-3"
       />
 
       <Tabs
