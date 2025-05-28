@@ -17,8 +17,7 @@
   margin-inline: auto;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 2s steps(8) forwards, blink 1s step-end infinite;
-  border-right: 1px solid;
+  animation: typing 1.5s steps(12) forwards;
 }
 /* End */
 

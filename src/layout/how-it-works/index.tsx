@@ -1,15 +1,22 @@
 "use client";
 
-import clsx from "clsx";
-import { MoveRight } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 // components
 import Scroller from "@/components/scroller";
+import SideInfo from "@/components/side-info";
+import ScrollProgress from "@/components/scroll-progress";
+import { useScrollingStore } from "@/store/useScrollingStore";
 
 const HowItWorks = () => {
+  const { setIsScrolling } = useScrollingStore();
+
+  const [scrollProgress, setScrollProgress] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const horizontalRef = useRef<HTMLDivElement>(null);
+  const [hideLeft, setHideLeft] = useState(false);
+  const [rightSideOffset, setRightSideOffset] = useState(0);
 
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -17,68 +24,75 @@ const HowItWorks = () => {
 
     if (!container || !horizontal) return;
 
+    let scrollTimeout: NodeJS.Timeout;
+
     const handleScroll = () => {
       const top = container.getBoundingClientRect().top;
+      const scrollTop = container.scrollTop;
 
       if (top <= 120) {
-        horizontal.scrollLeft = container.scrollTop;
+        horizontal.scrollLeft = scrollTop;
       } else {
         container.scrollTop = 0;
       }
+
+      setHideLeft(scrollTop > 60);
+
+      if (scrollTop > 30) {
+        const maxOffset = 128;
+        const offset = Math.min(maxOffset, (scrollTop - 30) * 2);
+        setRightSideOffset(offset);
+      } else {
+        setRightSideOffset(0);
+      }
+
+      const progress =
+        scrollTop / (container.scrollHeight - container.clientHeight);
+      setScrollProgress(progress);
+
+      setIsScrolling(true);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        setIsScrolling(false);
+      }, 200);
     };
 
     container.addEventListener("scroll", handleScroll);
-
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, [setIsScrolling]);
 
   return (
     <div
       ref={scrollContainerRef}
       className="w-full h-screen overflow-y-scroll overflow-x-hidden sticky top-0 scrollbar-none"
     >
-      <div
-        style={{
-          height: "8500px",
-        }}
-      >
-        <section className="sticky top-0 h-screen pl-8 grid grid-cols-[600px_1fr] overflow-x-hidden overflow-y-hidden">
-          <div className="w-[600px] shrink-0 flex flex-col items-start gap-12 pt-[140px]">
-            <h5 className="font-jetbrains text-[13px] leading-none uppercase tracking-[0.01em] text-blue-300">
-              How it works
-            </h5>
+      <div style={{ height: "6000px" }}>
+        <section className="sticky top-0 h-screen pl-8 flex overflow-hidden">
+          {/* LEFT SIDE */}
+          <AnimatePresence mode="wait">
+            {!hideLeft && <SideInfo show={hideLeft} />}
 
-            <p className="font-[700] text-[48px] leading-[56px] -tracking-[0.03em] text-black-100">
-              While others choose between speed or accuracy, our workflow
-              delivers both — enabling you to build and monetize transcript
-              libraries at unprecedented scale.
-            </p>
+            {hideLeft && <ScrollProgress progress={scrollProgress} />}
+          </AnimatePresence>
 
-            <div
-              role="button"
-              className={clsx(
-                "px-5 border border-black rounded-[20px] cursor-pointer transition-all ease-in-out duration-500",
-                "hover:bg-black text-black hover:text-white "
-              )}
-            >
-              <MoveRight size={24} />
-            </div>
-          </div>
-
-          <div
+          <motion.div
             ref={horizontalRef}
-            className="h-screen overflow-x-hidden overflow-y-hidden pointer-events-none pt-[75px] pb-5 pl-2 relative"
+            className="h-screen overflow-hidden pointer-events-none pt-[65px] pb-7 pl-35 relative"
+            style={{
+              paddingLeft: `calc(8rem - ${rightSideOffset}px)`,
+              transition: "padding-left 1s ease-out",
+            }}
           >
             <div
               className="flex items-center h-full"
-              style={{
-                width: "6400px",
-                pointerEvents: "auto",
-              }}
+              style={{ width: "6400px", pointerEvents: "auto" }}
             >
               <Scroller />
             </div>
-          </div>
+          </motion.div>
         </section>
       </div>
     </div>

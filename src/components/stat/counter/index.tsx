@@ -27,7 +27,7 @@ const Counter = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.8 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -38,7 +38,7 @@ const Counter = () => {
 
     const start = 70;
     const end = 99.9;
-    const duration = 1500;
+    const duration = 500;
     const startTime = performance.now();
 
     const animate = (currentTime: number) => {
@@ -67,7 +67,7 @@ const Counter = () => {
         }
         return prev - 1;
       });
-    }, 25);
+    }, 8);
 
     return () => clearInterval(interval);
   }, [visible, timer]);
@@ -77,7 +77,7 @@ const Counter = () => {
 
     const start = 500_000_000;
     const end = 1_000_000_000;
-    const duration = 1500;
+    const duration = 500;
     const startTime = performance.now();
 
     const animate = (time: number) => {

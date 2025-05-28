@@ -21,6 +21,9 @@
   /* Grey */
   --color-grey-100: #d0d5dc;
   --color-grey-200: #d6dae0;
+
+  /* Screen */
+  --breakpoint-xl: 85rem;
 }
 
 body {
