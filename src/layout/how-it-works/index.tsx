@@ -7,8 +7,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import Scroller from "@/components/scroller";
 import SideInfo from "@/components/side-info";
 import ScrollProgress from "@/components/scroll-progress";
+import clsx from "clsx";
+import { useScrollingStore } from "@/store/useScrollingStore";
 
 const HowItWorks = () => {
+  const { setIsComplete } = useScrollingStore();
+
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const horizontalRef = useRef<HTMLDivElement>(null);
@@ -53,12 +57,23 @@ const HowItWorks = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (scrollProgress === 1) {
+      setIsComplete(true);
+      return;
+    }
+
+    setIsComplete(false);
+  }, [scrollProgress, setIsComplete]);
+
   return (
     <div
       ref={scrollContainerRef}
-      className="w-full h-screen overflow-y-scroll overflow-x-hidden sticky top-0 scrollbar-none"
+      className={clsx(
+        "w-full h-screen overflow-y-scroll overflow-x-hidden top-0 scrollbar-none sticky"
+      )}
     >
-      <div style={{ height: "4300px" }}>
+      <div style={{ height: "4300px" }} className="relative">
         <section className="sticky top-0 h-screen pl-8 flex overflow-hidden">
           <AnimatePresence mode="wait">
             {!hideLeft && <SideInfo />}

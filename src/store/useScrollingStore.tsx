@@ -1,11 +1,19 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface Store {
-  isScrolling: boolean;
-  setIsScrolling: (state: boolean) => void;
+  isComplete: boolean;
+  setIsComplete: (state: boolean) => void;
 }
 
-export const useScrollingStore = create<Store>((set) => ({
-  isScrolling: false,
-  setIsScrolling: (value: boolean) => set({ isScrolling: value }),
-}));
+export const useScrollingStore = create<Store>()(
+  persist(
+    (set) => ({
+      isComplete: false,
+      setIsComplete: (value: boolean) => set({ isComplete: value }),
+    }),
+    {
+      name: "scroll-store",
+    }
+  )
+);

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Props {
   position?: string;
@@ -9,30 +10,28 @@ interface Props {
   delay: number;
 }
 
-const Frame = ({
-  position = "-top-18",
-  icon,
-  title,
-  content,
-  delay,
-}: Props) => {
+const Frame = ({ icon, title, content, delay }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut", delay }}
-      className={clsx("absolute -right-17.5 w-[190px] h-[210px]", position)}
+      className={clsx(
+        "group relative w-[350px] flex flex-col gap-[30px] px-9 py-7 border border-black rounded-xl transition-all ease-in-out duration-500 overflow-hidden",
+        "hover:max-h-[500px] hover:bg-grey-300 bg-white max-h-[195px]"
+      )}
     >
-      <div className="relative w-[190px] h-[210px]">
-        <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-xl bg-black"></div>
+      <Image
+        src={`/assets/svg/purpose/${icon}`}
+        alt=""
+        width={48}
+        height={48}
+      />
 
-        <div className="relative z-10 h-full py-[19px] px-5 rounded-xl border border-black bg-white text-black flex flex-col gap-4">
-          {icon}
+      <div className="transition-all ease-in-out duration-500 flex flex-col gap-20 group-hover:gap-[30px]">
+        <h3 className="text-[26px] font-[700] leading-none">{title}</h3>
 
-          <h3 className="text-sm font-[700] leading-none">{title}</h3>
-
-          <p className="text-xs text-black leading-[130%]">{content}</p>
-        </div>
+        <p className="text-xl text-black leading-[28px]">{content}</p>
       </div>
     </motion.div>
   );
