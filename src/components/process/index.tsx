@@ -3,9 +3,16 @@ import Tabs from "../tabs";
 import Move from "@/animated/move";
 
 const Process = () => {
+  const content = [
+    "Live streams, conference calls, uploaded files - we handle them all",
+    "Background noise removal and volume balancing for crystal-clear input",
+    "Bank-grade encryption from the moment audio hits our servers",
+    "Automatic identification across 30+ languages, even with mid-conversation switches",
+  ];
+
   return (
     <div className="w-[360px] flex flex-col gap-4.5 shrink-0 absolute top-0 right-30">
-      <Move className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black">
+      <Move className="h-[190px] font-[750] text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black">
         We enhance before we process
       </Move>
 
@@ -18,8 +25,13 @@ const Process = () => {
       />
 
       <Tabs
-        content="Background noise removal and volume balancing for crystal-clear input"
-        tabs={["Multi-format Support", "Audio Enhancement", "volume balancing"]}
+        content={content}
+        tabs={[
+          "Multi-format Support",
+          "Audio Enhancement",
+          "Secure Pipeline",
+          "Language Detection",
+        ]}
         order={0}
       />
     </div>

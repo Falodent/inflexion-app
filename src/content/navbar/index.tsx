@@ -1,7 +1,7 @@
 export const NavLinks: { href: string; text: string }[] = [
   {
     href: "/",
-    text: "SERVICES",
+    text: "PRODUCT",
   },
   {
     href: "/",
@@ -14,9 +14,5 @@ export const NavLinks: { href: string; text: string }[] = [
   {
     href: "/",
     text: "NEWSROOM",
-  },
-  {
-    href: "/",
-    text: "PRICING",
   },
 ];

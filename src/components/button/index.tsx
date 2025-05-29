@@ -16,16 +16,17 @@ const Button = ({
   className,
 }: Props) => {
   const VARIANT = {
-    primary: "bg-blue-100 text-white outline-none hover:bg-black-100",
+    primary:
+      "bg-blue-100 text-white outline-none border hover:bg-transparent hover:border-grey-100 hover:text-black",
     secondary:
       "bg-transparent border border-grey-100 text-black hover:bg-blue-100 hover:text-white hover:border-blue-100",
-    scroller: "shrink-0 bg-black text-white outline-none !rounded-[40px]",
+    scroller: "shrink-0 bg-black text-white outline-none !rounded-[40px] !cursor-default",
   };
 
   const SIZE = {
     large: "h-[62px] py-[19px] pl-[23px] pr-[21px] font-[500]",
     scroller:
-      "h-10 px-6 font-[500] font-jetbrains text-[13px] leading-none tracking-[0.01em] uppercase",
+      "h-10 px-6 font-jetbrains text-[15px] leading-none tracking-[0.01em] uppercase",
   };
 
   return (

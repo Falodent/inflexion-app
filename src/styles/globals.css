@@ -17,10 +17,13 @@
   --color-blue-100: #0000ff;
   --color-blue-200: #1f6cff;
   --color-blue-300: #2a71fa;
+  --color-blue-400: #8fa6c7;
+  --color-blue-500: #dfe7ff;
 
   /* Grey */
   --color-grey-100: #d0d5dc;
   --color-grey-200: #d6dae0;
+  --color-grey-300: #f8f8f9;
 
   /* Screen */
   --breakpoint-xl: 85rem;

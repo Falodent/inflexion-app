@@ -15,7 +15,7 @@ export const serviceList: Service[] = [
   },
   {
     id: 3,
-    icon: "service2.svg",
+    icon: "service3.svg",
     title: "Maximizing Your Multilingual Coverage",
     text: "Cover Japanese, Spanish, and more without hiring and coordinating hundreds of specialised editors.",
   },

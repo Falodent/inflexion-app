@@ -14,7 +14,7 @@ const ScrollProgress = ({ progress }: Props) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed top-24 left-4 z-[200] h-[calc(100vh-6.5rem)] w-6 flex items-center"
+      className="fixed top-24 left-0 z-[200] h-[calc(100vh-6.5rem)] w-6 flex items-center"
     >
       <div className="relative w-2 h-full bg-gray-200 overflow-hidden">
         <div

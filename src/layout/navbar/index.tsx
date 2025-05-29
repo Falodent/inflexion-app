@@ -11,11 +11,8 @@ import Title from "@/components/title";
 
 // content
 import { NavLinks } from "@/content/navbar";
-import { useScrollingStore } from "@/store/useScrollingStore";
 
 const Navbar = () => {
-  const { isScrolling } = useScrollingStore();
-
   const [showNav, setShowNav] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
@@ -42,58 +39,47 @@ const Navbar = () => {
           )}
           initial={false}
           animate={{
-            top: hasMounted && showNav ? "-100px" : "50%",
+            top: hasMounted && showNav ? "-70px" : "50%",
             left: hasMounted && showNav ? "-100px" : "50%",
             x: hasMounted && showNav ? "0%" : "-50%",
             y: hasMounted && showNav ? "0%" : "-50%",
           }}
           transition={
-            showNav ? { duration: 1, ease: "easeInOut" } : { duration: 0 }
+            showNav ? { duration: 1.4, ease: "easeInOut" } : { duration: 0 }
           }
         >
-          <Title
-            className={clsx(
-              hasMounted && showNav && "!text-[39px]",
-              isScrolling && "!text-[0px] invisible"
-            )}
-          />
+          <Title className={clsx(hasMounted && showNav && "!text-[39px]")} />
         </motion.div>
       )}
 
       <AnimatePresence>
-        {!isScrolling && (
-          <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            transition={{ ease: "easeInOut", duration: 0.5 }}
+        <motion.div
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -100 }}
+          transition={{ ease: "easeInOut", duration: 0.5 }}
+        >
+          <motion.nav
+            initial={false}
+            animate={{ opacity: showNav ? 1 : 0 }}
+            transition={{ delay: showNav ? 0.7 : 0 }}
+            className={clsx(
+              "fixed top-0 left-0 w-full z-20 bg-white pl-[35px] pr-8 pt-11 pb-3 transition-all duration-500",
+              hasMounted && showNav
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none"
+            )}
           >
-            <motion.nav
-              initial={false}
-              animate={{ opacity: showNav ? 1 : 0 }}
-              transition={{ delay: showNav ? 0.7 : 0 }}
-              className={clsx(
-                "fixed top-0 left-0 w-full z-20 bg-white pl-[35px] pr-8 pt-11 pb-3 transition-all duration-500",
-                hasMounted && showNav
-                  ? "opacity-100"
-                  : "opacity-0 pointer-events-none"
-              )}
-            >
-              <div className="flex items-center justify-between">
-                <Logo />
-                <section className="flex items-start gap-[42px]">
-                  {NavLinks.map((link) => (
-                    <Navlink
-                      key={link.text}
-                      href={link.href}
-                      text={link.text}
-                    />
-                  ))}
-                </section>
-              </div>
-            </motion.nav>
-          </motion.div>
-        )}
+            <div className="flex items-center justify-between">
+              <Logo />
+              <section className="flex items-start gap-[42px]">
+                {NavLinks.map((link) => (
+                  <Navlink key={link.text} href={link.href} text={link.text} />
+                ))}
+              </section>
+            </div>
+          </motion.nav>
+        </motion.div>
       </AnimatePresence>
     </div>
   );

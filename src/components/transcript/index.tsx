@@ -1,11 +1,19 @@
 import Image from "next/image";
-import Tabs from "../tabs";
 import Move from "@/animated/move";
+import FiveTabs from "../tabs/five-tabs";
 
 const Transcript = () => {
+  const content = [
+    "Delivered as JSON for APIs, SRT for captions, or any custom format you require",
+    "Choose real-time at 95% through to human-perfect at 99.9%",
+    "Every transcript includes Timestamps, companies, products, topic tags, speakers and more",
+    "Built-in MNPI flagging and audit trails for your compliance team",
+    "Integrate directly with your cloud storage or API endpoints",
+  ];
+
   return (
-    <div className="w-[472px] flex flex-col  shrink-0 absolute top-0 left-310">
-      <Move className="h-[190px] font-[800] text-[56px] leading-[90%] -tracking-[0.05em] uppercase text-black -ml-4">
+    <div className="w-[472px] flex flex-col shrink-0 absolute top-0 right-90">
+      <Move className="h-[190px] font-[750] text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black -ml-12">
         Transcripts that work how you work
       </Move>
 
@@ -14,12 +22,20 @@ const Transcript = () => {
         alt="Process"
         width={50}
         height={190}
-        className="object-contain ml-11 mt-18.5 mb-2"
+        className="object-contain ml-11 mt-26.5 mb-3"
       />
 
-      <Tabs
-        content="From 95% real-time to 99.9% human-perfect"
-        tabs={["Flexible Formats", "Multiple Accuracy Tiers", "Rich Metadata"]}
+      <FiveTabs
+        content={content}
+        tabs={[
+          "Flexible Formats",
+          "Multiple Accuracy Tiers",
+          "Rich Metadata",
+          "Compliance-Ready",
+          "Instant Delivery",
+        ]}
+        position="ml-0"
+        centered={false}
       />
     </div>
   );

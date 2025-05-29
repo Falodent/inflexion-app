@@ -72,7 +72,7 @@ export default function Tree() {
 
         {/* Animated Rects */}
         <motion.rect
-          x="0"
+          x="110"
           y="0"
           width="4.98575"
           height="4.98575"
@@ -80,15 +80,15 @@ export default function Tree() {
           style={{ y: move1 }}
         />
         <motion.rect
-          x="0"
-          y="54"
+          x="191"
+          y="75"
           width="4.98575"
           height="4.98575"
           fill="black"
           style={{ y: move2 }}
         />
         <motion.rect
-          x="0"
+          x="70"
           y="78"
           width="4.98575"
           height="4.98575"
@@ -96,7 +96,7 @@ export default function Tree() {
           style={{ y: move3 }}
         />
         <motion.rect
-          x="0"
+          x="340"
           y="172"
           width="4.98575"
           height="4.98575"
@@ -104,15 +104,15 @@ export default function Tree() {
           style={{ y: move4 }}
         />
         <motion.rect
-          x="0"
-          y="260"
+          x="227"
+          y="258"
           width="4.98575"
           height="4.98575"
           fill="black"
           style={{ y: move5 }}
         />
         <motion.rect
-          x="0"
+          x="100"
           y="285"
           width="4.98575"
           height="4.98575"
@@ -120,7 +120,7 @@ export default function Tree() {
           style={{ y: move6 }}
         />
         <motion.rect
-          x="0"
+          x="280"
           y="372"
           width="4.98575"
           height="4.98575"

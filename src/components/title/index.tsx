@@ -10,7 +10,7 @@ const Title = ({ className }: Props) => {
       <p
         className={clsx(
           "font-[750] text-center uppercase leading-none -tracking-[0.05em] text-black-100",
-          "text-[64px] sm:text-[96px] md:text-[160px] lg:text-[280px] xl:text-[393px]",
+          "text-[64px] sm:text-[96px] md:text-[160px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px]",
           "transition-all ease-in-out duration-500",
           className
         )}

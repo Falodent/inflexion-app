@@ -2,40 +2,45 @@ const Branch = () => {
   return (
     <div className="shrink-0">
       <svg
-        width="1978"
+        width="3144"
         height="647"
-        viewBox="0 0 1978 647"
+        viewBox="0 0 3144 647"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
+          d="M1970 324H2375.33L3144 324"
+          stroke="#2A71FA"
+          stroke-dasharray="4 4"
+        />
+        <path
           d="M0 324L682.916 324L1978 324"
           stroke="#2A71FA"
-          strokeDasharray="4 4"
+          stroke-dasharray="4 4"
         />
         <path
           d="M345.405 646.588L257.21 584.462C247.99 577.968 242.505 567.395 242.505 556.118L242.505 358.379C242.505 339.148 226.852 323.591 207.621 323.709L159.203 324.007"
           stroke="#2A71FA"
-          strokeWidth="0.795181"
-          strokeDasharray="3.47 3.47"
+          stroke-width="0.795181"
+          stroke-dasharray="3.47 3.47"
         />
         <path
           d="M434.294 507.459L391.236 481.212C380.91 474.918 374.61 463.7 374.61 451.608V373.082V358.382C374.61 339.234 359.088 323.712 339.94 323.712H179.352"
           stroke="#2A71FA"
-          strokeWidth="0.795181"
-          strokeDasharray="3.47 3.47"
+          stroke-width="0.795181"
+          stroke-dasharray="3.47 3.47"
         />
         <path
           d="M432.294 139.961L389.236 166.208C378.91 172.501 372.61 183.72 372.61 195.812V274.337V289.038C372.61 308.186 357.088 323.708 337.94 323.708H179.352"
           stroke="#2A71FA"
-          strokeWidth="0.795181"
-          strokeDasharray="3.47 3.47"
+          stroke-width="0.795181"
+          stroke-dasharray="3.47 3.47"
         />
         <path
           d="M345.405 0.402344L257.209 62.528C247.99 69.0224 242.505 79.5952 242.505 90.8726L242.505 288.825C242.505 307.973 226.982 323.496 207.834 323.496H159"
           stroke="#2A71FA"
-          strokeWidth="0.795181"
-          strokeDasharray="3.47 3.47"
+          stroke-width="0.795181"
+          stroke-dasharray="3.47 3.47"
         />
       </svg>
     </div>

@@ -1,21 +1,50 @@
-import Clients from "@/components/partners";
+import HoverCard from "@/components/hover-card";
+import clsx from "clsx";
+import { useState } from "react";
 
 const Partners = () => {
+  const [openHover, setOpenHover] = useState(false);
+
   return (
-    <div className="w-full pt-[150px] pb-[70px] flex flex-col gap-[250px]">
-      <Clients />
-
-      <div className="w-full flex flex-col px-8 gap-[212px]">
-        <h2 className="w-full max-w-[1206px] font-[700] text-[48px] leading-[56px] -tracking-[0.05em]">
-          <span className="text-fill pr-2">
+    <div className="w-full pt-50 pb-[70px]">
+      <div className="w-full flex flex-col px-7.5 gap-[120px]">
+        <div className="w-full max-w-[1120px] relative">
+          <span className="text-fill pr-2 font-[700] text-[62px] leading-[68px] -tracking-[0.03em]">
             When your finance audio is INFLXD, transcripts stream securely in{" "}
-            {"<"} 1-second and are edited with a dedicated editorial team to
-            99.9% accuracy within hours — not days.
+            {"<"} 1-second and are edited with a dedicated editorial team to{" "}
+            <span
+              className={clsx(
+                "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block h-[77px]",
+                openHover && "bg-blue-500 text-black rounded-lg"
+              )}
+              onMouseEnter={() => setOpenHover(true)}
+              onMouseLeave={() => setOpenHover(false)}
+            >
+              99.9% accuracy within hours
+            </span>{" "}
+            <br />— not days.
           </span>
-        </h2>
 
-        <div className="w-[350px] ml-auto">
-          <p className="text-xl leading-[28px] text-end text-black-100">
+          <HoverCard
+            isOpen={openHover}
+            position="-bottom-40 right-0 max-w-[315px]"
+          >
+            <div className="flex flex-col gap-3 ">
+              <p className="font-[700] leading-[24px] text-white">
+                Perfect isn&apos;t optional. It&apos;s delivered.
+              </p>
+
+              <p className="font-[500] leading-[24px] text-blue-400 max-w-[270px]">
+                Human-edited transcripts verified by finance-fluent editors who
+                understand the difference between &quot;basis points&quot; and
+                &quot;basic points&quot; — because precision drives alpha.
+              </p>
+            </div>
+          </HoverCard>
+        </div>
+
+        <div className="w-[350px]">
+          <p className="text-xl leading-[28px] text-start text-black-100">
             Build transcript libraries as a product and expand your coverage at
             scale without hiring a single editor.
           </p>
