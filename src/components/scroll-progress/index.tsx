@@ -16,9 +16,9 @@ const ScrollProgress = ({ progress }: Props) => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="fixed top-24 left-0 z-[200] h-[calc(100vh-6.5rem)] w-6 flex items-center"
     >
-      <div className="relative w-2 h-full bg-gray-200 overflow-hidden">
+      <div className="relative w-2 h-full bg-transparent overflow-hidden">
         <div
-          className="absolute left-0 top-0 w-full bg-blue-100 transition-all ease-in-out duration-200"
+          className="absolute left-0 top-0 w-full bg-blue-100 transition-all ease-in-out duration-0"
           style={{ height: `${progress * 100}%` }}
         />
       </div>

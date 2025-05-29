@@ -18,6 +18,7 @@
     "lucide-react": "^0.511.0",
     "next": "15.2.4",
     "react": "^19.0.0",
+    "react-compare-image": "^3.5.4",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.1",
     "react-hot-toast": "^2.5.2",

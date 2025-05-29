@@ -78,7 +78,9 @@ const HowItWorks = () => {
           <AnimatePresence mode="wait">
             {!hideLeft && <SideInfo />}
 
-            {hideLeft && <ScrollProgress progress={scrollProgress} />}
+            {hideLeft && scrollProgress !== 1 && (
+              <ScrollProgress progress={scrollProgress} />
+            )}
           </AnimatePresence>
 
           <motion.div
