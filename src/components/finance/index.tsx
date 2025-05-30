@@ -34,7 +34,7 @@ const Finance = () => {
           "Custom Training Program",
           "Domain Specialization",
         ]}
-        position="-ml-65"
+        position="-ml-0"
       />
     </div>
   );

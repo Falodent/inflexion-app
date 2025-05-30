@@ -11,7 +11,7 @@ const SectionThree = () => {
       className="w-full h-[350px] flex items-center justify-center relative"
     >
       <Image
-        src="/assets/png/human.png"
+        src="/assets/svg/human.svg"
         alt="Human"
         fill
         sizes="100%"

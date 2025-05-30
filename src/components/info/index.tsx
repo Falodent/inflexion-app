@@ -28,7 +28,7 @@ const Info = ({
       viewport={{ once: true }}
       onViewportEnter={handleEnter}
       className={clsx(
-        "group absolute w-12 h-12 border-2 bg-white border-black text-black rounded-lg flex items-center justify-center cursor-pointer transition-all ease-in-out duration-300",
+        "group absolute w-12 h-12 border-1 bg-white border-black text-black rounded-lg flex items-center justify-center cursor-pointer transition-all ease-in-out duration-300",
         "hover:bg-blue-100 hover:border-blue-100 hover:text-white hover:scale-105",
         position
       )}

@@ -1,8 +1,4 @@
 import { motion } from "framer-motion";
-import { MoveRight } from "lucide-react";
-
-// components
-import Button from "@/components/button";
 
 const Hero = () => {
   return (
@@ -19,17 +15,10 @@ const Hero = () => {
         <span className="-ml-8 text-blue-100">.</span>
       </h1>
 
-      <div className="flex items-center justify-between">
-        <Button>
-          <span>BOOK A DEMO</span>
-          <MoveRight />
-        </Button>
-
-        <div className="w-[230px]">
-          <p className="text-xl leading-[28px] text-end text-black-100">
-            The world&apos;s fastest perfect transcription for finance.
-          </p>
-        </div>
+      <div className="ml-auto w-[230px]">
+        <p className="text-xl leading-[28px] text-end text-black-100">
+          The world&apos;s fastest perfect transcription for finance.
+        </p>
       </div>
     </motion.section>
   );

@@ -4,6 +4,11 @@ import { useState } from "react";
 
 const Partners = () => {
   const [openHover, setOpenHover] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
 
   return (
     <div className="w-full pt-50 pb-[70px]">
@@ -19,28 +24,34 @@ const Partners = () => {
               )}
               onMouseEnter={() => setOpenHover(true)}
               onMouseLeave={() => setOpenHover(false)}
+              onMouseMove={handleMouseMove}
             >
               99.9% accuracy within hours
             </span>{" "}
             <br />— not days.
           </span>
 
-          <HoverCard
-            isOpen={openHover}
-            position="-bottom-40 right-0 max-w-[315px]"
-          >
-            <div className="flex flex-col gap-3 ">
-              <p className="font-[700] leading-[24px] text-white">
-                Perfect isn&apos;t optional. It&apos;s delivered.
-              </p>
+          {openHover && (
+            <HoverCard
+              isOpen={openHover}
+              position={{
+                top: mousePosition.y + 10, // offset
+                left: mousePosition.x + 10,
+              }}
+            >
+              <div className="flex flex-col gap-3">
+                <p className="font-[700] leading-[24px] text-white">
+                  Perfect isn&apos;t optional. It&apos;s delivered.
+                </p>
 
-              <p className="font-[500] leading-[24px] text-blue-400 max-w-[270px]">
-                Human-edited transcripts verified by finance-fluent editors who
-                understand the difference between &quot;basis points&quot; and
-                &quot;basic points&quot; — because precision drives alpha.
-              </p>
-            </div>
-          </HoverCard>
+                <p className="font-[500] leading-[24px] text-blue-400 max-w-[270px]">
+                  Human-edited transcripts verified by finance-fluent editors
+                  who understand the difference between &quot;basis points&quot;
+                  and &quot;basic points&quot; — because precision drives alpha.
+                </p>
+              </div>
+            </HoverCard>
+          )}
         </div>
 
         <div className="w-[350px]">

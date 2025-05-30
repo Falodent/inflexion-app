@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
@@ -12,29 +12,16 @@ interface Props {
   centered?: boolean;
 }
 
+const AUTO_SCROLL_DELAY = 4000;
+
 const FiveTabs = ({
   content,
   tabs,
   order = 1,
   position = "-ml-36",
-  centered = true,
 }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const getCenterDisplayOrder = () => {
-    const prev2 = (activeIndex - 2 + tabs.length) % tabs.length;
-    const prev = (activeIndex - 1 + tabs.length) % tabs.length;
-    const next = (activeIndex + 1) % tabs.length;
-    const next2 = (activeIndex + 2) % tabs.length;
-
-    return [
-      tabs[prev2],
-      tabs[prev],
-      tabs[activeIndex],
-      tabs[next],
-      tabs[next2],
-    ];
-  };
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const getStartDisplayOrder = () => {
     const prev = (activeIndex - 1 + tabs.length) % tabs.length;
@@ -52,10 +39,23 @@ const FiveTabs = ({
   };
 
   const getTabIndex = (tab: string) => tabs.indexOf(tab);
+  const displayTabs = getStartDisplayOrder();
 
-  const displayTabs = centered
-    ? getCenterDisplayOrder()
-    : getStartDisplayOrder();
+  // Auto scroll effect
+  useEffect(() => {
+    timerRef.current = setTimeout(() => {
+      setActiveIndex((prev) => (prev + 1) % tabs.length);
+    }, AUTO_SCROLL_DELAY);
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [activeIndex]);
+
+  const handleTabClick = (index: number) => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    setActiveIndex(index);
+  };
 
   return (
     <div
@@ -70,14 +70,14 @@ const FiveTabs = ({
           order === 1 ? "items-start" : "items-end"
         )}
       >
-        {displayTabs.map((tab) => {
+        {displayTabs.map((tab, index) => {
           const actualIndex = getTabIndex(tab);
           const isCenter = actualIndex === activeIndex;
 
           return (
             <div
               key={tab}
-              className="w-[180px] flex flex-col gap-6 items-start relative"
+              className="w-[190px] flex flex-col gap-6 items-start relative"
             >
               {isCenter && content[actualIndex] && (
                 <motion.p
@@ -98,9 +98,10 @@ const FiveTabs = ({
                   "font-jetbrains text-[10px] tracking-[0.01em] uppercase cursor-pointer transition-all duration-300 whitespace-nowrap",
                   isCenter
                     ? "text-blue-100 scale-105"
-                    : "text-[#ACACACB2] hover:text-black"
+                    : "text-[#ACACACB2] hover:text-black",
+                  index === 0 || (index >= 3 && "opacity-0")
                 )}
-                onClick={() => setActiveIndex(actualIndex)}
+                onClick={() => handleTabClick(actualIndex)}
               >
                 {tab}
               </p>

@@ -1,6 +1,6 @@
 export interface Service {
   id: number;
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   text: string;
 }

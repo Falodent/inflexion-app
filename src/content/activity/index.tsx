@@ -30,6 +30,6 @@ export const SideMenuItems = [
     subtitle: "Under 4 Hours | 99.9% Accuracy",
     content:
       "Publication-ready transcripts with style guide compliance and complete accuracy verification.",
-    ideal: "ranscript libraries, licensable content, earnings call archives",
+    ideal: "Transcript libraries, licensable content, earnings call archives",
   },
 ];

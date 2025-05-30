@@ -17,9 +17,9 @@ const Button = ({
 }: Props) => {
   const VARIANT = {
     primary:
-      "bg-blue-100 text-white outline-none border hover:bg-transparent hover:border-grey-100 hover:text-black",
+      "bg-blue-100 text-white outline-none border border-transparent hover:bg-transparent hover:border-blue-100 hover:text-black",
     secondary:
-      "bg-transparent border border-grey-100 text-black hover:bg-blue-100 hover:text-white hover:border-blue-100",
+      "bg-transparent border border-grey-100 text-black hover:bg-blue-100 hover:text-white hover:border-black-100",
     scroller: "shrink-0 bg-black text-white outline-none !rounded-[40px] !cursor-default",
   };
 

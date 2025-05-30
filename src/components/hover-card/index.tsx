@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 interface Props {
   isOpen: boolean;
-  position: string;
+  position: React.CSSProperties;
   children: React.ReactNode;
 }
 
@@ -16,7 +16,8 @@ const HoverCard = ({ isOpen, position, children }: Props) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className={clsx("p-5 bg-black absolute rounded-[10px]", position)}
+          className={clsx("p-5 bg-black absolute rounded-[10px]")}
+          style={{ ...position, position: "fixed" }}
         >
           {children}
         </motion.div>

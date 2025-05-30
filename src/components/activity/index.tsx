@@ -9,7 +9,7 @@ import SectionFour from "./sections/SectionFour";
 
 const Activity = () => {
   const [active, setActive] = useState(1);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0.1);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 

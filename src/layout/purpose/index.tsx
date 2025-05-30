@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Button from "@/components/button";
 import Frame from "@/components/frame";
 import { MoveRight } from "lucide-react";
@@ -24,8 +27,10 @@ const Purpose = () => {
     },
   ];
 
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
+
   return (
-    <div className="w-full flex justify-center gap-20 relative py-50 pb-60 bg-white">
+    <div className="w-full flex justify-center gap-20 relative py-50 pb-40 bg-white">
       <div className="w-[530px] flex flex-col gap-16">
         <h2 className="font-[720] text-[62px] leading-[64px] -tracking-[0.04em] text-[#0A0A0A] uppercase">
           Purpose-Built for Every Finance Use Case
@@ -44,14 +49,22 @@ const Purpose = () => {
       </div>
 
       <div className="flex flex-col gap-7">
-        {data?.map((item) => (
-          <Frame
+        {data.map((item, index) => (
+          <div
             key={item.icon}
-            content={item.content}
-            icon={item.icon}
-            title={item.title}
-            delay={0.3}
-          />
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <Frame
+              content={item.content}
+              icon={item.icon}
+              title={item.title}
+              delay={0.3}
+              isHovered={
+                hoveredIndex === null ? index === 0 : hoveredIndex === index
+              }
+            />
+          </div>
         ))}
       </div>
     </div>

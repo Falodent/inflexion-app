@@ -1,5 +1,5 @@
+import AutoScrollSVG from "@/components/svg-scroller";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const SectionTwo = () => {
   return (
@@ -10,14 +10,7 @@ const SectionTwo = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="w-full h-[350px] flex items-center justify-center relative"
     >
-      <Image
-        src="/assets/png/async.png"
-        alt="Async"
-        fill
-        sizes="100%"
-        className="w-full h-full object-contain"
-        quality={100}
-      />
+      <AutoScrollSVG image="async.svg" />
     </motion.div>
   );
 };

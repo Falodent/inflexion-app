@@ -24,7 +24,7 @@ const Infos = () => {
         content="Real-time verification against 15,000+ company database"
         handleEnter={() => setShowTwo(true)}
       >
-        <BookOpenCheck size={20} />
+        <BookOpenCheck size={20} strokeWidth="1.5" />
       </Info>
 
       {showTwo && (
@@ -36,7 +36,7 @@ const Infos = () => {
           content="Identifies tickers, executives, products, and financial figures instantly"
           handleEnter={() => setShowThree(true)}
         >
-          <ScanEye size={20} />
+          <ScanEye size={20} strokeWidth="1.5" />
         </Info>
       )}
 
@@ -48,7 +48,7 @@ const Infos = () => {
           content="Names, titles, and roles tagged automatically while staying GDPR compliant voice fingerprinting"
           handleEnter={() => setShowFour(true)}
         >
-          <IdCard size={20} />
+          <IdCard size={20} strokeWidth="1.5" />
         </Info>
       )}
 
@@ -61,7 +61,7 @@ const Infos = () => {
           content={`EBITDA isn't "a bit da" - our AI knows finance terminology`}
           handleEnter={() => setShowFive(true)}
         >
-          <ScanText size={20} />
+          <ScanText size={20} strokeWidth="1.5" />
         </Info>
       )}
 
@@ -73,7 +73,7 @@ const Infos = () => {
           title="Live Glossary"
           content="Continuously updated dictionaries for industry jargon and emerging terms"
         >
-          <BookCheck size={20} />
+          <BookCheck size={20} strokeWidth="1.5" />
         </Info>
       )}
     </>

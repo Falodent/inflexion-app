@@ -66,6 +66,18 @@
   animation-timeline: view(y);
   animation-range: entry 70% contain 50%;
 }
+
+.text-fill-white {
+  color: #ffffffb2;
+  background: linear-gradient(45deg, #ffffff, #ffffff);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: textFill forwards linear;
+  animation-timeline: view(y);
+  animation-range: entry 70% contain 50%;
+}
 /* End */
 
 /* Loop */

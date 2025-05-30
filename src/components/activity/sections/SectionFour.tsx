@@ -1,5 +1,5 @@
+import AutoScrollSVG from "@/components/svg-scroller";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const SectionFour = () => {
   return (
@@ -10,14 +10,7 @@ const SectionFour = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="w-full h-[350px] flex items-center justify-center relative"
     >
-      <Image
-        src="/assets/png/draft.png"
-        alt="draft"
-        fill
-        sizes="100%"
-        className="w-full h-full object-contain"
-        quality={100}
-      />
+      <AutoScrollSVG image="perfect.svg" />
     </motion.div>
   );
 };

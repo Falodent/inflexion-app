@@ -8,9 +8,10 @@ interface Props {
   title: string;
   content: string;
   delay: number;
+  isHovered?: boolean;
 }
 
-const Frame = ({ icon, title, content, delay }: Props) => {
+const Frame = ({ icon, title, content, delay, isHovered }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,7 +19,8 @@ const Frame = ({ icon, title, content, delay }: Props) => {
       transition={{ duration: 0.5, ease: "easeInOut", delay }}
       className={clsx(
         "group relative w-[350px] flex flex-col gap-[30px] px-9 py-7 border border-black rounded-xl transition-all ease-in-out duration-500 overflow-hidden",
-        "hover:max-h-[500px] hover:bg-grey-300 bg-white max-h-[195px]"
+        "hover:max-h-[500px] hover:bg-grey-300 bg-white max-h-[195px]",
+        isHovered && "max-h-[500px] bg-grey-300"
       )}
     >
       <Image
@@ -28,7 +30,12 @@ const Frame = ({ icon, title, content, delay }: Props) => {
         height={48}
       />
 
-      <div className="transition-all ease-in-out duration-500 flex flex-col gap-20 group-hover:gap-[30px]">
+      <div
+        className={clsx(
+          "transition-all ease-in-out duration-500 flex flex-col gap-20 group-hover:gap-[30px]",
+          isHovered && "!gap-[30px]"
+        )}
+      >
         <h3 className="text-[26px] font-[700] leading-none">{title}</h3>
 
         <p className="text-xl text-black leading-[28px]">{content}</p>

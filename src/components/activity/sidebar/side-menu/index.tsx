@@ -37,8 +37,8 @@ const SideMenu = ({ title, subtitle, content, ideal, isActive }: Props) => {
             {content}
           </p>
 
-          <p className="italics font-[700] leading-[28px] text-[#131313]">
-            Ideal for: <span className="font-[400]">{ideal}</span>
+          <p className="italic font-[700] leading-[28px] text-[#131313]">
+            Ideal for: <span className="font-[400] italic">{ideal}</span>
           </p>
         </motion.div>
       )}
