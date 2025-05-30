@@ -20,6 +20,7 @@ const Infos = () => {
         position="-top-7 left-[348px]"
         dropPosition="-bottom-22 -right-50"
         delay={0.3}
+        title="Self-Correcting Accuracy"
         content="Real-time verification against 15,000+ company database"
         handleEnter={() => setShowTwo(true)}
       >
@@ -31,6 +32,7 @@ const Infos = () => {
           position="top-32 left-[410px]"
           dropPosition="-bottom-25"
           delay={0.8}
+          title="Finance Metadata"
           content="Identifies tickers, executives, products, and financial figures instantly"
           handleEnter={() => setShowThree(true)}
         >
@@ -42,6 +44,7 @@ const Infos = () => {
         <Info
           position="top-[50%] transform -translate-y-[50%] left-[485px]"
           delay={1.3}
+          title="Speaker Attribution"
           content="Names, titles, and roles tagged automatically while staying GDPR compliant voice fingerprinting"
           handleEnter={() => setShowFour(true)}
         >
@@ -54,6 +57,7 @@ const Infos = () => {
           position="bottom-30 left-[430px]"
           dropPosition="top-0"
           delay={1.8}
+          title="Contextual Processing"
           content={`EBITDA isn't "a bit da" - our AI knows finance terminology`}
           handleEnter={() => setShowFive(true)}
         >
@@ -66,6 +70,7 @@ const Infos = () => {
           position="-bottom-8 left-[345px]"
           dropPosition="-top-24"
           delay={2.3}
+          title="Live Glossary"
           content="Continuously updated dictionaries for industry jargon and emerging terms"
         >
           <BookCheck size={20} />

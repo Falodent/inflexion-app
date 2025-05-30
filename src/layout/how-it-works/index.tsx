@@ -58,12 +58,20 @@ const HowItWorks = () => {
   }, []);
 
   useEffect(() => {
-    if (scrollProgress === 1) {
-      setIsComplete(true);
-      return;
-    }
+    const container = scrollContainerRef.current;
 
-    setIsComplete(false);
+    if (container) {
+      const top = container.getBoundingClientRect().top;
+
+      if (top <= 120) {
+        if (scrollProgress === 1) {
+          setIsComplete(true);
+          return;
+        }
+
+        setIsComplete(false);
+      }
+    }
   }, [scrollProgress, setIsComplete]);
 
   return (
