@@ -35,7 +35,7 @@ const Partners = () => {
             <HoverCard
               isOpen={openHover}
               position={{
-                top: mousePosition.y + 10, // offset
+                top: mousePosition.y + 10,
                 left: mousePosition.x + 10,
               }}
             >

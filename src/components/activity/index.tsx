@@ -40,7 +40,18 @@ const Activity = () => {
     return () => {
       container.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, []);
+
+  function handleScroll(id: number) {
+    const container = scrollContainerRef.current;
+
+    if (!container) return;
+
+    if (id === 1) container.scrollTo({ top: 200, behavior: "smooth" });
+    if (id === 2) container.scrollTo({ top: 1400, behavior: "smooth" });
+    if (id === 3) container.scrollTo({ top: 2400, behavior: "smooth" });
+    if (id === 4) container.scrollTo({ top: 3400, behavior: "smooth" });
+  }
 
   return (
     <div className="w-full h-screen sticky top-0 pt-25 flex items-center justify-center px-4 bg-white">
@@ -48,7 +59,11 @@ const Activity = () => {
         className="w-full h-[550px] grid grid-cols-2 gap-3 overflow-y-auto scrollbar-none"
         ref={scrollContainerRef}
       >
-        <Sidebar active={active} progress={progress} />
+        <Sidebar
+          active={active}
+          progress={progress}
+          handleClick={handleScroll}
+        />
 
         <div
           className="w-full h-[550px] flex items-center justify-center bg-center bg-cover overflow-hidden sticky top-0"

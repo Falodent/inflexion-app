@@ -7,19 +7,29 @@ interface Props {
   content: string;
   ideal: string;
   isActive: boolean;
+  handleClick: () => void;
 }
 
-const SideMenu = ({ title, subtitle, content, ideal, isActive }: Props) => {
+const SideMenu = ({
+  title,
+  subtitle,
+  content,
+  ideal,
+  isActive,
+  handleClick,
+}: Props) => {
   return (
     <div className="flex flex-col gap-6">
-      <h3
+      <div
         className={clsx(
-          "text-[32px] font-[700] leading-[42px] -tracking-[0.03em] text-[#131313]",
+          "text-[32px] font-[700] leading-[42px] -tracking-[0.03em] text-[#131313] cursor-pointer",
           isActive && "h-[23px]"
         )}
+        role="button"
+        onClick={handleClick}
       >
         {title}
-      </h3>
+      </div>
 
       {isActive && (
         <motion.div

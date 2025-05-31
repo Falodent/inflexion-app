@@ -6,9 +6,10 @@ import SideMenu from "./side-menu";
 interface Props {
   active: number;
   progress: number;
+  handleClick: (value: number) => void;
 }
 
-const Sidebar = ({ active, progress }: Props) => {
+const Sidebar = ({ active, progress, handleClick }: Props) => {
   return (
     <div className="w-full h-[550px] flex gap-12 sticky top-0">
       <div className="relative w-1 h-full bg-[#D6DAE0] overflow-hidden">
@@ -27,6 +28,14 @@ const Sidebar = ({ active, progress }: Props) => {
             title={item.title}
             subtitle={item.subtitle}
             isActive={item.id === active}
+            // handleClick={() => {
+            //   setActive(item.id);
+            //   if (item.id === 1) setProgress(0.1);
+            //   if (item.id === 2) setProgress(0.3);
+            //   if (item.id === 3) setProgress(0.55);
+            //   if (item.id === 4) setProgress(0.8);
+            // }}
+            handleClick={() => handleClick(item.id)}
           />
         ))}
       </div>
