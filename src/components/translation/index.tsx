@@ -7,7 +7,7 @@ interface Props {
 const Translation = ({ text }: Props) => {
   return (
     <div className="absolute bottom-0 left-30 flex flex-col gap-5 text-black-100">
-      <p className="font-[700] text-[42px] leading-[48px] -tracking-[0.02em]">
+      <p className="max-w-[630px] font-[700] text-[42px] leading-[48px] -tracking-[0.02em]">
         {text}
       </p>
 
