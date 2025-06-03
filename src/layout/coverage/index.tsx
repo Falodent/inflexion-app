@@ -27,7 +27,7 @@ const Coverage = () => {
 
       <div className="flex flex-col gap-11">
         <p className="ml-32 font-[500] text-xl leading-none -tracking-[0.01em] text-[#999999]">
-          What Others Can't Do:
+          What Others Can&apos;t Do:
         </p>
 
         <CoverageTab tabs={tabs} active={active} setActive={setActive} />

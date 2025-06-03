@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { MoveRight } from "lucide-react";
 
 // animated
 import Tree from "@/animated/tree";
