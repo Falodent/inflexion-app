@@ -1,7 +1,8 @@
 import Button from "@/components/button";
+import clsx from "clsx";
 import { MoveRight, ShieldCheck, ShieldEllipsis } from "lucide-react";
 
-const Security = () => {
+const Security = ({ isVisible }: { isVisible: boolean }) => {
   const data = [
     {
       icon: <ShieldCheck size={64} />,
@@ -24,13 +25,18 @@ const Security = () => {
   ];
 
   return (
-    <section className="bg-black-100 w-full py-40 pl-[30px] pr-9 grid grid-cols-[1fr_560px] items-start gap-[10px]">
+    <section
+      className={clsx(
+        "w-full py-40 pl-[30px] pr-9 grid grid-cols-[1fr_560px] items-start gap-[10px] transition-colors duration-700 ease-in-out",
+        isVisible ? "bg-black-100 text-white" : "bg-white text-black"
+      )}
+    >
       <div className="w-full flex flex-col gap-[34px]">
-        <p className="max-w-[700px] text-[62px] font-[750] leading-[64px] pr-2 -tracking-[0.03em] uppercase text-white">
+        <p className="max-w-[700px] text-[62px] font-[750] leading-[64px] pr-2 -tracking-[0.03em] uppercase ">
           SECURITY FIRST. COMPLIANCE BUILT-IN.
         </p>
 
-        <p className="max-w-[606px] text-xl leading-[28px] -leading-[0.01em] mb-4 text-white">
+        <p className="max-w-[606px] text-xl leading-[28px] -leading-[0.01em] mb-4">
           INFLXD encrypts every packet with in-transit and at-rest, protecting
           finance-grade data end-to-end.
         </p>
@@ -45,7 +51,7 @@ const Security = () => {
         {data.map((item) => (
           <div
             key={item.title}
-            className="w-full border border-[#474E5A] rounded-xl flex flex-col gap-[46px] py-10 px-9 text-white"
+            className="w-full border border-[#474E5A] rounded-xl flex flex-col gap-[46px] py-10 px-9"
           >
             {item.icon}
 

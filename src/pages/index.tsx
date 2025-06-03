@@ -1,4 +1,5 @@
 "use client";
+
 import About from "@/layout/about";
 import Capacity from "@/layout/capacity";
 import Accuracy from "@/layout/accuracy";
@@ -21,9 +22,34 @@ import FAQ from "@/layout/faq";
 import Carousel from "@/layout/carousel";
 import Banner from "@/layout/banner";
 import Footer from "@/layout/footer";
+import { useEffect, useRef, useState } from "react";
 
 const Home = () => {
   const { isComplete } = useScrollingStore();
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const target = sectionRef.current;
+    if (!target) return;
+
+    console.log(target);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.intersectionRatio > 0.2);
+        console.log(entry.intersectionRatio);
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(target);
+
+    return () => {
+      if (target) observer.unobserve(target);
+    };
+  }, [isComplete]);
 
   return (
     <>
@@ -38,8 +64,12 @@ const Home = () => {
         <div className="w-full bg-white relative">
           <Purpose />
           <Transform />
-          <Insight />
-          <Security />
+
+          <section ref={sectionRef}>
+            <Insight isVisible={isVisible} />
+            <Security isVisible={isVisible} />
+          </section>
+
           <Capacity />
           <Specialty />
           <InflxdTable />
