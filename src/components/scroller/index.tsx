@@ -85,13 +85,6 @@ const Scroller = () => {
 
           <Transcript />
         </div>
-
-        <div className="pr-50">
-          <Button className="shrink-0">
-            <p className="whitespace-nowrap">BOOK A DEMO</p>
-            <MoveRight />
-          </Button>
-        </div>
       </div>
     </div>
   );

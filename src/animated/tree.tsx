@@ -1,131 +1,103 @@
-"use client";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-
 export default function Tree() {
-  const containerRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const move1 = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const move2 = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const move3 = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const move4 = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const move5 = useTransform(scrollYProgress, [0, 1], [0, 160]);
-  const move6 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const move7 = useTransform(scrollYProgress, [0, 1], [0, 180]);
-
   return (
-    <div ref={containerRef} className="shrink-0">
+    <div className="shrink-0">
       <svg
-        width="1068"
+        width="896"
         height="465"
-        viewBox="0 0 1068 465"
+        viewBox="0 0 896 465"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M0.414062 94.8652L168.147 94.8652C177.706 94.8652 186.423 100.331 190.587 108.936L246.096 223.651C248.535 228.692 253.643 231.894 259.243 231.894V231.894"
+          d="M0.414062 94.8711L168.147 94.8711C177.706 94.8711 186.423 100.337 190.587 108.942L246.096 223.656C248.535 228.698 253.643 231.9 259.243 231.9V231.9"
           stroke="#2A71FA"
-          strokeWidth="0.571745"
-          strokeDasharray="2.49 2.49"
+          stroke-width="0.571745"
+          stroke-dasharray="2.49 2.49"
         />
         <path
-          d="M0.625 152.686L108.096 152.686C118.152 152.686 127.224 158.728 131.099 168.008L151.428 216.69C155.303 225.97 164.375 232.013 174.432 232.013L194.393 232.013"
+          d="M0.625 152.691L108.096 152.691C118.152 152.691 127.224 158.734 131.099 168.014L151.428 216.696C155.303 225.976 164.375 232.019 174.432 232.019L194.393 232.019"
           stroke="#2A71FA"
-          strokeWidth="0.571745"
-          strokeDasharray="2.49 2.49"
+          stroke-width="0.571745"
+          stroke-dasharray="2.49 2.49"
         />
         <path
-          d="M461.656 231.896L312.79 231.895C303.287 231.895 294.611 237.298 290.418 245.826L252.059 323.86C247.867 332.389 239.19 337.792 229.687 337.792L0.362573 337.792"
+          d="M461.656 231.902L312.79 231.9C303.287 231.9 294.611 237.303 290.418 245.832L252.059 323.866C247.867 332.395 239.19 337.798 229.687 337.798L0.362573 337.798"
           stroke="#2A71FA"
-          strokeWidth="0.571745"
-          strokeDasharray="2.49 2.49"
+          stroke-width="0.571745"
+          stroke-dasharray="2.49 2.49"
         />
         <path
-          d="M0.414062 383.635L135.738 383.635C145 383.635 153.499 378.5 157.806 370.3L247.66 199.276C251.968 191.076 260.466 185.941 269.728 185.941L402.695 185.941C409.702 185.941 416.386 188.89 421.109 194.066L448.214 223.768C452.937 228.944 459.621 231.893 466.628 231.893L646.076 231.893"
+          d="M0.414062 383.641L135.738 383.641C145 383.641 153.499 378.506 157.806 370.306L247.66 199.281C251.968 191.082 260.466 185.947 269.728 185.947L402.695 185.947C409.702 185.947 416.386 188.896 421.109 194.072L448.214 223.774C452.937 228.95 459.621 231.899 466.628 231.899L646.076 231.899"
           stroke="#2A71FA"
-          strokeWidth="0.571745"
-          strokeDasharray="2.49 2.49"
+          stroke-width="0.571745"
+          stroke-dasharray="2.49 2.49"
         />
         <path
-          d="M0.367188 0.996094L223.101 0.996881C233.19 0.996917 242.283 7.07715 246.138 16.3998L328.791 216.283C332.646 225.605 341.739 231.686 351.828 231.686L353.178 231.686"
+          d="M0.367188 1.00195L223.101 1.00274C233.19 1.00278 242.283 7.08301 246.138 16.4056L328.791 216.289C332.646 225.611 341.739 231.692 351.828 231.692L353.178 231.692"
           stroke="#2A71FA"
-          strokeWidth="0.571745"
-          strokeDasharray="2.49 2.49"
+          stroke-width="0.571745"
+          stroke-dasharray="2.49 2.49"
         />
         <path
-          d="M1067.05 231.894L436.39 231.893C426.835 231.893 418.12 237.354 413.955 245.954L316.453 447.232C312.287 455.832 303.573 461.293 294.018 461.293L0.388662 461.293"
+          d="M895.047 231.9L436.39 231.898C426.835 231.898 418.12 237.36 413.955 245.959L316.453 447.238C312.287 455.837 303.573 461.299 294.018 461.299L0.388662 461.299"
           stroke="#2A71FA"
-          strokeWidth="0.571745"
-          strokeDasharray="2.49 2.49"
+          stroke-width="0.571745"
+          stroke-dasharray="2.49 2.49"
         />
         <path
-          d="M0 232.057L338.939 232.057"
+          d="M0 232.063L338.939 232.063"
           stroke="#2A71FA"
-          strokeWidth="0.571745"
-          strokeDasharray="2.49 2.49"
+          stroke-width="0.571745"
+          stroke-dasharray="2.49 2.49"
         />
-
-        {/* Animated Rects */}
-        <motion.rect
-          x="110"
-          y="0"
+        <rect
+          x="199.852"
+          y="131.578"
           width="4.98575"
           height="4.98575"
           fill="black"
-          style={{ y: move1 }}
         />
-        <motion.rect
-          x="191"
-          y="75"
+        <rect
+          x="35.8906"
+          y="150.195"
           width="4.98575"
           height="4.98575"
           fill="black"
-          style={{ y: move2 }}
         />
-        <motion.rect
-          x="70"
-          y="82"
+        <rect
+          x="267.156"
+          y="70.0859"
           width="4.98575"
           height="4.98575"
           fill="black"
-          style={{ y: move3 }}
         />
-        <motion.rect
-          x="340"
-          y="174"
+        <rect
+          x="164.484"
+          y="229.406"
           width="4.98575"
           height="4.98575"
           fill="black"
-          style={{ y: move4 }}
         />
-        <motion.rect
-          x="227"
-          y="261"
+        <rect
+          x="389.836"
+          y="229.52"
           width="4.98575"
           height="4.98575"
           fill="black"
-          style={{ y: move5 }}
         />
-        <motion.rect
-          x="100"
-          y="289"
+        <rect
+          x="218.32"
+          y="459.07"
           width="4.98575"
           height="4.98575"
           fill="black"
-          style={{ y: move6 }}
         />
-        <motion.rect
-          x="280"
-          y="376"
+        <rect
+          x="100.852"
+          y="381.105"
           width="4.98575"
           height="4.98575"
           fill="black"
-          style={{ y: move7 }}
         />
       </svg>
     </div>

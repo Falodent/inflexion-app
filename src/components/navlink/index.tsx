@@ -11,7 +11,7 @@ const Navlink = ({ href, text }: Props) => {
     <Link
       href={href}
       className={clsx(
-        "pb-2 font-[700] text-xl leading-[24px] align-middle uppercase underline-hover",
+        "pb-2 font-[700] text-base leading-[24px] align-middle uppercase underline-hover",
         text === "NEWSROOM" ? "text-blue-100" : "text-black-300"
       )}
     >

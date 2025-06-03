@@ -35,7 +35,7 @@ const Security = () => {
           finance-grade data end-to-end.
         </p>
 
-        <Button className="max-w-[232px] hover:!text-white">
+        <Button className="max-w-[232px]">
           <span>BOOK A DEMO</span>
           <MoveRight />
         </Button>

@@ -84,7 +84,7 @@ const AnimatedLogo = () => {
                 <Navlink key={link.text} href={link.href} text={link.text} />
               ))}
 
-              <Button>
+              <Button size="nav">
                 <span>BOOK A DEMO</span>
                 <MoveRight />
               </Button>

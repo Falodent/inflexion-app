@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const AutoScrollSVG = ({ image }: { image: string }) => {
   return (
-    <div className="h-[280px] w-full flex items-center justify-center rounded-xl border-x-0 border-y border-[#D1D7DE] relative">
+    <div className="h-[350px] w-full flex items-center justify-center rounded-xl border-x-0 border-y border-[#D1D7DE] relative">
       <div
-        className="h-[280px] w-full overflow-hidden relative rounded-xl border border-[#D1D7DE]"
+        className="h-[350px] w-full overflow-hidden relative rounded-xl border border-[#D1D7DE]"
         style={{
           maskImage:
             "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
@@ -35,7 +35,7 @@ const AutoScrollSVG = ({ image }: { image: string }) => {
               transform: translateY(0);
             }
             100% {
-              transform: translateY(-400px); /* 680 - 280 = 410 */
+              transform: translateY(-300px); /* 680 - 350 = 410 */
             }
           }
         `}</style>

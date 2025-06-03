@@ -33,6 +33,14 @@ body {
   @apply font-helvetica;
 }
 
+/* Footer Bg */
+.footer-bg {
+  background-image: url("../../public/assets/png/footer-bg.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
 /* No scrollbar */
 .scrollbar-none {
   -ms-overflow-style: none;

@@ -81,7 +81,7 @@ const HowItWorks = () => {
         "w-full h-screen overflow-y-scroll overflow-x-hidden top-0 scrollbar-none sticky"
       )}
     >
-      <div style={{ height: "4300px" }} className="relative">
+      <div style={{ height: "4100px" }} className="relative">
         <section className="sticky top-0 h-screen pl-8 flex overflow-hidden">
           <AnimatePresence mode="wait">
             {!hideLeft && <SideInfo />}
@@ -101,7 +101,7 @@ const HowItWorks = () => {
           >
             <div
               className="flex items-center h-full"
-              style={{ width: "4850px", pointerEvents: "auto" }}
+              style={{ width: "4650px", pointerEvents: "auto" }}
             >
               <Scroller />
             </div>

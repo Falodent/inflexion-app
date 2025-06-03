@@ -84,4 +84,8 @@
 .loop {
   animation: loop 20s linear infinite;
 }
+
+.loop-reverse {
+  animation: loop-reverse 20s linear infinite;
+}
 /* End */

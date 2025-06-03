@@ -28,7 +28,7 @@ const InsightCounter = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.8 }
+      { threshold: 1 }
     );
     observer.observe(el);
     return () => observer.disconnect();

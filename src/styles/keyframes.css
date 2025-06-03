@@ -52,6 +52,15 @@
   }
 }
 
+@keyframes loop-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 @keyframes reveal {
   to {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);

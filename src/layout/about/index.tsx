@@ -19,12 +19,12 @@ const About = () => {
         <Counter />
 
         <div className="py-30 flex items-center gap-10">
-          <Button>
+          <Button className="w-[236px]">
             <span>BOOK A DEMO</span>
             <MoveRight />
           </Button>
 
-          <Button variant="secondary">
+          <Button variant="secondary" className="w-[270px]">
             <span>SEE HOW IT WORKS</span>
             <MoveRight />
           </Button>

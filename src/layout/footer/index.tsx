@@ -1,60 +1,69 @@
-"use client";
-
-import Button from "@/components/button";
-import clsx from "clsx";
-import { MoveRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { MoveUpRight } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
-  const scrollContainer = useRef<HTMLDivElement>(null);
-  const [hover, setHover] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setHover(entry.isIntersecting);
-      },
-      {
-        threshold: 0.5,
-      }
-    );
-
-    const target = scrollContainer.current;
-    if (target) observer.observe(target);
-
-    return () => {
-      if (target) observer.unobserve(target);
-    };
-  }, []);
+  const year = new Date().getUTCFullYear();
 
   return (
-    <div ref={scrollContainer} className="w-full bg-white px-8 py-32">
-      <div className="w-full h-[595px] pb-[52px] pr-[52px] pl-[82px] pt-[113px] flex flex-col gap-[120px] bg-black-100 rounded-3xl">
-        <span className="max-w-[910px] font-[700] text-white text-[80px] leading-none -tracking-[0.04em]">
-          When accuracy drives alpha,{" "}
-          <span
-            className={clsx(
-              "transition-all ease-in-out duration-500 inline-block my-2",
-              hover ? "bg-[#73AADB]/30" : "bg-transparent"
-            )}
-          >
-            “close enough”
-          </span>{" "}
-          <span
-            className={clsx(
-              "transition-all ease-in-out duration-500 inline-block",
-              hover ? "bg-[#73AADB]/30 " : "bg-transparent"
-            )}
-          >
-            shouldn’t be good enough.
-          </span>
-        </span>
+    <div className="w-full footer-bg relative">
+      <div className="flex flex-col gap-[300px] w-full pt-[584px]">
+        <div className="relative flex items-start justify-between pl-14 pr-20">
+          <div className="flex flex-col gap-5">
+            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
+              SERVICES <sup>3</sup>
+            </p>
+            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
+              SOLUTIONS <sup>3</sup>
+            </p>
+          </div>
 
-        <div className="ml-auto max-w-[232px]">
-          <Button className="hover:!text-white">
-            <span>BOOK A DEMO</span>
-            <MoveRight />
-          </Button>
+          <div className="flex flex-col gap-5">
+            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
+              NEWSROOM
+            </p>
+            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
+              PRICING
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <p className="text-sm leading-[140%] text-white">
+              +1 999 888-77-64
+            </p>
+            <p className="text-sm leading-[140%] text-white">hello@inflxd.ai</p>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-2 text-white">
+              <p className="text-sm leading-[140%]">Facebook</p>
+              <MoveUpRight size={10} />
+            </div>
+
+            <div className="flex items-center gap-2 text-white">
+              <p className="text-sm leading-[140%]">Youtube</p>
+              <MoveUpRight size={10} />
+            </div>
+            <div className="flex items-center gap-2 text-white">
+              <p className="text-sm leading-[140%]">LinkedIn</p>
+              <MoveUpRight size={10} />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <p className="text-sm leading-[140%] text-white">Privacy Policy</p>
+            <p className="text-sm leading-[140%] text-white">
+              © {String(year)} — Copyright
+            </p>
+          </div>
+        </div>
+
+        <div className="w-full h-[294px] px-2 relative">
+          <Image
+            src="/assets/svg/footer-logo.svg"
+            alt="INFLXD"
+            fill
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
     </div>
