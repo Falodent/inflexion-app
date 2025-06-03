@@ -28,13 +28,6 @@ const Sidebar = ({ active, progress, handleClick }: Props) => {
             title={item.title}
             subtitle={item.subtitle}
             isActive={item.id === active}
-            // handleClick={() => {
-            //   setActive(item.id);
-            //   if (item.id === 1) setProgress(0.1);
-            //   if (item.id === 2) setProgress(0.3);
-            //   if (item.id === 3) setProgress(0.55);
-            //   if (item.id === 4) setProgress(0.8);
-            // }}
             handleClick={() => handleClick(item.id)}
           />
         ))}

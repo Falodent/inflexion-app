@@ -10,7 +10,12 @@ const SectionTwo = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="w-full h-[350px] flex items-center justify-center relative"
     >
-      <AutoScrollSVG image="async.svg" />
+      <AutoScrollSVG
+        image="async.png"
+        animation="smallScroll"
+        containerHeight="1280px"
+        imageHeight="1020px"
+      />
     </motion.div>
   );
 };

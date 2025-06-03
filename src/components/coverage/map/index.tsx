@@ -1,3 +1,5 @@
+import Translation from "@/components/translation";
+import { Translations } from "@/content/translation";
 import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
@@ -61,7 +63,15 @@ const CoverageMap = () => {
           className="w-full h-[557px] object-cover"
         />
 
-        <div className="absolute"></div>
+        <Image
+          src={`/assets/svg/country/${Translations[active]?.icon}`}
+          alt="Country"
+          width={37}
+          height={28}
+          className={`absolute ${Translations[active]?.coordinates}`}
+        />
+
+        <Translation text={Translations[active]?.text} />
       </div>
     </section>
   );

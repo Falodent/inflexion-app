@@ -2,7 +2,19 @@
 
 import Image from "next/image";
 
-const AutoScrollSVG = ({ image }: { image: string }) => {
+interface Props {
+  image: string;
+  containerHeight?: string;
+  imageHeight?: string;
+  animation?: string;
+}
+
+const AutoScrollSVG = ({
+  image,
+  containerHeight = "h-[1280px]",
+  imageHeight = "h-[1020px]",
+  animation = "bigScroll",
+}: Props) => {
   return (
     <div className="h-[350px] w-full flex items-center justify-center rounded-xl border-x-0 border-y border-[#D1D7DE] relative">
       <div
@@ -15,30 +27,20 @@ const AutoScrollSVG = ({ image }: { image: string }) => {
         }}
       >
         <div
-          className="w-full h-[680px] relative"
+          className={`w-full ${containerHeight} relative aspect-square`}
           style={{
-            animation: "scrollSVG 10s linear forwards",
+            animation: `${animation} 20s linear forwards`,
+            animationDelay: "2s",
           }}
         >
           <Image
-            src={`/assets/svg/${image}`}
+            src={`/assets/png/${image}`}
             alt="Auto scrolling SVG"
             fill
-            className="w-full h-[680px]"
+            className={`w-full ${imageHeight}`}
             objectFit="cover"
           />
         </div>
-
-        <style jsx>{`
-          @keyframes scrollSVG {
-            0% {
-              transform: translateY(0);
-            }
-            100% {
-              transform: translateY(-300px); /* 680 - 350 = 410 */
-            }
-          }
-        `}</style>
       </div>
     </div>
   );

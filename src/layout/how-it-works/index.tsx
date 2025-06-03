@@ -74,6 +74,30 @@ const HowItWorks = () => {
     }
   }, [scrollProgress, setIsComplete]);
 
+  useEffect(() => {
+    const containerWrapper = scrollContainerRef.current?.parentElement;
+    if (!containerWrapper) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
+          containerWrapper.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      },
+      {
+        root: null,
+        threshold: 0.7,
+      }
+    );
+
+    observer.observe(containerWrapper);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
       ref={scrollContainerRef}

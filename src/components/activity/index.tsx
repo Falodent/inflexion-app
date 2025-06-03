@@ -53,6 +53,30 @@ const Activity = () => {
     if (id === 4) container.scrollTo({ top: 3400, behavior: "smooth" });
   }
 
+  useEffect(() => {
+    const containerWrapper = scrollContainerRef.current?.parentElement;
+    if (!containerWrapper) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
+          containerWrapper.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      },
+      {
+        root: null,
+        threshold: 0.7,
+      }
+    );
+
+    observer.observe(containerWrapper);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="w-full h-screen sticky top-0 pt-25 flex items-center justify-center px-4 bg-white">
       <div

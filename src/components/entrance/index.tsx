@@ -19,7 +19,7 @@ const PageEntrance = ({
   duration = 0.6,
 }: Props) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: "-100px" });
+  const inView = useInView(ref, { margin: "-250px" });
   const controls = useAnimation();
 
   useEffect(() => {

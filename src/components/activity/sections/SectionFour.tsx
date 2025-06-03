@@ -10,7 +10,7 @@ const SectionFour = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="w-full h-[350px] flex items-center justify-center relative"
     >
-      <AutoScrollSVG image="perfect.svg" />
+      <AutoScrollSVG image="perfect.png" />
     </motion.div>
   );
 };
