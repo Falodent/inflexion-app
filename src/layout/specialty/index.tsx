@@ -1,8 +1,9 @@
+import PageEntrance from "@/components/entrance";
 import { Check } from "lucide-react";
 
 const Specialty = () => {
   return (
-    <section className="w-full bg-white py-40 px-32 flex flex-col gap-[98px]">
+    <PageEntrance className="w-full bg-white py-40 px-32 flex flex-col gap-[98px]">
       <p className="max-w-[800px] font-[750] text-[62px] leading-[90%] -tracking-[0.01em] uppercase">
         Your Seasonality is Our Specialty
       </p>
@@ -35,7 +36,7 @@ const Specialty = () => {
           </p>
         </div>
       </div>
-    </section>
+    </PageEntrance>
   );
 };
 

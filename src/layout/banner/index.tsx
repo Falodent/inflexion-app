@@ -1,9 +1,10 @@
 import Button from "@/components/button";
+import PageEntrance from "@/components/entrance";
 import { MoveRight } from "lucide-react";
 
 const Banner = () => {
   return (
-    <div className="pt-32 pb-[25px] flex items-center justify-center w-full">
+    <PageEntrance className="pt-32 pb-[25px] flex items-center justify-center w-full">
       <div className="max-w-[1180px] flex flex-col items-center gap-20">
         <h2 className="font-[800] text-[98px] leading-[103px] -tracking-[0.04em] uppercase text-center">
           If your audio isn’t <span className="line-through">indexed</span>{" "}
@@ -27,7 +28,7 @@ const Banner = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </PageEntrance>
   );
 };
 

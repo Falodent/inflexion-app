@@ -68,7 +68,7 @@
 }
 
 .text-fill-white {
-  color: #ffffffb2;
+  color: #ffffff66;
   background: linear-gradient(45deg, #ffffff, #ffffff);
   background-size: 0% 100%;
   background-repeat: no-repeat;
@@ -85,7 +85,23 @@
   animation: loop 20s linear infinite;
 }
 
-.loop-reverse {
-  animation: loop-reverse 20s linear infinite;
+.carousel {
+  animation: loop 30s linear infinite;
+  animation-play-state: running;
+}
+
+.carousel-reverse {
+  animation: loop-reverse 30s linear infinite;
+  animation-play-state: running;
+}
+
+.element:hover ~ .carousel,
+.carousel:hover {
+  animation-play-state: paused;
+}
+
+.element:hover ~ .carousel-reverse,
+.carousel-reverse:hover {
+  animation-play-state: paused;
 }
 /* End */

@@ -31,7 +31,7 @@ const Card = ({ data }: Props) => {
         >
           <h3
             className={clsx(
-              "mt-2 text-[32px] font-[700] leading-[120%] transition-all ease-in-out duration-500"
+              "mt-2 text-[32px] font-[700] leading-[120%] transition-all ease-in-out duration-500 max-w-[360px]"
             )}
           >
             {data.title}

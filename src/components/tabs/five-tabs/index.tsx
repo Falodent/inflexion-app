@@ -10,18 +10,22 @@ interface Props {
   order?: number;
   position?: string;
   centered?: boolean;
+  setProgress: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const AUTO_SCROLL_DELAY = 4000;
+const AUTO_SWITCH_DELAY = 4000;
+const INITIAL_DELAY = 2000;
 
 const FiveTabs = ({
   content,
   tabs,
   order = 1,
   position = "-ml-36",
+  setProgress,
 }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const cycleStartRef = useRef<number | null>(null);
+  const [hasStarted, setHasStarted] = useState(false);
 
   const getStartDisplayOrder = () => {
     const prev = (activeIndex - 1 + tabs.length) % tabs.length;
@@ -41,20 +45,49 @@ const FiveTabs = ({
   const getTabIndex = (tab: string) => tabs.indexOf(tab);
   const displayTabs = getStartDisplayOrder();
 
-  // Auto scroll effect
   useEffect(() => {
-    timerRef.current = setTimeout(() => {
+    const startTimer = setTimeout(() => {
+      cycleStartRef.current = Date.now();
+      setHasStarted(true);
+    }, INITIAL_DELAY);
+
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    const totalCycle = AUTO_SWITCH_DELAY * tabs.length;
+
+    const progressInterval = setInterval(() => {
+      if (!cycleStartRef.current) return;
+
+      const elapsed = Date.now() - cycleStartRef.current;
+      const percentage = (elapsed / totalCycle) * 100;
+
+      if (percentage >= 100) {
+        cycleStartRef.current = Date.now();
+        setProgress(0);
+        setActiveIndex(0);
+      } else {
+        setProgress(percentage);
+      }
+    }, 100);
+
+    const tabInterval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % tabs.length);
-    }, AUTO_SCROLL_DELAY);
+    }, AUTO_SWITCH_DELAY);
 
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+      clearInterval(progressInterval);
+      clearInterval(tabInterval);
     };
-  }, [activeIndex]);
+  }, [hasStarted, tabs.length]);
 
   const handleTabClick = (index: number) => {
-    if (timerRef.current) clearTimeout(timerRef.current);
     setActiveIndex(index);
+    cycleStartRef.current = Date.now();
+    setProgress((index / tabs.length) * 100);
   };
 
   return (

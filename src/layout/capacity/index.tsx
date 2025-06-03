@@ -1,3 +1,4 @@
+import PageEntrance from "@/components/entrance";
 import { FileStack, MessageSquareQuote, ShieldCheck } from "lucide-react";
 
 const Capacity = () => {
@@ -29,7 +30,7 @@ const Capacity = () => {
   ];
 
   return (
-    <section className="w-full bg-white py-40 px-32 flex flex-col gap-[120px]">
+    <PageEntrance className="w-full bg-white py-40 px-32 flex flex-col gap-[120px]">
       <p className="font-[750] text-[62px] leading-[90%] -tracking-[0.02em] uppercase">
         CAPACITY THAT SCALES
       </p>
@@ -59,7 +60,7 @@ const Capacity = () => {
           </div>
         ))}
       </div>
-    </section>
+    </PageEntrance>
   );
 };
 

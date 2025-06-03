@@ -8,19 +8,21 @@ interface Props {
   content: string[];
   tabs: string[];
   order?: number;
+  setProgress: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const AUTO_SWITCH_DELAY = 4000;
+const INITIAL_DELAY = 2000;
 
-const Tabs = ({ content, tabs, order = 1 }: Props) => {
+const Tabs = ({ content, tabs, order = 1, setProgress }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const cycleStartRef = useRef<number | null>(null);
+  const [hasStarted, setHasStarted] = useState(false);
 
   const getDisplayOrder = () => {
     const prev = (activeIndex - 1 + tabs.length) % tabs.length;
     const next = (activeIndex + 1) % tabs.length;
     const nextNext = (activeIndex + 2) % tabs.length;
-
     return [tabs[prev], tabs[activeIndex], tabs[next], tabs[nextNext]];
   };
 
@@ -28,22 +30,52 @@ const Tabs = ({ content, tabs, order = 1 }: Props) => {
   const displayTabs = getDisplayOrder();
 
   useEffect(() => {
-    timerRef.current = setTimeout(() => {
+    const startTimer = setTimeout(() => {
+      cycleStartRef.current = Date.now();
+      setHasStarted(true);
+    }, INITIAL_DELAY);
+
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    const totalCycle = AUTO_SWITCH_DELAY * tabs.length;
+
+    const progressInterval = setInterval(() => {
+      if (!cycleStartRef.current) return;
+
+      const elapsed = Date.now() - cycleStartRef.current;
+      const percentage = (elapsed / totalCycle) * 100;
+
+      if (percentage >= 100) {
+        cycleStartRef.current = Date.now();
+        setProgress(0);
+        setActiveIndex(0);
+      } else {
+        setProgress(percentage);
+      }
+    }, 100);
+
+    const tabInterval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % tabs.length);
     }, AUTO_SWITCH_DELAY);
 
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+      clearInterval(progressInterval);
+      clearInterval(tabInterval);
     };
-  }, [activeIndex]);
+  }, [hasStarted, tabs.length]);
 
   const handleTabClick = (index: number) => {
-    if (timerRef.current) clearTimeout(timerRef.current);
     setActiveIndex(index);
+    cycleStartRef.current = Date.now();
+    setProgress((index / tabs.length) * 100);
   };
 
   return (
-    <div className="min-w-[665px] flex flex-col items-center -ml-24 transition-all duration-500 relative">
+    <div className="min-w-[665px] flex flex-col items-center -ml-24 relative transition-all duration-500">
       <div
         className={clsx(
           "flex gap-4 transition-all duration-500",
@@ -73,7 +105,6 @@ const Tabs = ({ content, tabs, order = 1 }: Props) => {
               )}
 
               <p
-                key={tab}
                 className={clsx(
                   "font-jetbrains text-[13px] tracking-[0.01em] uppercase cursor-pointer transition-all ease-in-out duration-500 whitespace-nowrap",
                   isCenter

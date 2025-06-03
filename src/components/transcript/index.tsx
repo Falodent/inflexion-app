@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Move from "@/animated/move";
 import FiveTabs from "../tabs/five-tabs";
+import { useState } from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 const Transcript = () => {
+  const [progress, setProgress] = useState<number>(0);
+
   const content = [
     "Delivered as JSON for APIs, SRT for captions, or any custom format you require",
     "Choose real-time at 95% through to human-perfect at 99.9%",
@@ -17,13 +21,26 @@ const Transcript = () => {
         Transcripts that work how you work
       </Move>
 
-      <Image
-        src="/assets/svg/pointer.svg"
-        alt="Process"
-        width={50}
-        height={190}
-        className="object-contain ml-11 mt-26.5 mb-3"
-      />
+      <div className="relative mt-26.5 mb-3">
+        <Image
+          src="/assets/svg/pointer.svg"
+          alt="Process"
+          width={50}
+          height={190}
+          className="object-contain ml-11"
+        />
+
+        <div className="absolute -top-[2px] left-[43px] w-[52px] h-[52px]">
+          <CircularProgressbar
+            value={progress}
+            strokeWidth={8}
+            styles={buildStyles({
+              pathColor: "#0000FF",
+              trailColor: "transparent",
+            })}
+          />
+        </div>
+      </div>
 
       <FiveTabs
         content={content}
@@ -36,6 +53,7 @@ const Transcript = () => {
         ]}
         position="ml-0"
         centered={false}
+        setProgress={setProgress}
       />
     </div>
   );

@@ -10,10 +10,16 @@ const Footer = () => {
         <div className="relative flex items-start justify-between pl-14 pr-20">
           <div className="flex flex-col gap-5">
             <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
-              SERVICES <sup>3</sup>
+              SERVICES{" "}
+              <sup>
+                <small>3</small>
+              </sup>
             </p>
             <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
-              SOLUTIONS <sup>3</sup>
+              SOLUTIONS{" "}
+              <sup>
+                <small>3</small>
+              </sup>
             </p>
           </div>
 

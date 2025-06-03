@@ -1,3 +1,4 @@
+import PageEntrance from "@/components/entrance";
 import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 
@@ -26,7 +27,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="w-full py-32 flex flex-col gap-20 bg-white">
+    <PageEntrance className="w-full py-32 flex flex-col gap-20 bg-white">
       <p className="font-[800] text-[62px] leading-[80px] -tracking-[0.04em] uppercase text-black-100 px-8">
         Frequently Asked Questions
       </p>
@@ -48,7 +49,7 @@ const FAQ = () => {
           </div>
         ))}
       </div>
-    </section>
+    </PageEntrance>
   );
 };
 

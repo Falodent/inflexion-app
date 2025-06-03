@@ -5,9 +5,10 @@ interface Props {
   isOpen: boolean;
   position: React.CSSProperties;
   children: React.ReactNode;
+  className?: string;
 }
 
-const HoverCard = ({ isOpen, position, children }: Props) => {
+const HoverCard = ({ isOpen, position, children, className }: Props) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -16,7 +17,7 @@ const HoverCard = ({ isOpen, position, children }: Props) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className={clsx("p-5 bg-black absolute rounded-[10px]")}
+          className={clsx("p-5 bg-black absolute rounded-[10px]", className)}
           style={{ ...position, position: "fixed" }}
         >
           {children}

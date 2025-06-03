@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Move from "@/animated/move";
 import FiveTabs from "../tabs/five-tabs";
+import { useState } from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 const Finance = () => {
+  const [progress, setProgress] = useState<number>(0);
+
   const content = [
     "Style guides applied, figures validated, compliance flags raised",
     "Purpose-built editor with shortcuts that 5X editor productivity",
@@ -17,13 +21,26 @@ const Finance = () => {
         Finance Editorial Team. Not Generic Transcribers
       </Move>
 
-      <Image
-        src="/assets/svg/pointer.svg"
-        alt="Process"
-        width={50}
-        height={190}
-        className="object-contain ml-11 mt-26.5 mb-3"
-      />
+      <div className="relative mt-26.5 mb-3">
+        <Image
+          src="/assets/svg/pointer.svg"
+          alt="Process"
+          width={50}
+          height={190}
+          className="object-contain ml-11"
+        />
+
+        <div className="absolute -top-[2px] left-[43px] w-[52px] h-[52px]">
+          <CircularProgressbar
+            value={progress}
+            strokeWidth={8}
+            styles={buildStyles({
+              pathColor: "#0000FF",
+              trailColor: "transparent",
+            })}
+          />
+        </div>
+      </div>
 
       <FiveTabs
         content={content}
@@ -35,6 +52,7 @@ const Finance = () => {
           "Domain Specialization",
         ]}
         position="-ml-0"
+        setProgress={setProgress}
       />
     </div>
   );

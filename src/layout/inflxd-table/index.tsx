@@ -1,8 +1,9 @@
+import PageEntrance from "@/components/entrance";
 import Image from "next/image";
 
 const InflxdTable = () => {
   return (
-    <section className="w-full bg-white py-40 px-32 flex flex-col gap-[80px]">
+    <PageEntrance className="w-full bg-white py-40 px-32 flex flex-col gap-[80px]">
       <div className="flex flex-col gap-[50px]">
         <p className="font-[750] text-[62px] leading-[90%] -tracking-[0.02em] uppercase">
           Your Audio. <br />
@@ -26,7 +27,7 @@ const InflxdTable = () => {
         />
       </div>
 
-      <div className="flex flex-col mt-10 gap-[46px]">
+      <PageEntrance className="flex flex-col mt-10 gap-[46px]">
         <p className="font-[500] text-xl -tracking-[0.01em] text-black">
           What this means:
         </p>
@@ -36,12 +37,13 @@ const InflxdTable = () => {
           build products, train AI models, resell to clients, create new revenue
           streams.
         </p>
-      </div>
 
-      <p className="italic text-lg leading-[32px] -tracking-[0.01em] text-[#00000099]">
-        We never claim rights. We&apos;re a service provider, not a data owner.
-      </p>
-    </section>
+        <p className="italic text-lg leading-[32px] -tracking-[0.01em] text-[#00000099]">
+          We never claim rights. We&apos;re a service provider, not a data
+          owner.
+        </p>
+      </PageEntrance>
+    </PageEntrance>
   );
 };
 

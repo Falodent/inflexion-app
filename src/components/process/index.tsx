@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Tabs from "../tabs";
 import Move from "@/animated/move";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { useState } from "react";
 
 const Process = () => {
+  const [progress, setProgress] = useState<number>(0);
+
   const content = [
     "Live streams, conference calls, uploaded files - we handle them all",
     "Background noise removal and volume balancing for crystal-clear input",
@@ -16,13 +20,26 @@ const Process = () => {
         We enhance before we process
       </Move>
 
-      <Image
-        src="/assets/svg/pointer.svg"
-        alt="Process"
-        width={50}
-        height={190}
-        className="object-contain ml-10"
-      />
+      <div className="relative">
+        <Image
+          src="/assets/svg/pointer.svg"
+          alt="Process"
+          width={50}
+          height={190}
+          className="object-contain ml-10"
+        />
+
+        <div className="absolute -top-[2px] left-[65px] transform -translate-x-1/2 w-[52px] h-[52px]">
+          <CircularProgressbar
+            value={progress}
+            strokeWidth={8}
+            styles={buildStyles({
+              pathColor: "#0000FF",
+              trailColor: "transparent",
+            })}
+          />
+        </div>
+      </div>
 
       <Tabs
         content={content}
@@ -33,6 +50,7 @@ const Process = () => {
           "Language Detection",
         ]}
         order={0}
+        setProgress={setProgress}
       />
     </div>
   );

@@ -39,7 +39,7 @@ const InsightCounter = () => {
 
     const start = 10000;
     const end = 20000;
-    const duration = 550;
+    const duration = 950;
     const startTime = performance.now();
 
     const animate = (currentTime: number) => {
@@ -68,7 +68,7 @@ const InsightCounter = () => {
         }
         return prev - 1;
       });
-    }, 8.5);
+    }, 12.5);
 
     return () => clearInterval(interval);
   }, [visible, timer]);
@@ -78,7 +78,7 @@ const InsightCounter = () => {
 
     const start = 500_000_000;
     const end = 1_000_000_000;
-    const duration = 550;
+    const duration = 950;
     const startTime = performance.now();
 
     const animate = (time: number) => {
@@ -101,7 +101,7 @@ const InsightCounter = () => {
 
     const start = 500_000;
     const end = 1_000_000;
-    const duration = 550;
+    const duration = 950;
     const startTime = performance.now();
 
     const animate = (time: number) => {

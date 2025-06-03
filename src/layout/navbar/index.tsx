@@ -49,7 +49,7 @@ const AnimatedLogo = () => {
   }, []);
 
   return (
-    <div ref={container} className="relative h-[85vh] bg-white">
+    <div ref={container} className="relative h-[90vh] bg-white">
       <div className="fixed top-0 left-0 w-full z-20 bg-white pl-[35px] pr-8 pt-9 pb-3 flex items-center">
         <div
           className={clsx(

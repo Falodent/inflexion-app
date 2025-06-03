@@ -25,8 +25,9 @@ const Mission = () => {
         {MissionData.map((item) => (
           <div
             className={clsx(
-              "h-[425px] pl-10 pr-8 pt-15 pb-4 flex flex-col gap-[134px] border-x border-b border-[#D6DAE0]",
-              "hover:bg-black hover:text-white text-[#1E1E1E] transition-all ease-in-out duration-500"
+              "group h-[425px] pl-10 pr-8 pt-15 pb-4 flex flex-col border-x border-b border-[#D6DAE0] overflow-y-hidden",
+              "hover:bg-black hover:text-white text-[#1E1E1E] transition-all ease-in-out duration-500",
+              "hover:gap-[50px] gap-[250px]"
             )}
             key={item.figure}
           >
@@ -34,9 +35,19 @@ const Mission = () => {
               {item.figure}
             </p>
 
-            <p className="max-w-[305px] font-[700] text-[26px] leading-[120%] -tracking-[0.03em] ">
-              {item.content}
-            </p>
+            <div
+              className={clsx(
+                "transition-all ease-in-out duration-500 flex flex-col gap-20 group-hover:gap-[50px]"
+              )}
+            >
+              <h3 className="max-w-[305px] text-[26px] font-[700] leading-[120%] -tracking-[0.03em]">
+                {item.title}
+              </h3>
+
+              <p className="max-w-[305px] font-[700] text-[26px] leading-[120%] -tracking-[0.03em]">
+                {item.content}
+              </p>
+            </div>
           </div>
         ))}
       </div>
