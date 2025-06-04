@@ -32,14 +32,14 @@ const CoverageMap = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="px-30 gap-5 w-full flex items-start"
+      className="lg:px-30 gap-5 w-full flex flex-col lg:flex-row items-start"
     >
-      <div className="flex flex-col w-[245px]">
+      <div className="px-8 lg:px-0 flex lg:flex-col w-full lg:w-[245px] overflow-x-auto  scrollbar-none gap-5">
         {language.map((item, index) => (
-          <div className="flex items-center gap-6" key={`${item}-${index}`}>
+          <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-6" key={`${item}-${index}`}>
             <div
               className={clsx(
-                "w-2 h-2",
+                "w-2 h-2 order-3 lg:order-1",
                 active === item ? "bg-blue-100" : "bg-transparent"
               )}
             />
@@ -47,7 +47,7 @@ const CoverageMap = () => {
             <div
               role="button"
               className={clsx(
-                "font-[700] text-[32px] leading-[64px] -tracking-[0.02em]",
+                "font-[700] text-2xl leading-[36px] lg:text-[32px] lg:leading-[64px] -tracking-[0.02em] order-2",
                 active === item
                   ? "text-black-100"
                   : "text-[#03030333] cursor-pointer"
@@ -62,7 +62,7 @@ const CoverageMap = () => {
         <div
           role="button"
           onClick={() => setShowMore((prev) => !prev)}
-          className="mt-16 ml-8 flex items-center justify-center pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 cursor-pointer"
+          className="hidden mt-16 ml-8 lg:flex items-center justify-center pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 cursor-pointer"
         >
           <p className="font-[700] text-[26px] leading-none -tracking-[0.02em]">
             {showMore ? "show less" : "and much more"}
@@ -82,7 +82,7 @@ const CoverageMap = () => {
           src="/assets/svg/map.svg"
           alt="Map"
           fill
-          className="w-full h-[557px] object-cover"
+          className="w-full h-[557px] object-cover px-4 lg:px-0"
         />
 
         <Image

@@ -13,7 +13,8 @@ const Card = ({ data }: Props) => {
       className={clsx(
         "group w-full h-[460px] pt-[72px] pb-[66px] pl-[50px] pr-8 cursor-pointer overflow-hidden",
         data.id !== 2 && "border-x-2 border-grey-200",
-        "hover:bg-black hover:text-white text-black-100 transition-all ease-in-out duration-700"
+        "hover:bg-black hover:text-white text-black-100 transition-all ease-in-out duration-700",
+        "border-b border-grey-200 lg:border-y-none"
       )}
     >
       <div
@@ -26,7 +27,7 @@ const Card = ({ data }: Props) => {
         <div
           className={clsx(
             "flex flex-col gap-12 transform transition-all ease-in-out duration-700",
-            "translate-y-32 group-hover:translate-y-0"
+            "translate-y-34 group-hover:translate-y-0"
           )}
         >
           <h3
@@ -37,7 +38,7 @@ const Card = ({ data }: Props) => {
             {data.title}
           </h3>
 
-          <p className={clsx("text-xl leading-[32px] max-w-[380px]")}>
+          <p className={clsx("text-lg lg:text-xl leading-[29px] lg:leading-[32px] max-w-[322px] lg:max-w-[380px]")}>
             {data.text}
           </p>
         </div>

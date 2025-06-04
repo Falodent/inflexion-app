@@ -4,9 +4,9 @@ import { MoveRight } from "lucide-react";
 
 const Transform = () => {
   return (
-    <div className="w-full flex flex-col gap-20 px-9">
+    <div className="w-full flex flex-col gap-10 lg:gap-20 pl-5 lg:px-9">
       <div className="flex flex-col gap-16">
-        <h2 className="max-w-200 text-[63px] leading-[66px] font-[700] -tracking-[0.04em]">
+        <h2 className="max-w-[370px] text-[48px] leading-[56px] lg:max-w-200 lg:text-[63px] lg:leading-[66px] font-[700] -tracking-[0.04em]">
           <span className="text-fill">
             Four ways to transform your audio into actionable data
           </span>

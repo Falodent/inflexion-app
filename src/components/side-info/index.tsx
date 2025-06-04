@@ -20,10 +20,11 @@ const SideInfo = () => {
     >
       <motion.div className="h-full flex flex-col items-start justify-between py-[140px]">
         <div className="flex flex-col items-start gap-12">
-          <h5 className="font-jetbrains text-[13px] leading-none uppercase tracking-[0.01em] text-blue-300">
+          <h5 className="font-jetbrains  leading-none uppercase tracking-[0.01em] text-blue-100">
             How it works
           </h5>
-          <p className="font-[700] text-[40px] leading-[49px] -tracking-[0.03em] text-black-100">
+
+          <p className="max-w-[340px] lg:max-w-full font-[700] text-[32px] lg:text-[40px] leading-[43px] lg:leading-[49px] -tracking-[0.03em] text-black-100">
             While others choose between speed or accuracy, our workflow delivers
             both — enabling you to build and monetize transcript libraries at
             unprecedented scale.
@@ -33,7 +34,7 @@ const SideInfo = () => {
         <div
           role="button"
           className={clsx(
-            "px-5 border border-black rounded-[20px] cursor-pointer transition-all ease-in-out duration-500 mt-auto"
+            "hidden lg:flex px-5 border border-black rounded-[20px] cursor-pointer transition-all ease-in-out duration-500 mt-auto"
           )}
         >
           <MoveRight size={24} />

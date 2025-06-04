@@ -17,9 +17,9 @@ const CoverageSection = ({ list, image }: TCoverageSection) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="px-32 w-full flex items-center gap-[188px]"
+      className="px-8 lg:px-32 w-full flex flex-col lg:flex-row lg:items-center gap-20 lg:gap-[188px]"
     >
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-8 lg:gap-16">
         {list.map((item) => (
           <div className="flex items-center gap-6" key={item}>
             <div className={clsx("w-2 h-2 bg-blue-100")} />
@@ -27,7 +27,7 @@ const CoverageSection = ({ list, image }: TCoverageSection) => {
             <p
               role="button"
               className={clsx(
-                "font-[500] text-[32px] leading-none -tracking-[0.02em] text-black"
+                "font-[500] text-2xl lg:text-[32px] leading-none -tracking-[0.02em] text-black"
               )}
             >
               {item}

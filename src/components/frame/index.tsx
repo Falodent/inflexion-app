@@ -18,9 +18,9 @@ const Frame = ({ icon, title, content, delay, isHovered }: Props) => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut", delay }}
       className={clsx(
-        "group relative w-[350px] flex flex-col gap-[30px] px-9 py-7 border border-black rounded-xl transition-all ease-in-out duration-500 overflow-hidden",
-        "hover:max-h-[500px] hover:bg-grey-300 bg-white max-h-[195px]",
-        isHovered && "max-h-[500px] bg-grey-300"
+        "group relative w-[350px] flex flex-col gap-[30px] px-9 py-7 pb-9 border border-black rounded-xl transition-all ease-in-out duration-500 overflow-hidden",
+        "hover:max-h-[550px] hover:bg-grey-300 bg-white max-h-[195px]",
+        isHovered && "max-h-[550px] bg-grey-300"
       )}
     >
       <Image

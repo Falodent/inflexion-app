@@ -6,7 +6,7 @@ import Title from "@/components/title";
 import { NavLinks } from "@/content/navbar";
 import Navlink from "@/components/navlink";
 import Button from "@/components/button";
-import { MoveRight } from "lucide-react";
+import { AlignJustify, MoveRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const AnimatedLogo = () => {
@@ -50,20 +50,25 @@ const AnimatedLogo = () => {
 
   return (
     <div ref={container} className="relative h-[90vh] bg-white">
-      <div className="fixed top-0 left-0 w-full z-20 bg-white pl-[35px] pr-8 pt-9 pb-3 flex items-center">
+      <div
+        className={clsx(
+          "fixed top-0 left-0 w-full z-20 bg-white",
+          "lg:pl-[35px] pr-8 pt-7 lg:pt-9 pb-3 flex items-center"
+        )}
+      >
         <div
           className={clsx(
             "fixed z-50 transition-all duration-700 ease-in-out",
             hasMounted && !isScrolled
               ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              : "top-10 left-[35px]"
+              : "top-6 left-4.5 lg:top-10 lg:left-[35px]"
           )}
         >
           <Title
             className={clsx(
               hasMounted && !isScrolled && animate
-                ? "text-[64px] sm:text-[96px] md:text-[160px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px]"
-                : "!text-[42px] transition-all ease-in-out duration-800"
+                ? "text-[107px] sm:text-[140px] md:text-[160px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px]"
+                : "!text-[32px] !lg:text-[42px] transition-all ease-in-out duration-800"
             )}
           />
         </div>
@@ -78,16 +83,22 @@ const AnimatedLogo = () => {
                 duration: 0.5,
                 ease: "easeInOut",
               }}
-              className="ml-auto flex items-center gap-[42px]"
+              className="ml-auto"
             >
-              {NavLinks.map((link) => (
-                <Navlink key={link.text} href={link.href} text={link.text} />
-              ))}
+              <div className="hidden lg:flex items-center gap-[42px]">
+                {NavLinks.map((link) => (
+                  <Navlink key={link.text} href={link.href} text={link.text} />
+                ))}
 
-              <Button size="nav">
-                <span>BOOK A DEMO</span>
-                <MoveRight />
-              </Button>
+                <Button size="nav">
+                  <span>BOOK A DEMO</span>
+                  <MoveRight />
+                </Button>
+              </div>
+
+              <button className="cursor-pointer lg:hidden">
+                <AlignJustify size={24} color="#000000" />
+              </button>
             </motion.section>
           )}
         </AnimatePresence>

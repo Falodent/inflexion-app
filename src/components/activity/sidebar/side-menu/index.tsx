@@ -19,10 +19,10 @@ const SideMenu = ({
   handleClick,
 }: Props) => {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4 lg:gap-6">
       <div
         className={clsx(
-          "text-[32px] font-[700] leading-[42px] -tracking-[0.03em] text-[#131313] cursor-pointer",
+          "text-xl lg:text-[32px] font-[700] leading-[42px] -tracking-[0.03em] text-[#131313] cursor-pointer",
           isActive && "h-[23px]"
         )}
         role="button"
@@ -39,11 +39,11 @@ const SideMenu = ({
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="flex flex-col gap-4"
         >
-          <p className="font-jetbrains text-sm leading-[32px] text-[#00000099]">
+          <p className="font-jetbrains text-xs lg:text-sm leading-[32px] text-[#00000099]">
             {subtitle}
           </p>
 
-          <p className="max-w-[450px] font-[500] text-xl leading-[28px] text-[#131313]">
+          <p className="max-w-[450px] font-[500] lg:text-xl leading-[28px] text-[#131313]">
             {content}
           </p>
 

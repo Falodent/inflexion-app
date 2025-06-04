@@ -6,9 +6,9 @@ const Footer = () => {
 
   return (
     <div className="w-full footer-bg relative">
-      <div className="flex flex-col gap-[300px] w-full pt-[584px]">
-        <div className="relative flex items-start justify-between pl-14 pr-20">
-          <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-[190px] lg:gap-[300px] w-full pt-[584px]">
+        <div className="relative flex flex-col lg:flex-row items-start gap-14 lg:gap-6 justify-between pl-6 lg:pl-14 lg:pr-20">
+          <div className="flex flex-col gap-1 lg:gap-5">
             <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white underline-hover cursor-pointer">
               SERVICES{" "}
               <sup>
@@ -24,7 +24,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-1 lg:gap-5">
             <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white underline-hover cursor-pointer">
               NEWSROOM
             </p>
@@ -64,12 +64,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full h-[294px] px-2 relative">
+        <div className="w-full h-[294px] relative">
           <Image
             src="/assets/svg/footer-logo.svg"
             alt="INFLXD"
             fill
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain px-5 pr-8 lg:px-2"
           />
         </div>
       </div>

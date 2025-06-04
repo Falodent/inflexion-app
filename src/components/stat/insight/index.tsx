@@ -125,34 +125,34 @@ const InsightCounter = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full flex items-start gap-4 justify-between"
+      className="w-full flex flex-col lg:flex-row items-start gap-11 lg:gap-4 justify-between"
     >
       <Stat
         figure={`${accuracy.toLocaleString("en-GB")}+`}
         title="Companies in our finance dictionary"
         color="text-white"
-        subcolor="text-white/70 max-w-[270px]"
+        subcolor="text-white/70 max-w-[270px] text-xl"
       />
 
       <Stat
-        figure={`<${timer}%`}
+        figure={`< ${timer} %`}
         title="Acceptance rate for finance editorial team"
         color="text-white"
-        subcolor="text-white/70 max-w-[270px]"
+        subcolor="text-white/70 max-w-[270px] text-xl"
       />
 
       <Stat
         figure={`$${formattedFigure === "1B" ? "B" : formattedFigure}+`}
         title="Financial institutions we serve"
         color="text-white"
-        subcolor="text-white/70 max-w-[270px]"
+        subcolor="text-white/70 max-w-[270px] text-xl"
       />
 
       <Stat
-        figure={`${formattedMinute === "1.0M" ? 'Million' : formattedMinute}+`}
+        figure={`${formattedMinute === "1.0M" ? "Million" : formattedMinute}+`}
         title="Minutes transcribed annually"
         color="text-white"
-        subcolor="text-white/70 max-w-[270px]"
+        subcolor="text-white/70 max-w-[270px] text-xl"
       />
     </div>
   );

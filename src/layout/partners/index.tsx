@@ -12,22 +12,34 @@ const Partners = () => {
 
   return (
     <div className="w-full pt-50 pb-[70px]">
-      <div className="w-full flex flex-col px-7.5 gap-[120px]">
-        <div className="w-full max-w-[1120px] relative">
-          <span className="text-fill pr-2 font-[700] text-[62px] leading-[68px] -tracking-[0.03em]">
+      <div className="w-full flex flex-col px-4 lg:px-7.5 gap-[120px]">
+        <div className="w-full max-w-[350px] lg:max-w-[1120px] relative">
+          <span className="text-fill pr-2 font-[700] text-[42px] leading-[52px] lg:text-[62px] lg:leading-[68px] -tracking-[0.03em]">
             When your finance audio is INFLXD, transcripts stream securely in{" "}
             {"<"} 1-second and are edited with a dedicated editorial team to{" "}
             <span
               className={clsx(
-                "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block h-[77px]",
+                "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block lg:h-[77px]",
                 openHover && "bg-blue-500 text-black rounded-lg"
               )}
               onMouseEnter={() => setOpenHover(true)}
               onMouseLeave={() => setOpenHover(false)}
               onMouseMove={handleMouseMove}
             >
-              99.9% accuracy within hours
+              99.9% accuracy{" "}
+              <span className="hidden lg:inline-block">within hours</span>
             </span>{" "}
+            <span
+              className={clsx(
+                "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block lg:hidden",
+                openHover && "bg-blue-500 text-black rounded-lg"
+              )}
+              onMouseEnter={() => setOpenHover(true)}
+              onMouseLeave={() => setOpenHover(false)}
+              onMouseMove={handleMouseMove}
+            >
+              within hours
+            </span>
             <br />— not days.
           </span>
 
@@ -54,7 +66,7 @@ const Partners = () => {
           )}
         </div>
 
-        <div className="w-[350px]">
+        <div className="max-w-[327px] pl-4 lg:pl-0 lg:w-[350px]">
           <p className="text-xl leading-[28px] text-start text-black-100">
             Build transcript libraries as a product and expand your coverage at
             scale without hiring a single editor.

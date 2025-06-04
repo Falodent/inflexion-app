@@ -27,16 +27,16 @@ const Security = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <section
       className={clsx(
-        "w-full py-40 pl-[30px] pr-9 grid grid-cols-[1fr_560px] items-start gap-[10px] transition-colors duration-700 ease-in-out",
+        "w-full py-40 pl-4 pr-2 lg:pl-[30px] lg:pr-9 grid grid-cols-1 lg:grid-cols-[1fr_560px] items-start gap-20 lg:gap-[10px] transition-colors duration-700 ease-in-out",
         isVisible ? "bg-black-100 text-white" : "bg-white text-black"
       )}
     >
       <div className="w-full flex flex-col gap-[34px]">
-        <p className="max-w-[700px] text-[62px] font-[750] leading-[64px] pr-2 -tracking-[0.03em] uppercase ">
+        <p className="max-w-[385px] lg:max-w-[700px] text-[48px] lg:text-[62px] font-[750] leading-[64px] lg:pr-2 -tracking-[0.03em] uppercase ">
           SECURITY FIRST. COMPLIANCE BUILT-IN.
         </p>
 
-        <p className="max-w-[606px] text-xl leading-[28px] -leading-[0.01em] mb-4">
+        <p className="max-w-[330px] lg:max-w-[606px] text-lg lg:text-xl leading-[28px] -leading-[0.01em] mb-4">
           INFLXD encrypts every packet with in-transit and at-rest, protecting
           finance-grade data end-to-end.
         </p>
@@ -47,7 +47,7 @@ const Security = ({ isVisible }: { isVisible: boolean }) => {
         </Button>
       </div>
 
-      <section className="w-full flex flex-col gap-5">
+      <section className="w-full flex flex-col gap-5 pl-[14px] pr-[22px]">
         {data.map((item) => (
           <div
             key={item.title}

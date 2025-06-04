@@ -78,9 +78,9 @@ const Activity = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen sticky top-0 pt-25 flex items-center justify-center px-4 bg-white">
+    <div className="w-full h-screen sticky top-0 pt-25 flex items-center justify-center lg:px-4 bg-white">
       <div
-        className="w-full h-[550px] grid grid-cols-2 gap-3 overflow-y-auto scrollbar-none"
+        className="w-full h-[550px] grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-y-auto scrollbar-none pr-4 lg:pr-0"
         ref={scrollContainerRef}
       >
         <Sidebar
@@ -90,7 +90,7 @@ const Activity = () => {
         />
 
         <div
-          className="w-full h-[550px] flex items-center justify-center bg-center bg-cover overflow-hidden sticky top-0"
+          className="w-full h-[550px] hidden lg:flex items-center justify-center bg-center bg-cover overflow-hidden lg:sticky top-0"
           style={{ backgroundImage: `url('/assets/png/activity-bg.png')` }}
         >
           {active === 1 && <SectionOne />}
