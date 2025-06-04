@@ -29,15 +29,15 @@ const AutoScrollSVG = ({
         <div
           className={`w-full ${containerHeight} relative aspect-square`}
           style={{
-            animation: `${animation} 20s linear forwards`,
-            animationDelay: "2s",
+            animation: `${animation} 17s linear forwards`,
+            animationDelay: "2.5s",
           }}
         >
           <Image
             src={`/assets/png/${image}`}
             alt="Auto scrolling SVG"
             fill
-            className={`w-full ${imageHeight}`}
+            className={`w-full ${imageHeight} object-left-top`}
             objectFit="cover"
           />
         </div>

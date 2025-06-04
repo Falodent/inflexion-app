@@ -13,8 +13,8 @@ const SectionTwo = () => {
       <AutoScrollSVG
         image="async.png"
         animation="smallScroll"
-        containerHeight="1280px"
-        imageHeight="1020px"
+        containerHeight="620px"
+        imageHeight="620px"
       />
     </motion.div>
   );

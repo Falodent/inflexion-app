@@ -9,13 +9,14 @@ const Footer = () => {
       <div className="flex flex-col gap-[300px] w-full pt-[584px]">
         <div className="relative flex items-start justify-between pl-14 pr-20">
           <div className="flex flex-col gap-5">
-            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
+            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white underline-hover cursor-pointer">
               SERVICES{" "}
               <sup>
                 <small>3</small>
               </sup>
             </p>
-            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
+
+            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white underline-hover cursor-pointer">
               SOLUTIONS{" "}
               <sup>
                 <small>3</small>
@@ -24,10 +25,10 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-5">
-            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
+            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white underline-hover cursor-pointer">
               NEWSROOM
             </p>
-            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white">
+            <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white underline-hover cursor-pointer">
               PRICING
             </p>
           </div>

@@ -8,7 +8,7 @@ interface Props {
 
 const CoverageTab = ({ tabs, active, setActive }: Props) => {
   return (
-    <div className="w-full h-22 px-32 border-y border-[#D0D5DC] flex gap-16">
+    <div className="w-full h-22 px-32 border-b border-[#D0D5DC] flex gap-16">
       {tabs?.map((item) => (
         <div
           role="button"

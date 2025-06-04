@@ -15,7 +15,7 @@ const Accuracy = () => {
         setHover(entry.isIntersecting);
       },
       {
-        threshold: 0.5,
+        threshold: 0.8,
       }
     );
 
@@ -38,21 +38,27 @@ const Accuracy = () => {
             alpha,{" "}
             <span
               className={clsx(
-                "transition-all ease-in-out duration-500 inline-block mt-2",
-                hover ? "bg-[#73AADB]/30" : "bg-transparent"
+                "relative inline-block overflow-hidden",
+                "before:absolute before:inset-0 before:bg-[#73AADB]/30 before:scale-x-0 before:origin-left",
+                hover && "before:scale-x-100",
+                "before:transition-transform before:duration-500 before:ease-in-out",
+                "z-10"
               )}
             >
-              “close enough”
+              <span className="relative z-10">“close enough”</span>
             </span>
           </p>
           <p className="pl-[82px] w-full border-b border-dashed border-blue-100 inline-block my-1">
             <span
               className={clsx(
-                "transition-all ease-in-out duration-500 inline-block",
-                hover ? "bg-[#73AADB]/30 " : "bg-transparent"
+                "relative inline-block overflow-hidden",
+                "before:absolute before:inset-0 before:bg-[#73AADB]/30 before:scale-x-0 before:origin-left",
+                hover && "before:scale-x-100",
+                "before:transition-transform before:duration-500 before:ease-in-out",
+                "z-10"
               )}
             >
-              shouldn’t be good enough.
+              <span className="relative z-10">shouldn’t be good enough.</span>
             </span>
           </p>
         </div>

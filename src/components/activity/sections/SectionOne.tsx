@@ -12,8 +12,8 @@ const SectionOne = () => {
       className="w-full h-[350px]"
     >
       <ReactCompareImage
-        rightImage="/assets/png/before2.png"
-        leftImage="/assets/png/after2.png"
+        rightImage="/assets/png/before.png"
+        leftImage="/assets/png/after.png"
         sliderLineColor="#0000FF"
         sliderLineWidth={4}
         handle={

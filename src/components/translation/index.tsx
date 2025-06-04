@@ -1,15 +1,24 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface Props {
   text: string;
 }
 
 const Translation = ({ text }: Props) => {
+  const [animationKey, setAnimationKey] = useState(0);
+
+  useEffect(() => {
+    setAnimationKey((prev) => prev + 1);
+  }, [text]);
+
   return (
-    <div className="absolute bottom-0 left-30 flex flex-col gap-5 text-black-100">
-      <p className="max-w-[630px] font-[700] text-[42px] leading-[48px] -tracking-[0.02em]">
-        {text}
-      </p>
+    <div className="absolute bottom-0 left-24 flex flex-col gap-5 text-black-100">
+      <div className="translating" key={animationKey}>
+        <p className="font-[700] text-[32px] leading-[40px] -tracking-[0.02em]">
+          {text}
+        </p>
+      </div>
 
       <div className="flex flex-col ml-16">
         <Image

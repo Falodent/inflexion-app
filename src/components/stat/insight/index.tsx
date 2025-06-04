@@ -68,7 +68,7 @@ const InsightCounter = () => {
         }
         return prev - 1;
       });
-    }, 12.5);
+    }, 13.5);
 
     return () => clearInterval(interval);
   }, [visible, timer]);

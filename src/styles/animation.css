@@ -19,6 +19,20 @@
   white-space: nowrap;
   animation: typing 1.5s steps(12) forwards;
 }
+
+.translating {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  justify-content: start;
+  animation: typing 1.5s steps(40, end) forwards;
+}
+
+.translating p {
+  display: inline-block;
+  word-wrap: break-word;
+}
+
 /* End */
 
 /* Underline Hover Animation */

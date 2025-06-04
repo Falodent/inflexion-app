@@ -4,11 +4,13 @@ import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const CoverageMap = () => {
   const [active, setActive] = useState("Mandarin");
+  const [showMore, setShowMore] = useState(false);
 
-  const language = [
+  const baseLanguages = [
     "Japanese",
     "Hindi",
     "Spanish",
@@ -19,11 +21,22 @@ const CoverageMap = () => {
     "Korean",
   ];
 
+  const moreLanguages = ["Spanish", "French"];
+
+  const language = showMore
+    ? [...baseLanguages, ...moreLanguages]
+    : baseLanguages;
+
   return (
-    <section className="px-30 gap-5 w-full flex items-center">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="px-30 gap-5 w-full flex items-start"
+    >
       <div className="flex flex-col w-[245px]">
-        {language.map((item) => (
-          <div className="flex items-center gap-6" key={item}>
+        {language.map((item, index) => (
+          <div className="flex items-center gap-6" key={`${item}-${index}`}>
             <div
               className={clsx(
                 "w-2 h-2",
@@ -46,12 +59,21 @@ const CoverageMap = () => {
           </div>
         ))}
 
-        <div className="mt-16 ml-8 flex items-center pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 ">
+        <div
+          role="button"
+          onClick={() => setShowMore((prev) => !prev)}
+          className="mt-16 ml-8 flex items-center justify-center pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 cursor-pointer"
+        >
           <p className="font-[700] text-[26px] leading-none -tracking-[0.02em]">
-            and much more
+            {showMore ? "show less" : "and much more"}
           </p>
 
-          <ChevronDown size={24} />
+          <motion.div
+            animate={{ rotate: showMore ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ChevronDown size={24} />
+          </motion.div>
         </div>
       </div>
 
@@ -69,11 +91,12 @@ const CoverageMap = () => {
           width={37}
           height={28}
           className={`absolute ${Translations[active]?.coordinates}`}
+          loading="eager"
         />
 
         <Translation text={Translations[active]?.text} />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

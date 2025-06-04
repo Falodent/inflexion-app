@@ -1,7 +1,12 @@
 import CoverageContent from "@/components/coverage/content";
 import CoverageMap from "@/components/coverage/map";
+import CoverageSection from "@/components/coverage/section";
 import CoverageTab from "@/components/coverage/tab";
-import { CoverageInfo } from "@/content/coverage";
+import {
+  CoverageInfo,
+  DeliveryCoverage,
+  HumanCoverage,
+} from "@/content/coverage";
 import { useState } from "react";
 
 const Coverage = () => {
@@ -37,7 +42,21 @@ const Coverage = () => {
 
         <CoverageContent data={CoverageInfo[active]} />
 
-        <CoverageMap />
+        <>
+          {active === "Auto Language Detection" && <CoverageMap />}{" "}
+          {active === "AI + Human Accuracy" && (
+            <CoverageSection
+              list={HumanCoverage.list}
+              image={HumanCoverage.image}
+            />
+          )}
+          {active === "Same-Day Delivery" && (
+            <CoverageSection
+              list={DeliveryCoverage.list}
+              image={DeliveryCoverage.image}
+            />
+          )}
+        </>
 
         <p className="mt-16 ml-auto mr-9 w-100 font-[500] leading-[130%] -tracking-[0.02em] text-[#9CA3AF] text-end">
           While not native-perfect, our human-enhanced workflow delivers
