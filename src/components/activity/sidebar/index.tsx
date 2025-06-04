@@ -11,7 +11,7 @@ interface Props {
 
 const Sidebar = ({ active, progress, handleClick }: Props) => {
   return (
-    <div className="w-full h-[550px] flex gap-5 lg:gap-12 sticky top-0">
+    <div className="w-full h-[550px] flex gap-5 xl:gap-12 sticky top-0">
       <div className="relative w-[4px] h-full">
         <div className="absolute left-1/2 top-0 h-full w-[1px] -translate-x-1/2 bg-[#D6DAE0]" />
 

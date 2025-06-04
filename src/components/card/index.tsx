@@ -11,7 +11,7 @@ const Card = ({ data }: Props) => {
   return (
     <div
       className={clsx(
-        "group w-full h-[460px] pt-[72px] pb-[66px] pl-[50px] pr-8 cursor-pointer overflow-hidden",
+        "group w-full h-[460px] pt-[72px] pb-[66px] pl-[50px] lg:pl-7 xl:pl-[50px] pr-8 cursor-pointer overflow-hidden",
         data.id !== 2 && "border-x-2 border-grey-200",
         "hover:bg-black hover:text-white text-black-100 transition-all ease-in-out duration-700",
         "border-b border-grey-200 lg:border-y-none"
@@ -32,7 +32,7 @@ const Card = ({ data }: Props) => {
         >
           <h3
             className={clsx(
-              "mt-2 text-[32px] font-[700] leading-[120%] transition-all ease-in-out duration-500 max-w-[360px]"
+              "mt-2 text-[32px] lg:text-[26px] xl:text-[32px] font-[700] leading-[120%] transition-all ease-in-out duration-500 max-w-[360px]"
             )}
           >
             {data.title}

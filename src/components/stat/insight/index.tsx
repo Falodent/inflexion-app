@@ -125,7 +125,7 @@ const InsightCounter = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full flex flex-col lg:flex-row items-start gap-11 lg:gap-4 justify-between"
+      className="w-full flex flex-col lg:grid lg:grid-cols-2 xl:flex xl:flex-row items-start gap-11 xl:gap-4 lg:justify-between"
     >
       <Stat
         figure={`${accuracy.toLocaleString("en-GB")}+`}

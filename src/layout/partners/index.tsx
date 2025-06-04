@@ -13,7 +13,7 @@ const Partners = () => {
   return (
     <div className="w-full pt-50 pb-[70px]">
       <div className="w-full flex flex-col px-4 lg:px-7.5 gap-[120px]">
-        <div className="w-full max-w-[350px] lg:max-w-[1120px] relative">
+        <div className="w-full max-w-[350px] md:max-w-[1120px] relative">
           <span className="text-fill pr-2 font-[700] text-[42px] leading-[52px] lg:text-[62px] lg:leading-[68px] -tracking-[0.03em]">
             When your finance audio is INFLXD, transcripts stream securely in{" "}
             {"<"} 1-second and are edited with a dedicated editorial team to{" "}
@@ -27,11 +27,11 @@ const Partners = () => {
               onMouseMove={handleMouseMove}
             >
               99.9% accuracy{" "}
-              <span className="hidden lg:inline-block">within hours</span>
+              <span className="hidden md:inline-block">within hours</span>
             </span>{" "}
             <span
               className={clsx(
-                "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block lg:hidden",
+                "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block md:hidden",
                 openHover && "bg-blue-500 text-black rounded-lg"
               )}
               onMouseEnter={() => setOpenHover(true)}

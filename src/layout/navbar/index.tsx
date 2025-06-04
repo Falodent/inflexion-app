@@ -49,7 +49,7 @@ const AnimatedLogo = () => {
   }, []);
 
   return (
-    <div ref={container} className="relative h-[90vh] bg-white">
+    <div ref={container} className="relative h-[95vh] bg-white">
       <div
         className={clsx(
           "fixed top-0 left-0 w-full z-20 bg-white",
@@ -61,14 +61,14 @@ const AnimatedLogo = () => {
             "fixed z-50 transition-all duration-700 ease-in-out",
             hasMounted && !isScrolled
               ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              : "top-6 left-4.5 lg:top-10 lg:left-[35px]"
+              : "top-6 left-4.5 lg:top-11.5 lg:left-[35px]"
           )}
         >
           <Title
             className={clsx(
               hasMounted && !isScrolled && animate
-                ? "text-[107px] sm:text-[140px] md:text-[160px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px]"
-                : "!text-[32px] !lg:text-[42px] transition-all ease-in-out duration-800"
+                ? "text-[107px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
+                : "!text-[32px] !lg:text-[44px] transition-all ease-in-out duration-800"
             )}
           />
         </div>

@@ -105,7 +105,7 @@ const HowItWorks = () => {
         "w-full h-screen overflow-y-scroll overflow-x-hidden top-0 scrollbar-none sticky"
       )}
     >
-      <div className="relative h-[4800px] lg:h-[3730px]">
+      <div className="relative h-[4800px] sm:h-[4500px] lg:h-[4100px] xl:h-[3730px]">
         <section className="sticky top-0 h-screen pl-8 flex flex-col lg:flex-row overflow-hidden">
           <AnimatePresence mode="wait">
             {!hideLeft && <SideInfo />}

@@ -24,7 +24,7 @@ const SideInfo = () => {
             How it works
           </h5>
 
-          <p className="max-w-[340px] lg:max-w-full font-[700] text-[32px] lg:text-[40px] leading-[43px] lg:leading-[49px] -tracking-[0.03em] text-black-100">
+          <p className="max-w-[340px] md:max-w-full font-[700] text-[32px] lg:text-[40px] leading-[43px] lg:leading-[49px] -tracking-[0.03em] text-black-100">
             While others choose between speed or accuracy, our workflow delivers
             both — enabling you to build and monetize transcript libraries at
             unprecedented scale.

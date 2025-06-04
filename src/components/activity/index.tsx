@@ -80,7 +80,7 @@ const Activity = () => {
   return (
     <div className="w-full h-screen sticky top-0 pt-25 flex items-center justify-center lg:px-4 bg-white">
       <div
-        className="w-full h-[550px] grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-y-auto scrollbar-none pr-4 lg:pr-0"
+        className="w-full h-[550px] grid grid-cols-1 lg:grid-cols-[1fr_660px] xl:grid-cols-2 gap-3 overflow-y-auto scrollbar-none pr-4 lg:pr-0"
         ref={scrollContainerRef}
       >
         <Sidebar

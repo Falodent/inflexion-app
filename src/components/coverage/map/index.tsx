@@ -32,7 +32,7 @@ const CoverageMap = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="lg:px-30 gap-5 w-full flex flex-col lg:flex-row items-start"
+      className="lg:px-5 xl:px-30 gap-5 w-full flex flex-col lg:flex-row items-start"
     >
       <div className="px-8 lg:px-0 flex lg:flex-col w-full lg:w-[245px] overflow-x-auto  scrollbar-none gap-5">
         {language.map((item, index) => (
@@ -64,7 +64,7 @@ const CoverageMap = () => {
           onClick={() => setShowMore((prev) => !prev)}
           className="hidden mt-16 ml-8 lg:flex items-center justify-center pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 cursor-pointer"
         >
-          <p className="font-[700] text-[26px] leading-none -tracking-[0.02em]">
+          <p className="font-[700] text-[26px] leading-none -tracking-[0.02em] text-center">
             {showMore ? "show less" : "and much more"}
           </p>
 

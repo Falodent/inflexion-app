@@ -31,8 +31,8 @@ const Purpose = () => {
 
   return (
     <div className="w-full flex flex-col lg:flex-row justify-center gap-20 relative py-50 pb-40 bg-white">
-      <div className="pl-4 lg:pl-0 max-w-[380px] lg:max-w-[530px] flex flex-col gap-16">
-        <h2 className="font-[720] text-[48px] leading-[54px] lg:text-[62px] lg:leading-[64px] -tracking-[0.04em] text-[#0A0A0A] uppercase">
+      <div className="pl-4 lg:pl-0 max-w-[380px] md:max-w-[530px] flex flex-col gap-16">
+        <h2 className="font-[720] text-[48px] leading-[54px] md:text-[62px] md:leading-[64px] -tracking-[0.04em] text-[#0A0A0A] uppercase">
           Purpose-Built for Every Finance Use Case
         </h2>
 

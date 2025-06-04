@@ -14,8 +14,8 @@ const Translation = ({ text }: Props) => {
 
   return (
     <div className="absolute bottom-0 left-4 lg:left-24 flex flex-col gap-5 text-black-100">
-      <div className="lg:translating" key={animationKey}>
-        <p className="max-w-[380px] font-[700] text-lg lg:text-[32px] lg:leading-[40px] -tracking-[0.02em]">
+      <div className="translating" key={animationKey}>
+        <p className="font-[700] sm:text-lg md:text-[32px] lg:text-2xl xl:text-[32px] md:leading-[40px] -tracking-[0.02em]">
           {text}
         </p>
       </div>
@@ -28,7 +28,7 @@ const Translation = ({ text }: Props) => {
           height={84}
         />
 
-        <p className="-mt-7.5 ml-16 max-w-[220px] lg:max-w-[630px] font-[700] text-[28px] leading-[34px] lg:text-[42px] lg:leading-[48px] -tracking-[0.02em]">
+        <p className="-mt-7.5 ml-16 max-w-[220px] md:max-w-[630px] font-[700] text-[28px] leading-[34px] md:text-[42px] md:leading-[48px] -tracking-[0.02em]">
           Audio is the most <br />
           underutilised source of data.
         </p>

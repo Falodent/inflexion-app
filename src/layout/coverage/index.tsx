@@ -21,12 +21,12 @@ const Coverage = () => {
 
   return (
     <section className="w-full bg-white pt-32 pb-42 flex flex-col gap-25">
-      <div className="ml-5 lg:ml-32 flex flex-col gap-6 max-w-[375px] lg:max-w-[675px]">
-        <h3 className="font-[750] text-[50px] leading-[50px] lg:text-[62px] -tracking-[0.04em] lg:leading-[59px] text-black-100">
+      <div className="ml-5 xl:ml-32 flex flex-col gap-6 max-w-[375px] lg:max-w-[675px]">
+        <h3 className="font-[750] text-[50px] leading-[50px] md:text-[62px] -tracking-[0.04em] md:leading-[59px] text-black-100">
           GLOBAL COVERAGE, REAL-TIME
         </h3>
 
-        <p className="max-w-[299px] lg:max-w-full font-[500] text-lg lg:text-xl leading-[28px] text-[#2A2C2F]">
+        <p className="max-w-[299px] md:max-w-full font-[500] text-lg md:text-xl leading-[28px] text-[#2A2C2F]">
           Incorporate coverage for global earnings calls, non-English experts,
           and regional insights — all delivered in English.
         </p>
@@ -34,7 +34,7 @@ const Coverage = () => {
 
       <div className="flex flex-col gap-25">
         <div className="flex flex-col gap-11">
-          <p className="ml-[30px] lg:ml-32 font-[500] text-xl leading-none -tracking-[0.01em] text-[#999999]">
+          <p className="ml-[30px] xl:ml-32 font-[500] text-xl leading-none -tracking-[0.01em] text-[#999999]">
             What Others Can&apos;t Do:
           </p>
 
@@ -61,8 +61,8 @@ const Coverage = () => {
 
         <p
           className={clsx(
-            "mt-16 ml-auto mr-9 lg:w-100 font-[500] leading-[130%] -tracking-[0.02em] text-[#9CA3AF] text-end",
-            "text-sm lg:text-base w-[283px]"
+            "mt-16 ml-auto mr-9 md:w-100 font-[500] leading-[130%] -tracking-[0.02em] text-[#9CA3AF] text-end",
+            "text-sm md:text-base w-[283px]"
           )}
         >
           While not native-perfect, our human-enhanced workflow delivers

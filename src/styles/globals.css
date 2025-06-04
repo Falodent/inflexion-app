@@ -27,6 +27,7 @@
 
   /* Screen */
   --breakpoint-xl: 85rem;
+  --breakpoint-3xl: 108rem;
 }
 
 body {

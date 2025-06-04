@@ -32,11 +32,11 @@ const Security = ({ isVisible }: { isVisible: boolean }) => {
       )}
     >
       <div className="w-full flex flex-col gap-[34px]">
-        <p className="max-w-[385px] lg:max-w-[700px] text-[48px] lg:text-[62px] font-[750] leading-[64px] lg:pr-2 -tracking-[0.03em] uppercase ">
+        <p className="max-w-[385px] md:max-w-[700px] text-[48px] md:text-[62px] font-[750] leading-[64px] md:pr-2 -tracking-[0.03em] uppercase ">
           SECURITY FIRST. COMPLIANCE BUILT-IN.
         </p>
 
-        <p className="max-w-[330px] lg:max-w-[606px] text-lg lg:text-xl leading-[28px] -leading-[0.01em] mb-4">
+        <p className="max-w-[330px] md:max-w-[606px] text-lg md:text-xl leading-[28px] -leading-[0.01em] mb-4">
           INFLXD encrypts every packet with in-transit and at-rest, protecting
           finance-grade data end-to-end.
         </p>

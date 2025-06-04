@@ -15,7 +15,7 @@ const Services = () => {
 
       <div className="flex flex-col gap-[42px]">
         <div className="w-full px-4 lg:px-8">
-          <h1 className="w-full max-w-[330px] lg:max-w-[810px] font-[700] text-[40px] lg:text-[62px] leading-[47px] lg:leading-[60px] -tracking-[0.03em] pr-2">
+          <h1 className="w-full max-w-[330px] md:max-w-[810px] font-[700] text-[40px] lg:text-[62px] leading-[47px] lg:leading-[60px] -tracking-[0.03em] pr-2">
             <span className="text-fill">
               Few vendors understand the nuanced problems of expert networks and
               data providers end-to-end.
@@ -28,7 +28,7 @@ const Services = () => {
         </h4>
       </div>
 
-      <div className="w-full border-y border-grey-200 grid grid-cols-1 lg:grid-cols-3 lg:px-9">
+      <div className="w-full border-y border-grey-200 grid grid-cols-1 lg:grid-cols-3 px-3 xl:px-9">
         {serviceList.map((service: Service) => (
           <Card key={service.id} data={service} />
         ))}

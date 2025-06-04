@@ -15,7 +15,7 @@ const FaqQuestion = ({ index, q, a }: Props) => {
     <div
       className={clsx(
         "overflow-hidden pt-4 px-6 lg:py-16 lg:px-10 lg:border-t border-b border-[#C5CAD2] flex flex-col gap-6 transition-all duration-500 ease-in-out",
-        index === 0 && "border-t-0"
+        index === 0 && "lg:!border-t-0"
       )}
       key={q}
     >

@@ -75,7 +75,7 @@ const Home = () => {
           <InflxdTable />
           <Accuracy />
           <Coverage />
-          <Mission />
+          <Mission /> 
           <FAQ />
           <Carousel />
           <Banner />
