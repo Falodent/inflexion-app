@@ -26,7 +26,7 @@ const Coverage = () => {
           GLOBAL COVERAGE, REAL-TIME
         </h3>
 
-        <p className="max-w-[299px] lg:,max-w-full font-[500] text-lg lg:text-xl leading-[28px] text-[#2A2C2F]">
+        <p className="max-w-[299px] lg:max-w-full font-[500] text-lg lg:text-xl leading-[28px] text-[#2A2C2F]">
           Incorporate coverage for global earnings calls, non-English experts,
           and regional insights — all delivered in English.
         </p>
