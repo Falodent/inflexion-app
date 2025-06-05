@@ -30,12 +30,12 @@ const Capacity = () => {
   ];
 
   return (
-    <PageEntrance className="w-full bg-white lg:py-40 px-4 xl:px-32 flex flex-col items-center gap-20 lg:gap-[120px]">
-      <p className="max-w-[340px] md:max-w-full font-[750] text-[48px] md:text-[62px] leading-[90%] -tracking-[0.02em] uppercase">
+    <PageEntrance className="w-full bg-white lg:py-40 px-4 xx:px-8 xl:px-32 flex flex-col items-start gap-20 lg:gap-[120px]">
+      <p className="max-w-[340px] md:max-w-full font-[750] text-[48px] md:text-[62px] xx:text-[56px] xl:text-[62px] leading-[90%] -tracking-[0.02em] uppercase">
         CAPACITY THAT SCALES
       </p>
 
-      <div className="pb-20 lg:border-b-2 border-[#EDEDED] flex flex-col lg:flex-row justify-between gap-16 lg:gap-0 xl:gap-20">
+      <div className="pb-20 lg:border-b-2 border-[#EDEDED] flex flex-col lg:flex-row justify-between gap-16 lg:gap-5 xl:gap-20">
         {data.map((item) => (
           <div
             key={item.title}

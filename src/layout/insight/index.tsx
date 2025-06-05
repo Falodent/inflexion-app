@@ -5,7 +5,7 @@ const Insight = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <section
       className={clsx(
-        "w-full py-30 px-8 pr-0 lg:pr-8 flex flex-col gap-[178px] transition-colors duration-700 ease-in-out",
+        "w-full py-20 xs:py-30 px-4 xs:px-8 pr-0 lg:pr-8 flex flex-col gap-[178px] transition-colors duration-700 ease-in-out",
         isVisible ? "bg-black-100 text-white" : "bg-white text-black"
       )}
     >

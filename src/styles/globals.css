@@ -26,6 +26,8 @@
   --color-grey-300: #f8f8f9;
 
   /* Screen */
+  --breakpoint-xs: 24.25rem;
+  --breakpoint-xx: 75rem;
   --breakpoint-xl: 85rem;
   --breakpoint-3xl: 108rem;
 }

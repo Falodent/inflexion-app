@@ -30,8 +30,8 @@ const Accuracy = () => {
   }, []);
 
   return (
-    <div ref={scrollContainer} className="w-full bg-white px-4 lg:px-8 py-32">
-      <div className="w-full min-h-[595px] pb-[52px] pt-[113px] flex flex-col gap-[120px] bg-black-100 rounded-3xl">
+    <div ref={scrollContainer} className="w-full bg-white px-4 lg:px-8 py-16 sm:py-32">
+      <div className="w-full sm:min-h-[595px] pb-[52px] pt-[52px] sm:pt-[113px] flex flex-col gap-[120px] bg-black-100 rounded-3xl">
         <div className="font-[700] text-white text-[42px] md:text-[64px] lg:text-[80px] leading-none -tracking-[0.04em]">
           <p className={clsx("pl-[30px] xl:pl-[82px] w-full", bordered)}>
             When accuracy <span className="hidden lg:inline">drives</span>
@@ -50,7 +50,7 @@ const Accuracy = () => {
             <span className="hidden lg:inline">alpha,</span>{" "}
             <span
               className={clsx(
-                "relative inline-block overflow-hidden",
+                "relative inline-flex",
                 "before:absolute before:inset-0 before:bg-[#73AADB]/30 before:scale-x-0 before:origin-left",
                 hover && "before:scale-x-100",
                 "before:transition-transform before:duration-500 before:ease-in-out",
@@ -64,7 +64,7 @@ const Accuracy = () => {
           <p className={clsx("pl-[30px] xl:pl-[82px] w-full my-1", bordered)}>
             <span
               className={clsx(
-                "relative inline-block overflow-hidden",
+                "relative inline-flex",
                 "before:absolute before:inset-0 before:bg-[#73AADB]/30 before:scale-x-0 before:origin-left",
                 hover && "before:scale-x-100",
                 "before:transition-transform before:duration-500 before:ease-in-out",
@@ -86,7 +86,7 @@ const Accuracy = () => {
           >
             <span
               className={clsx(
-                "relative inline-block overflow-hidden",
+                "relative inline-flex ",
                 "before:absolute before:inset-0 before:bg-[#73AADB]/30 before:scale-x-0 before:origin-left",
                 hover && "before:scale-x-100",
                 "before:transition-transform before:duration-500 before:ease-in-out",
@@ -98,7 +98,7 @@ const Accuracy = () => {
           </p>
         </div>
 
-        <div className="mr-[52px] ml-auto max-w-[232px]">
+        <div className="mr-5 sm:mr-[52px] ml-auto max-w-[232px]">
           <Button className="hover:!text-white">
             <span>BOOK A DEMO</span>
             <MoveRight />

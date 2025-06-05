@@ -7,6 +7,7 @@ interface Props {
   containerHeight?: string;
   imageHeight?: string;
   animation?: string;
+  duration?: string;
 }
 
 const AutoScrollSVG = ({
@@ -14,6 +15,7 @@ const AutoScrollSVG = ({
   containerHeight = "h-[1280px]",
   imageHeight = "h-[1020px]",
   animation = "bigScroll",
+  duration = "17s",
 }: Props) => {
   return (
     <div className="h-[350px] w-full flex items-center justify-center rounded-xl border-x-0 border-y border-[#D1D7DE] relative">
@@ -29,7 +31,7 @@ const AutoScrollSVG = ({
         <div
           className={`w-full ${containerHeight} relative aspect-square`}
           style={{
-            animation: `${animation} 17s linear forwards`,
+            animation: `${animation} ${duration} linear forwards`,
             animationDelay: "2.5s",
           }}
         >

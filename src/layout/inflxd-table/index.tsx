@@ -5,7 +5,7 @@ const InflxdTable = () => {
   return (
     <PageEntrance className="w-full bg-white py-20 lg:py-40 px-4 lg:px-32 flex flex-col gap-[80px]">
       <div className="flex flex-col gap-[50px]">
-        <p className="max-w-[380px] md:max-w-full font-[750] text-[53px] leading-[54px] md:text-[62px] md:leading-[90%] -tracking-[0.02em] uppercase">
+        <p className="max-w-[380px] md:max-w-full font-[750] text-[45px] sm:text-[53px] leading-[54px] md:text-[62px] md:leading-[90%] -tracking-[0.02em] uppercase">
           Your Audio. <br />
           Your Transcripts. <br />
           Your IP. Forever.

@@ -28,7 +28,7 @@ const Translation = ({ text }: Props) => {
           height={84}
         />
 
-        <p className="-mt-7.5 ml-16 max-w-[220px] md:max-w-[630px] font-[700] text-[28px] leading-[34px] md:text-[42px] md:leading-[48px] -tracking-[0.02em]">
+        <p className="-mt-7.5 ml-16 max-w-[220px] md:max-w-[630px] font-[700] text-lg xs:text-[28px] xs:leading-[34px] md:text-[42px] md:leading-[48px] -tracking-[0.02em]">
           Audio is the most <br />
           underutilised source of data.
         </p>

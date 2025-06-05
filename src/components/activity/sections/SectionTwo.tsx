@@ -15,6 +15,7 @@ const SectionTwo = () => {
         animation="smallScroll"
         containerHeight="620px"
         imageHeight="620px"
+        duration="10s"
       />
     </motion.div>
   );

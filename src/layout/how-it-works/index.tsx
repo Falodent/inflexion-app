@@ -105,7 +105,7 @@ const HowItWorks = () => {
         "w-full h-screen overflow-y-scroll overflow-x-hidden top-0 scrollbar-none sticky"
       )}
     >
-      <div className="relative h-[4800px] sm:h-[4500px] lg:h-[4100px] xl:h-[3730px]">
+      <div className="relative h-[4000px] sm:h-[3750px] xl:h-[3730px]">
         <section className="sticky top-0 h-screen pl-8 flex flex-col lg:flex-row overflow-hidden">
           <AnimatePresence mode="wait">
             {!hideLeft && <SideInfo />}
@@ -117,15 +117,15 @@ const HowItWorks = () => {
 
           <motion.div
             ref={horizontalRef}
-            className="h-screen overflow-hidden pointer-events-none pt-[95px] pb-7 pl-60 relative"
+            className="h-screen overflow-hidden pointer-events-none xx:mt-10 xl:pt-[95px] pb-7 xl:pl-60 relative"
             style={{
               paddingLeft: `calc(8rem - ${rightSideOffset}px)`,
               transition: "padding-left 1s ease-out",
             }}
           >
             <div
-              className="flex items-center h-full"
-              style={{ width: "4650px", pointerEvents: "auto" }}
+              className="flex items-center h-full w-[4650px]"
+              style={{  pointerEvents: "auto" }}
             >
               <Scroller />
             </div>

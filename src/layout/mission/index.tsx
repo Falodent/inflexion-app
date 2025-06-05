@@ -26,7 +26,7 @@ const Mission = () => {
           <div
             className={clsx(
               "group h-[425px]  flex flex-col md:border-x border-b border-[#D6DAE0] overflow-y-hidden",
-              "pl-10 pr-8 pt-15 pb-4 lg:px-2 xl:pl-10 xl:pr-8",
+              "pl-10 pr-8 pt-15 pb-4 lg:px-2 xx:px-6 xl:pl-10 xl:pr-8",
               "hover:bg-black hover:text-white text-[#1E1E1E] transition-all ease-in-out duration-500",
               "hover:gap-[65px] gap-[245px]"
             )}
@@ -38,7 +38,7 @@ const Mission = () => {
 
             <div
               className={clsx(
-                "transition-all ease-in-out duration-500 flex flex-col gap-20 group-hover:gap-[55px]"
+                "transition-all ease-in-out duration-500 flex flex-col gap-24 group-hover:gap-[55px]"
               )}
             >
               <h3 className="max-w-[305px] text-[26px] font-[700] leading-[120%] -tracking-[0.03em]">

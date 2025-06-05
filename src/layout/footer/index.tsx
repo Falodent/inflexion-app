@@ -41,19 +41,25 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2 text-white">
-              <p className="text-sm leading-[140%]">Facebook</p>
-              <MoveUpRight size={10} />
-            </div>
-
-            <div className="flex items-center gap-2 text-white">
-              <p className="text-sm leading-[140%]">Youtube</p>
-              <MoveUpRight size={10} />
-            </div>
-            <div className="flex items-center gap-2 text-white">
+            <a
+              href="https://www.linkedin.com/company/inflexiontranscribe/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 text-white hover:underline"
+            >
               <p className="text-sm leading-[140%]">LinkedIn</p>
               <MoveUpRight size={10} />
-            </div>
+            </a>
+
+            <a
+              href="https://www.youtube.com/@inflexiontranscribe"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 text-white hover:underline"
+            >
+              <p className="text-sm leading-[140%]">Youtube</p>
+              <MoveUpRight size={10} />
+            </a>
           </div>
 
           <div className="flex flex-col gap-1">

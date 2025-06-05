@@ -6,7 +6,7 @@ import Title from "@/components/title";
 import { NavLinks } from "@/content/navbar";
 import Navlink from "@/components/navlink";
 import Button from "@/components/button";
-import { AlignJustify, MoveRight } from "lucide-react";
+import { AlignJustify, MoveRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const AnimatedLogo = () => {
@@ -14,6 +14,7 @@ const AnimatedLogo = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const [animate, setAnimate] = useState(false);
 
@@ -49,61 +50,93 @@ const AnimatedLogo = () => {
   }, []);
 
   return (
-    <div ref={container} className="relative h-[95vh] bg-white">
-      <div
-        className={clsx(
-          "fixed top-0 left-0 w-full z-20 bg-white",
-          "lg:pl-[35px] pr-8 pt-7 lg:pt-9 pb-3 flex items-center"
-        )}
-      >
+    <>
+      <div ref={container} className="relative h-[95vh] bg-white">
         <div
           className={clsx(
-            "fixed z-50 transition-all duration-700 ease-in-out",
-            hasMounted && !isScrolled
-              ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              : "top-6 left-4.5 lg:top-11.5 lg:left-[35px]"
+            "fixed top-0 left-0 w-full z-50 bg-white",
+            "lg:pl-[35px] pr-8 py-5 flex items-center"
           )}
         >
-          <Title
+          <div
             className={clsx(
-              hasMounted && !isScrolled && animate
-                ? "text-[107px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
-                : "!text-[32px] !lg:text-[44px] transition-all ease-in-out duration-800"
+              "fixed z-50 transition-all duration-700 ease-in-out",
+              hasMounted && !isScrolled
+                ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                : "top-4.5 left-4.5 lg:top-7.5 lg:left-[35px]"
             )}
-          />
+          >
+            <Title
+              className={clsx(
+                hasMounted && !isScrolled && animate
+                  ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
+                  : "!text-[32px] !lg:text-[44px] transition-all ease-in-out duration-800"
+              )}
+            />
+          </div>
+
+          <AnimatePresence>
+            {isScrolled && (
+              <motion.section
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                }}
+                className="ml-auto"
+              >
+                <div className="hidden lg:flex items-center gap-[42px]">
+                  {NavLinks.map((link) => (
+                    <Navlink
+                      key={link.text}
+                      href={link.href}
+                      text={link.text}
+                    />
+                  ))}
+
+                  <Button size="nav">
+                    <span>BOOK A DEMO</span>
+                    <MoveRight />
+                  </Button>
+                </div>
+
+                <button
+                  className="cursor-pointer lg:hidden text-black"
+                  onClick={() => setOpen((prev) => !prev)}
+                >
+                  {!open ? <AlignJustify size={24} /> : <X size={24} />}
+                </button>
+              </motion.section>
+            )}
+          </AnimatePresence>
         </div>
-
-        <AnimatePresence>
-          {isScrolled && (
-            <motion.section
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{
-                duration: 0.5,
-                ease: "easeInOut",
-              }}
-              className="ml-auto"
-            >
-              <div className="hidden lg:flex items-center gap-[42px]">
-                {NavLinks.map((link) => (
-                  <Navlink key={link.text} href={link.href} text={link.text} />
-                ))}
-
-                <Button size="nav">
-                  <span>BOOK A DEMO</span>
-                  <MoveRight />
-                </Button>
-              </div>
-
-              <button className="cursor-pointer lg:hidden">
-                <AlignJustify size={24} color="#000000" />
-              </button>
-            </motion.section>
-          )}
-        </AnimatePresence>
       </div>
-    </div>
+
+      <AnimatePresence>
+        {open && isScrolled && (
+          <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: -0 }}
+            exit={{ opacity: 0, y: -100 }}
+            transition={{ duration: 0.5, ease: "easeInOut", type: "spring" }}
+            className="fixed top-0 bg-white w-full h-screen flex lg:hidden flex-col justify-between pt-32 pb-7 px-5 z-30"
+          >
+            <div className="max-w-fit flex flex-col gap-10">
+              {NavLinks.map((link) => (
+                <Navlink key={link.text} href={link.href} text={link.text} />
+              ))}
+            </div>
+
+            <Button size="nav" className="max-w-[212px]">
+              <span>BOOK A DEMO</span>
+              <MoveRight />
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

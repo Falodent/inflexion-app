@@ -36,7 +36,10 @@ const CoverageMap = () => {
     >
       <div className="px-8 lg:px-0 flex lg:flex-col w-full lg:w-[245px] overflow-x-auto  scrollbar-none gap-5">
         {language.map((item, index) => (
-          <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-6" key={`${item}-${index}`}>
+          <div
+            className="flex flex-col lg:flex-row items-center gap-2 lg:gap-6"
+            key={`${item}-${index}`}
+          >
             <div
               className={clsx(
                 "w-2 h-2 order-3 lg:order-1",
@@ -47,7 +50,7 @@ const CoverageMap = () => {
             <div
               role="button"
               className={clsx(
-                "font-[700] text-2xl leading-[36px] lg:text-[32px] lg:leading-[64px] -tracking-[0.02em] order-2",
+                "font-[700] text-base leading-[20px] xs:text-2xl xs:leading-[36px] lg:text-[32px] lg:leading-[64px] xx:text-[28px] xx:leading-[46px] xl:text-[32px] xl:leading-[64px] -tracking-[0.02em] order-2",
                 active === item
                   ? "text-black-100"
                   : "text-[#03030333] cursor-pointer"
@@ -64,7 +67,7 @@ const CoverageMap = () => {
           onClick={() => setShowMore((prev) => !prev)}
           className="hidden mt-16 ml-8 lg:flex items-center justify-center pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 cursor-pointer"
         >
-          <p className="font-[700] text-[26px] leading-none -tracking-[0.02em] text-center">
+          <p className="font-[700] text-lg xl:text-[26px] leading-none -tracking-[0.02em] text-center">
             {showMore ? "show less" : "and much more"}
           </p>
 

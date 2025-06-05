@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { motion } from "framer-motion";
 
 const Hero = () => {
@@ -8,9 +9,15 @@ const Hero = () => {
       transition={{ duration: 0.7, delay: 1.7, ease: "easeInOut" }}
       className="w-full flex flex-col px-2.5 md:pl-7 md:pr-9 md:pb-16 gap-40 lg:gap-20"
     >
-      <h1 className="w-full max-w-[393px] md:max-w-[650px] xl:max-w-[1233px] uppercase font-[750] text-[52px] leading-[59px] md:text-[80px] md:leading-[89px] xl:text-[150px] xl:leading-[140px] -tracking-[0.05em]">
+      <h1
+        className={clsx(
+          "w-full max-w-[393px] md:max-w-[650px] xx:max-w-[950px] xl:max-w-[1233px] uppercase",
+          "font-[750] text-[43px] xs:text-[48px] leading-[59px] md:text-[80px] md:leading-[89px] xx:text-[120px] xx:leading-[120px] xl:text-[150px] xl:leading-[140px] -tracking-[0.05em]"
+        )}
+      >
         <span className="text-fill pr-4 w-fit">
-          we turn finance audio <span className="hidden md:inline-block">&nbsp;</span> into data
+          we turn finance audio{" "}
+          <span className="hidden md:inline-block">&nbsp;</span> into data
         </span>{" "}
         <span className="-ml-6 lg:-ml-8 text-blue-100">.</span>
       </h1>

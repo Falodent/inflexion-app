@@ -28,7 +28,7 @@ const Services = () => {
         </h4>
       </div>
 
-      <div className="w-full border-y border-grey-200 grid grid-cols-1 lg:grid-cols-3 px-3 xl:px-9">
+      <div className="w-full border-y border-grey-200 grid grid-cols-1 lg:grid-cols-3 md:px-3 xl:px-9">
         {serviceList.map((service: Service) => (
           <Card key={service.id} data={service} />
         ))}

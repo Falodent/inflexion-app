@@ -32,7 +32,7 @@ const Security = ({ isVisible }: { isVisible: boolean }) => {
       )}
     >
       <div className="w-full flex flex-col gap-[34px]">
-        <p className="max-w-[385px] md:max-w-[700px] text-[48px] md:text-[62px] font-[750] leading-[64px] md:pr-2 -tracking-[0.03em] uppercase ">
+        <p className="max-w-[385px] md:max-w-[700px] text-[40px] xs:text-[48px] md:text-[62px] font-[750] leading-[64px] md:pr-2 -tracking-[0.03em] uppercase ">
           SECURITY FIRST. COMPLIANCE BUILT-IN.
         </p>
 
@@ -51,7 +51,7 @@ const Security = ({ isVisible }: { isVisible: boolean }) => {
         {data.map((item) => (
           <div
             key={item.title}
-            className="w-full border border-[#474E5A] rounded-xl flex flex-col gap-[46px] py-10 px-9"
+            className="w-full border border-[#474E5A] rounded-xl flex flex-col gap-[46px] py-10 px-4 sm:px-9"
           >
             {item.icon}
 
@@ -63,7 +63,7 @@ const Security = ({ isVisible }: { isVisible: boolean }) => {
               {item.list.map((unit) => (
                 <li
                   key={unit}
-                  className="text-xl leading-[31px] text-[#FFFFFFCC]"
+                  className="sm:text-xl leading-[31px] text-[#FFFFFFCC]"
                 >
                   {unit}
                 </li>

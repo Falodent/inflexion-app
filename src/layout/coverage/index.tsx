@@ -21,7 +21,7 @@ const Coverage = () => {
 
   return (
     <section className="w-full bg-white pt-32 pb-42 flex flex-col gap-25">
-      <div className="ml-5 xl:ml-32 flex flex-col gap-6 max-w-[375px] lg:max-w-[675px]">
+      <div className="ml-5 xx:ml-14 xl:ml-32 flex flex-col gap-6 max-w-[375px] lg:max-w-[675px]">
         <h3 className="font-[750] text-[50px] leading-[50px] md:text-[62px] -tracking-[0.04em] md:leading-[59px] text-black-100">
           GLOBAL COVERAGE, REAL-TIME
         </h3>
@@ -32,9 +32,9 @@ const Coverage = () => {
         </p>
       </div>
 
-      <div className="flex flex-col gap-25">
+      <div className="flex flex-col gap-13 sm:gap-25">
         <div className="flex flex-col gap-11">
-          <p className="ml-[30px] xl:ml-32 font-[500] text-xl leading-none -tracking-[0.01em] text-[#999999]">
+          <p className="ml-[30px] xx:ml-14 xl:ml-32 font-[500] xs:text-xl leading-none -tracking-[0.01em] text-[#999999]">
             What Others Can&apos;t Do:
           </p>
 

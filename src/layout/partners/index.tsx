@@ -14,7 +14,7 @@ const Partners = () => {
     <div className="w-full pt-50 pb-[70px]">
       <div className="w-full flex flex-col px-4 lg:px-7.5 gap-[120px]">
         <div className="w-full max-w-[350px] md:max-w-[1120px] relative">
-          <span className="text-fill pr-2 font-[700] text-[42px] leading-[52px] lg:text-[62px] lg:leading-[68px] -tracking-[0.03em]">
+          <span className="text-fill pr-2 font-[700] text-2xl leading-[30px] xs:text-[34px] xs:leading-[40px] sm:text-[42px] sm:leading-[52px] lg:text-[62px] lg:leading-[68px] -tracking-[0.03em]">
             When your finance audio is INFLXD, transcripts stream securely in{" "}
             {"<"} 1-second and are edited with a dedicated editorial team to{" "}
             <span

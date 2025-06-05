@@ -17,7 +17,7 @@ const Scroller = () => {
   return (
     <div
       className={clsx(
-        "w-[98%] h-full sticky top-0 overflow-x-auto overflow-y-hidden scrollbar-none"
+        "w-[98%] h-full sticky top-0 overflow-x-auto overflow-y-hidden scrollbar-none scale-70 sm:scale-90 xl:scale-100"
       )}
       style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
     >
