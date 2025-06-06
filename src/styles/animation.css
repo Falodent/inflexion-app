@@ -75,10 +75,7 @@
   background-repeat: no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
-  transition: background-size 0.1s linear;
-  /* animation: textFill forwards linear; */
-  /* animation-timeline: view(y);
-  animation-range: entry 70% contain 50%; */
+  transition: background-size 0.5s linear;
 }
 
 .text-fill-white {
