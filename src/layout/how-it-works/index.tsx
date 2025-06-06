@@ -117,7 +117,7 @@ const HowItWorks = () => {
 
           <motion.div
             ref={horizontalRef}
-            className="h-screen overflow-hidden pointer-events-none mt-10 xx:mt-3 xl:pt-[55px] pb-7 xl:pl-60 relative"
+            className="h-screen overflow-hidden pointer-events-none mt-10 xl:pt-[55px] pb-7 xl:pl-60 relative"
             style={{
               paddingLeft: `calc(8rem - ${rightSideOffset}px)`,
               transition: "padding-left 1s ease-out",

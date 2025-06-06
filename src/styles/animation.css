@@ -72,13 +72,13 @@
 .text-fill {
   color: #03030333;
   background: linear-gradient(45deg, #030303, #030303);
-  background-size: 0% 100%;
   background-repeat: no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
-  animation: textFill forwards linear;
-  animation-timeline: view(y);
-  animation-range: entry 70% contain 50%;
+  transition: background-size 0.1s linear;
+  /* animation: textFill forwards linear; */
+  /* animation-timeline: view(y);
+  animation-range: entry 70% contain 50%; */
 }
 
 .text-fill-white {

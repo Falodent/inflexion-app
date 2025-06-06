@@ -1,3 +1,4 @@
+import { ScrollFillText } from "@/animated/text";
 import Activity from "@/components/activity";
 import Button from "@/components/button";
 import { MoveRight } from "lucide-react";
@@ -6,11 +7,12 @@ const Transform = () => {
   return (
     <div className="w-full flex flex-col gap-10 lg:gap-20 pl-5 xl:px-9">
       <div className="flex flex-col gap-16">
-        <h2 className="max-w-[370px] text-[48px] leading-[56px] md:max-w-200 md:text-[63px] md:leading-[66px] font-[700] -tracking-[0.04em]">
-          <span className="text-fill">
-            Four ways to transform your audio into actionable data
-          </span>
-        </h2>
+        <ScrollFillText
+          containerClassName="max-w-[370px] md:max-w-200"
+          className="text-[48px] leading-[56px]  md:text-[63px] md:leading-[66px] font-[700] -tracking-[0.04em]"
+        >
+          <span>Four ways to transform your audio into actionable data</span>
+        </ScrollFillText>
 
         <Button className="max-w-[292px]">
           <span className="whitespace-nowrap">SCHEDULE YOUR DEMO</span>

@@ -14,12 +14,12 @@ interface Props {
 const PageEntrance = ({
   children,
   className,
-  offsetY = 60,
+  offsetY = 200,
   delay = 0.2,
   duration = 0.6,
 }: Props) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: "-250px" });
+  const inView = useInView(ref, { margin: "-100px 0px" });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -40,7 +40,6 @@ const PageEntrance = ({
     <motion.div
       ref={ref}
       initial={{ y: offsetY, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
       animate={controls}
       className={className}
     >

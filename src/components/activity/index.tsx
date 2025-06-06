@@ -6,6 +6,7 @@ import SectionOne from "./sections/SectionOne";
 import SectionTwo from "./sections/SectionTwo";
 import SectionThree from "./sections/SectionThree";
 import SectionFour from "./sections/SectionFour";
+import clsx from "clsx";
 
 const Activity = () => {
   const [active, setActive] = useState(1);
@@ -78,7 +79,12 @@ const Activity = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen sticky top-0 pt-25 flex items-center justify-center lg:px-4 bg-white">
+    <div
+      className={clsx(
+        "w-full h-screen sm:pt-25 flex items-center justify-center lg:px-4 bg-white",
+        progress === 1 ? "relative" : "sticky top-0"
+      )}
+    >
       <div
         className="w-full h-[550px] grid grid-cols-1 lg:grid-cols-[1fr_660px] xl:grid-cols-2 gap-3 overflow-y-auto scrollbar-none pr-4 lg:pr-0"
         ref={scrollContainerRef}

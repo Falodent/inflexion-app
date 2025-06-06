@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <div className="w-full footer-bg relative">
-      <div className="flex flex-col gap-[190px] lg:gap-[300px] w-full pt-[584px]">
+      <div className="flex flex-col gap-[100px] md:gap-[190px] lg:gap-[300px] w-full pt-[410px] lg:pt-[584px]">
         <div className="relative flex flex-col lg:flex-row items-start gap-14 lg:gap-6 justify-between pl-6 lg:pl-14 lg:pr-20">
           <div className="flex flex-col gap-1 lg:gap-5">
             <p className="font-[500] text-[28px] leading-none -tracking-[0.04em] text-white underline-hover cursor-pointer">
@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full h-[294px] relative">
+        <div className="w-full h-[200px] sm:h-[294px] relative">
           <Image
             src="/assets/svg/footer-logo.svg"
             alt="INFLXD"

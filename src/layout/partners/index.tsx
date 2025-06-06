@@ -1,47 +1,86 @@
+"use client";
+
+import { ScrollFillText } from "@/animated/text";
 import HoverCard from "@/components/hover-card";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Partners = () => {
   const [openHover, setOpenHover] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   const handleMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMobile && openHover) {
+        setOpenHover(false);
+      }
+    };
+
+    if (isMobile && openHover) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [openHover, isMobile]);
 
   return (
     <div className="w-full pt-50 pb-[70px]">
       <div className="w-full flex flex-col px-4 lg:px-7.5 gap-[120px]">
         <div className="w-full max-w-[350px] md:max-w-[1120px] relative">
-          <span className="text-fill pr-2 font-[700] text-2xl leading-[30px] xs:text-[34px] xs:leading-[40px] sm:text-[42px] sm:leading-[52px] lg:text-[62px] lg:leading-[68px] -tracking-[0.03em]">
-            When your finance audio is INFLXD, transcripts stream securely in{" "}
-            {"<"} 1-second and are edited with a dedicated editorial team to{" "}
-            <span
-              className={clsx(
-                "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block lg:h-[77px]",
-                openHover && "bg-blue-500 text-black rounded-lg"
-              )}
-              onMouseEnter={() => setOpenHover(true)}
-              onMouseLeave={() => setOpenHover(false)}
-              onMouseMove={handleMouseMove}
-            >
-              99.9% accuracy{" "}
-              <span className="hidden md:inline-block">within hours</span>
-            </span>{" "}
-            <span
-              className={clsx(
-                "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block md:hidden",
-                openHover && "bg-blue-500 text-black rounded-lg"
-              )}
-              onMouseEnter={() => setOpenHover(true)}
-              onMouseLeave={() => setOpenHover(false)}
-              onMouseMove={handleMouseMove}
-            >
-              within hours
+          <ScrollFillText
+            containerClassName="w-full"
+            className="pr-2 font-[700] text-2xl leading-[30px] xs:text-[34px] xs:leading-[40px] sm:text-[42px] sm:leading-[52px] lg:text-[62px] lg:leading-[68px] -tracking-[0.03em]"
+          >
+            <span>
+              When your finance audio is INFLXD, transcripts stream securely in{" "}
+              {"<"} 1-second and are edited with a dedicated editorial team to{" "}
+              <span
+                className={clsx(
+                  "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block lg:h-[77px]",
+                  openHover && "bg-blue-500 text-black rounded-lg"
+                )}
+                onMouseEnter={() => setOpenHover(true)}
+                onMouseLeave={() => setOpenHover(false)}
+                onTouchStart={(e) => {
+                  setOpenHover(true);
+                  setMousePosition({
+                    x: e.touches[0].clientX,
+                    y: e.touches[0].clientY,
+                  });
+                }}
+                onMouseMove={handleMouseMove}
+              >
+                99.9% accuracy{" "}
+                <span className="hidden md:inline-block">within hours</span>
+              </span>{" "}
+              <span
+                className={clsx(
+                  "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block md:hidden",
+                  openHover && "bg-blue-500 text-black rounded-lg"
+                )}
+                onMouseEnter={() => setOpenHover(true)}
+                onMouseLeave={() => setOpenHover(false)}
+                onTouchStart={(e) => {
+                  setOpenHover(true);
+                  setMousePosition({
+                    x: e.touches[0].clientX,
+                    y: e.touches[0].clientY,
+                  });
+                }}
+              >
+                within hours
+              </span>
+              <br />— not days.
             </span>
-            <br />— not days.
-          </span>
+          </ScrollFillText>
 
           {openHover && (
             <HoverCard
