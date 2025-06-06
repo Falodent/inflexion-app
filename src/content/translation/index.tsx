@@ -38,7 +38,7 @@ export const Translations: Record<string, Props> = {
   Portuguese: {
     text: "O áudio é a fonte de dados mais subutilizada.",
     icon: "portugal.svg",
-    coordinates: "top-52 left-[45%] transform -translate-x-1/2",
+    coordinates: "top-52 left-[48%] transform -translate-x-1/2",
   },
   Korean: {
     text: "오디오는 가장 활용도가 낮은 데이터 소스입니다.",

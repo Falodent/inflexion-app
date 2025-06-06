@@ -40,6 +40,7 @@ const PageEntrance = ({
     <motion.div
       ref={ref}
       initial={{ y: offsetY, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
       animate={controls}
       className={className}
     >

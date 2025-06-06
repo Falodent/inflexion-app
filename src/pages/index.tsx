@@ -34,14 +34,11 @@ const Home = () => {
     const target = sectionRef.current;
     if (!target) return;
 
-    console.log(target);
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.intersectionRatio > 0.2);
-        console.log(entry.intersectionRatio);
+        setIsVisible(entry.intersectionRatio > 0.1);
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     observer.observe(target);
@@ -75,7 +72,7 @@ const Home = () => {
           <InflxdTable />
           <Accuracy />
           <Coverage />
-          <Mission /> 
+          <Mission />
           <FAQ />
           <Carousel />
           <Banner />

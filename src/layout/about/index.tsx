@@ -7,8 +7,8 @@ import Button from "@/components/button";
 const About = () => {
   return (
     <section className="w-full pt-[180px] pl-2.5 pr-7 md:px-8">
-      <div className="w-full max-w-[360px] md:max-w-[600px] xx:max-w-[780px] xl:max-w-[1200px] flex flex-col">
-        <h1 className="font-[700] text-[32px] md:text-[48px] leading-[37px] md:leading-[56px] -tracking-[0.04em] lg:-tracking-[0.03em] pr-2 mb-30">
+      <div className="w-full max-w-[1200px] flex flex-col">
+        <h1 className="max-w-[360px] md:max-w-[600px] xx:max-w-[780px] xl:max-w-[1200px] font-[700] text-[32px] md:text-[48px] leading-[37px] md:leading-[56px] -tracking-[0.04em] lg:-tracking-[0.03em] pr-2 mb-30">
           <span className="text-fill">
             Build transcript libraries at scale without the editorial overhead.
             Real-time transcript to 99.9% human-perfect accuracy. You own the IP

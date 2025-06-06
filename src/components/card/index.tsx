@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import clsx from "clsx";
 
 // types
@@ -8,37 +11,56 @@ interface Props {
 }
 
 const Card = ({ data }: Props) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleEnter = () => setIsHovered(true);
+  const handleLeave = () => setIsHovered(false);
+
   return (
     <div
       className={clsx(
         "group w-full h-[460px] pt-[72px] pb-[66px] pl-5 md:pl-[50px] lg:pl-7 xl:pl-[50px] pr-8 cursor-pointer overflow-hidden",
         data.id !== 2 && "border-x-2 border-grey-200",
-        "hover:bg-black hover:text-white text-black-100 transition-all ease-in-out duration-700",
+        isHovered ? "bg-black text-white" : "text-black-100",
+        "transition-all ease-in-out duration-500",
         "border-b border-grey-200 lg:border-y-none"
       )}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      onTouchStart={handleEnter}
+      onTouchEnd={handleLeave}
     >
-      <div
-        className={clsx(
-          "h-full flex flex-col justify-between gap-20 transition-all duration-500 ease-in-out"
-        )}
-      >
-        <div className="w-[54px] h-[54px] shrink-0">{data.icon}</div>
+      <div className="h-full flex flex-col justify-between gap-20 transition-all duration-500 ease-in-out">
+        <div
+          className={clsx(
+            "w-[54px] h-[54px] shrink-0",
+            isHovered ? "text-white" : "text-black-100"
+          )}
+        >
+          {data.icon}
+        </div>
 
         <div
           className={clsx(
             "flex flex-col gap-12 transform transition-all ease-in-out duration-700",
-            "translate-y-34 group-hover:translate-y-0"
+            isHovered ? "translate-y-0" : "translate-y-34"
           )}
         >
           <h3
             className={clsx(
-              "mt-2 text-2xl xs:text-[32px] lg:text-[26px] xl:text-[32px] font-[700] leading-[120%] transition-all ease-in-out duration-500 max-w-[320px]"
+              "mt-2 text-2xl xs:text-[32px] lg:text-[26px] xl:text-[32px] font-[700] leading-[120%] transition-all ease-in-out duration-500 max-w-[320px]",
+              isHovered ? "text-white" : "text-black-100"
             )}
           >
             {data.title}
           </h3>
 
-          <p className={clsx("text-sm xs:text-lg lg:text-xl leading-[29px] lg:leading-[32px] max-w-[322px] lg:max-w-[380px]")}>
+          <p
+            className={clsx(
+              "text-sm xs:text-lg lg:text-xl leading-[29px] lg:leading-[32px] max-w-[322px] lg:max-w-[380px]",
+              isHovered ? "text-white" : "text-black-100"
+            )}
+          >
             {data.text}
           </p>
         </div>

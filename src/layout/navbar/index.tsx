@@ -51,29 +51,31 @@ const AnimatedLogo = () => {
 
   return (
     <>
-      <div ref={container} className="relative h-[95vh] bg-white">
+      <div ref={container} className="relative h-[82vh] lg:h-[95vh] bg-white">
         <div
           className={clsx(
             "fixed top-0 left-0 w-full z-50 bg-white",
             "lg:pl-[35px] pr-8 py-5 flex items-center"
           )}
         >
-          <div
-            className={clsx(
-              "fixed z-50 transition-all duration-700 ease-in-out",
-              hasMounted && !isScrolled
-                ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                : "top-4.5 left-4.5 lg:top-7.5 lg:left-[35px]"
-            )}
-          >
-            <Title
+          {hasMounted && (
+            <div
               className={clsx(
-                hasMounted && !isScrolled && animate
-                  ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
-                  : "!text-[32px] !lg:text-[44px] transition-all ease-in-out duration-800"
+                "fixed z-50 transition-all duration-700 ease-in-out",
+                hasMounted && !isScrolled
+                  ? "w-full lg:w-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  : "top-4.5 left-4.5 lg:top-7.5 lg:left-[35px]"
               )}
-            />
-          </div>
+            >
+              <Title
+                className={clsx(
+                  hasMounted && !isScrolled && animate
+                    ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
+                    : "!text-[32px] !lg:text-[44px] transition-all ease-in-out duration-800"
+                )}
+              />
+            </div>
+          )}
 
           <AnimatePresence>
             {isScrolled && (

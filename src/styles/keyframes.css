@@ -1,24 +1,53 @@
+@-webkit-keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes slideDown {
   0% {
-    transform: "translateY(-100%)";
-    opacity: "0";
+    transform: translateY(-100%);
+    opacity: 0;
   }
-
   100% {
-    transform: "translateY(0)";
-    opacity: "1";
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
 }
 
 @keyframes slideUp {
   0% {
-    transform: "translateY(0)";
-    opacity: "1";
+    transform: translateY(0);
+    opacity: 1;
   }
-
   100% {
-    transform: "translateY(-100%)";
-    opacity: "0";
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
 
@@ -31,15 +60,36 @@
   }
 }
 
+@-webkit-keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
 @keyframes blink {
   50% {
     border-color: transparent;
   }
 }
 
+@-webkit-keyframes textFill {
+  to {
+    background-size: 100% 100%;
+  }
+}
+
 @keyframes textFill {
   to {
     background-size: 100% 100%;
+  }
+}
+
+@-webkit-keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
@@ -52,6 +102,15 @@
   }
 }
 
+@-webkit-keyframes loop-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 @keyframes loop-reverse {
   0% {
     transform: translateX(-50%);
@@ -61,9 +120,24 @@
   }
 }
 
+@-webkit-keyframes reveal {
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
 @keyframes reveal {
   to {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@-webkit-keyframes smallScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-200px);
   }
 }
 
@@ -73,6 +147,15 @@
   }
   100% {
     transform: translateY(-200px);
+  }
+}
+
+@-webkit-keyframes bigScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-930px);
   }
 }
 

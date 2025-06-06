@@ -30,7 +30,7 @@ const Capacity = () => {
   ];
 
   return (
-    <PageEntrance className="w-full bg-white lg:py-40 px-4 xx:px-8 xl:px-32 flex flex-col items-start gap-20 lg:gap-[120px]">
+    <PageEntrance className="w-full bg-white py-24 lg:py-40 px-4 xx:px-8 xl:px-32 flex flex-col items-start gap-20 lg:gap-[120px]">
       <p className="max-w-[340px] md:max-w-full font-[750] text-[48px] md:text-[62px] xx:text-[56px] xl:text-[62px] leading-[90%] -tracking-[0.02em] uppercase">
         CAPACITY THAT SCALES
       </p>

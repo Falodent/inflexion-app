@@ -82,7 +82,7 @@ const CoverageMap = () => {
 
       <div className="w-full max-w-[900px] h-[557px] relative">
         <Image
-          src="/assets/svg/map.svg"
+          src="/assets/svg/map2.svg"
           alt="Map"
           fill
           className="w-full h-[557px] object-cover px-4 lg:px-0"
@@ -90,7 +90,7 @@ const CoverageMap = () => {
 
         <Image
           src={`/assets/svg/country/${Translations[active]?.icon}`}
-          alt="Country"
+          alt={active}
           width={37}
           height={28}
           className={`absolute ${Translations[active]?.coordinates}`}
