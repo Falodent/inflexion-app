@@ -11,7 +11,7 @@ const Root = () => {
         <path
           d="M0 1L405.33 1L1174 1"
           stroke="#2A71FA"
-          stroke-dasharray="4 4"
+          strokeDasharray="4 4"
         />
       </svg>
     </div>

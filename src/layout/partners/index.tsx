@@ -7,12 +7,34 @@ import { useEffect, useState } from "react";
 
 const Partners = () => {
   const [openHover, setOpenHover] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [cardPosition, setCardPosition] = useState({ x: 0, y: 0 });
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
+  const cardWidth = isMobile ? 262 : 314;
+  const cardHeight = 180; // estimated height of the hover card
+
+  const clampPosition = (x: number, y: number) => {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    let newX = x + 10;
+    let newY = y + 10;
+
+    if (newX + cardWidth > viewportWidth) {
+      newX = viewportWidth - cardWidth - 10;
+    }
+
+    if (newY + cardHeight > viewportHeight) {
+      newY = viewportHeight - cardHeight - 10;
+    }
+
+    return { x: newX, y: newY };
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
-    setMousePosition({ x: e.clientX, y: e.clientY });
+    const { x, y } = clampPosition(e.clientX, e.clientY);
+    setCardPosition({ x, y });
   };
 
   useEffect(() => {
@@ -44,36 +66,38 @@ const Partners = () => {
               {"<"} 1-second and are edited with a dedicated editorial team to{" "}
               <span
                 className={clsx(
-                  "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block lg:h-[77px]",
+                  "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] lg:h-[77px]",
                   openHover && "bg-blue-500 text-black rounded-lg"
                 )}
                 onMouseEnter={() => setOpenHover(true)}
                 onMouseLeave={() => setOpenHover(false)}
                 onTouchStart={(e) => {
+                  const { x, y } = clampPosition(
+                    e.touches[0].clientX,
+                    e.touches[0].clientY
+                  );
+                  setCardPosition({ x, y });
                   setOpenHover(true);
-                  setMousePosition({
-                    x: e.touches[0].clientX,
-                    y: e.touches[0].clientY,
-                  });
                 }}
                 onMouseMove={handleMouseMove}
               >
                 99.9% accuracy{" "}
-                <span className="hidden md:inline-block">within hours</span>
+                <span className="hidden md:inline">within hours</span>
               </span>{" "}
               <span
                 className={clsx(
-                  "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] inline-block md:hidden",
+                  "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] md:hidden",
                   openHover && "bg-blue-500 text-black rounded-lg"
                 )}
                 onMouseEnter={() => setOpenHover(true)}
                 onMouseLeave={() => setOpenHover(false)}
                 onTouchStart={(e) => {
+                  const { x, y } = clampPosition(
+                    e.touches[0].clientX,
+                    e.touches[0].clientY
+                  );
+                  setCardPosition({ x, y });
                   setOpenHover(true);
-                  setMousePosition({
-                    x: e.touches[0].clientX,
-                    y: e.touches[0].clientY,
-                  });
                 }}
               >
                 within hours
@@ -86,9 +110,10 @@ const Partners = () => {
             <HoverCard
               isOpen={openHover}
               position={{
-                top: mousePosition.y + 10,
-                left: mousePosition.x + 10,
+                top: cardPosition.y,
+                left: cardPosition.x,
               }}
+              className="shrink-0 w-[262px] md:w-[314px]"
             >
               <div className="flex flex-col gap-3">
                 <p className="font-[700] leading-[24px] text-white">

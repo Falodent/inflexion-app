@@ -21,7 +21,7 @@ const FaqQuestion = ({ index, q, a }: Props) => {
     >
       <div
         role="button"
-        className="flex items-start gap-4 cursor-pointer"
+        className="flex items-center gap-4 cursor-pointer"
         onClick={() => setIsExpanded((prev) => !prev)}
       >
         <ChevronDown
@@ -33,7 +33,7 @@ const FaqQuestion = ({ index, q, a }: Props) => {
           )}
         />
 
-        <p className="pt-2 font-bold text-[20px] sm:text-[26px] lg:text-[32px] leading-[120%] text-black-100">
+        <p className="font-bold text-[20px] sm:text-[26px] lg:text-[32px] leading-[120%] text-black-100">
           {q}
         </p>
       </div>

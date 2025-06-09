@@ -24,7 +24,7 @@ const Info = ({
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeInOut", delay: delay }}
+      transition={{ duration: 0, ease: "easeInOut", delay: delay }}
       viewport={{ once: true }}
       onViewportEnter={handleEnter}
       className={clsx(

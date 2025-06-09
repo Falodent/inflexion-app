@@ -34,8 +34,8 @@ const BuildingIcon = () => {
         stroke="currentColor"
         strokeWidth="2"
       />
-      <path d="M39.7969 29.5981V52.4608" stroke="currentColor" stroke-width="2" />
-      <path d="M28.5859 40.8052H51.4486" stroke="currentColor" stroke-width="2" />
+      <path d="M39.7969 29.5981V52.4608" stroke="currentColor" strokeWidth="2" />
+      <path d="M28.5859 40.8052H51.4486" stroke="currentColor" strokeWidth="2" />
     </svg>
   );
 };

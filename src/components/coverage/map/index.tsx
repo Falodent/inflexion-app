@@ -1,14 +1,14 @@
 import Translation from "@/components/translation";
 import { Translations } from "@/content/translation";
 import clsx from "clsx";
-import { ChevronDown } from "lucide-react";
+// import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
 const CoverageMap = () => {
   const [active, setActive] = useState("Mandarin");
-  const [showMore, setShowMore] = useState(false);
+  // const [showMore, setShowMore] = useState(false);
 
   const baseLanguages = [
     "Japanese",
@@ -21,11 +21,9 @@ const CoverageMap = () => {
     "Korean",
   ];
 
-  const moreLanguages = ["Spanish", "French"];
+  // const moreLanguages = ["Spanish", "French"];
 
-  const language = showMore
-    ? [...baseLanguages, ...moreLanguages]
-    : baseLanguages;
+  const language = baseLanguages;
 
   return (
     <motion.section
@@ -50,7 +48,7 @@ const CoverageMap = () => {
             <div
               role="button"
               className={clsx(
-                "font-[700] text-base leading-[20px] xs:text-2xl xs:leading-[36px] lg:text-[32px] lg:leading-[64px] xx:text-[28px] xx:leading-[46px] xl:text-[32px] xl:leading-[64px] -tracking-[0.02em] order-2",
+                "font-[700] text-base leading-[20px] xs:text-2xl xs:leading-[36px] lg:text-[32px] lg:leading-[54px] xx:text-[28px] xx:leading-[46px] xl:text-[32px] xl:leading-[54px] -tracking-[0.02em] order-2",
                 active === item
                   ? "text-black-100"
                   : "text-[#03030333] cursor-pointer"
@@ -63,6 +61,17 @@ const CoverageMap = () => {
         ))}
 
         <div
+          role="button"
+          className={clsx(
+            "font-[700] text-base leading-[20px] xs:text-2xl xs:leading-[36px] lg:text-[32px] lg:leading-[54px] xx:text-[28px] xx:leading-[46px] xl:text-[32px] xl:leading-[54px] -tracking-[0.02em] order-2",
+            "text-[#03030333]",
+            "hidden lg:flex"
+          )}
+        >
+          And much more
+        </div>
+
+        {/* <div
           role="button"
           onClick={() => setShowMore((prev) => !prev)}
           className="hidden mt-16 ml-8 lg:flex items-center justify-center pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 cursor-pointer"
@@ -77,15 +86,15 @@ const CoverageMap = () => {
           >
             <ChevronDown size={24} />
           </motion.div>
-        </div>
+        </div> */}
       </div>
 
-      <div className="w-full max-w-[900px] h-[557px] relative">
+      <div className="w-full max-w-[900px] h-[420px] md:h-[557px] relative">
         <Image
           src="/assets/svg/map2.svg"
           alt="Map"
           fill
-          className="w-full h-[557px] object-cover px-4 lg:px-0"
+          className="w-full h-[420px] md:h-[557px] object-cover px-4 lg:px-0"
         />
 
         <Image

@@ -3,88 +3,97 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-// components
 import Scroller from "@/components/scroller";
 import SideInfo from "@/components/side-info";
 import ScrollProgress from "@/components/scroll-progress";
-import clsx from "clsx";
 import { useScrollingStore } from "@/store/useScrollingStore";
 
 const HowItWorks = () => {
   const { setIsComplete } = useScrollingStore();
 
   const [scrollProgress, setScrollProgress] = useState(0);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const horizontalRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [hideLeft, setHideLeft] = useState(false);
   const [rightSideOffset, setRightSideOffset] = useState(0);
+  const [containerHeight, setContainerHeight] = useState(5000);
 
+  const scrollFactor = 0.3; // consistent with scroll logic
+
+  // Measure scrollable width and update height accordingly
   useEffect(() => {
-    const container = scrollContainerRef.current;
     const horizontal = horizontalRef.current;
+    const container = containerRef.current;
 
-    if (!container || !horizontal) return;
+    if (!horizontal || !container) return;
 
+    const scrollableWidth = horizontal.scrollWidth - horizontal.clientWidth;
+    const dynamicHeight =
+      scrollableWidth / scrollFactor + window.innerHeight;
+
+    setContainerHeight(dynamicHeight - 1000);
+  }, []);
+
+  // Handle scroll syncing
+  useEffect(() => {
     const handleScroll = () => {
-      const top = container.getBoundingClientRect().top;
-      const scrollTop = container.scrollTop;
+      const container = containerRef.current;
+      const horizontal = horizontalRef.current;
+      if (!container || !horizontal) return;
 
-      if (top <= 120) {
-        horizontal.scrollLeft = scrollTop;
-      } else {
-        container.scrollIntoView({ behavior: "smooth" });
-        container.scrollTo({ top: 0 });
+      const containerTop =
+        container.getBoundingClientRect().top + window.scrollY;
+      const scrollTop = window.scrollY;
+      const relativeScroll = scrollTop - containerTop;
+
+      if (
+        scrollTop >= containerTop &&
+        scrollTop < containerTop + container.offsetHeight - window.innerHeight
+      ) {
+        horizontal.scrollLeft = relativeScroll * scrollFactor;
       }
 
-      setHideLeft(scrollTop > 50);
+      setHideLeft(relativeScroll > 50);
 
-      if (scrollTop > 30) {
+      if (relativeScroll > 30) {
         const maxOffset = 128;
-        const offset = Math.min(maxOffset, (scrollTop - 30) * 2);
+        const offset = Math.min(maxOffset, (relativeScroll - 30) * 2);
         setRightSideOffset(offset);
       } else {
         setRightSideOffset(0);
       }
 
-      const progress =
-        scrollTop / (container.scrollHeight - container.clientHeight);
+      const progress = Math.min(
+        1,
+        relativeScroll / (container.offsetHeight - window.innerHeight)
+      );
       setScrollProgress(progress);
     };
 
-    container.addEventListener("scroll", handleScroll);
-    return () => {
-      container.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    const container = scrollContainerRef.current;
+    const container = containerRef.current;
+    if (!container) return;
 
-    if (container) {
-      const top = container.getBoundingClientRect().top;
+    const containerTop = container.getBoundingClientRect().top + window.scrollY;
+    const scrollTop = window.scrollY;
 
-      if (top <= 120) {
-        if (scrollProgress === 1) {
-          setIsComplete(true);
-          return;
-        }
-
-        setIsComplete(false);
-      }
+    if (scrollTop >= containerTop) {
+      setIsComplete(scrollProgress >= 0.95);
     }
   }, [scrollProgress, setIsComplete]);
 
   useEffect(() => {
-    const containerWrapper = scrollContainerRef.current?.parentElement;
-    if (!containerWrapper) return;
+    const container = containerRef.current;
+    if (!container) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
-          containerWrapper.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       },
       {
@@ -93,22 +102,27 @@ const HowItWorks = () => {
       }
     );
 
-    observer.observe(containerWrapper);
+    observer.observe(container);
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div
-      ref={scrollContainerRef}
-      className={clsx(
-        "w-full h-screen overflow-y-scroll overflow-x-hidden top-0 scrollbar-none sticky"
-      )}
-    >
-      <div className="relative h-[4400px] sm:h-[3750px] xl:h-[3730px]">
+    <div ref={containerRef} className="relative w-full">
+      <div className="relative" style={{ height: `${containerHeight}px` }}>
         <section className="sticky top-0 h-screen pl-8 flex flex-col lg:flex-row overflow-hidden">
           <AnimatePresence mode="wait">
-            {!hideLeft && <SideInfo />}
+            {!hideLeft && (
+              <motion.div
+                key="sideinfo"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
+                <SideInfo displayed={!hideLeft} />
+              </motion.div>
+            )}
 
             {hideLeft && scrollProgress !== 1 && (
               <ScrollProgress progress={scrollProgress} />
@@ -125,7 +139,7 @@ const HowItWorks = () => {
           >
             <div
               className="flex items-center h-full w-[4300px] lg:w-[4650px]"
-              style={{  pointerEvents: "auto" }}
+              style={{ pointerEvents: "auto" }}
             >
               <Scroller />
             </div>

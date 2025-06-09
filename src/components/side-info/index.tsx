@@ -2,24 +2,24 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
 
-const SideInfo = () => {
+const SideInfo = ({ displayed }: { displayed: boolean }) => {
   return (
     <motion.div
-      key="left-content"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={false}
+      animate={{
+        opacity: displayed ? 1 : 0,
+        x: displayed ? 0 : -100,
+      }}
       transition={{
-        duration: 0.3,
+        duration: 0.4,
         ease: "easeInOut",
-        type: "spring",
       }}
       className={clsx(
         "w-[476px] shrink-0 flex items-start justify-start transition-all ease-in-out duration-500 relative"
       )}
     >
-      <motion.div className="h-full flex flex-col items-start justify-between py-20 md:py-[140px]">
-        <div className="flex flex-col items-start gap-12">
+      <div className="h-full flex flex-col items-start justify-between py-20 md:py-[140px]">
+        <div className="pt-2 flex flex-col items-start gap-4 md:gap-12">
           <h5 className="font-jetbrains leading-none uppercase tracking-[0.01em] text-blue-100">
             How it works
           </h5>
@@ -39,7 +39,7 @@ const SideInfo = () => {
         >
           <MoveRight size={24} />
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

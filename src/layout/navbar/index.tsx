@@ -3,33 +3,44 @@
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import Title from "@/components/title";
-import { NavLinks } from "@/content/navbar";
-import Navlink from "@/components/navlink";
+// import { NavLinks } from "@/content/navbar";
+// import Navlink from "@/components/navlink";
 import Button from "@/components/button";
 import { AlignJustify, MoveRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import useScrollSpeed from "@/helpers/useScrollSpeed";
 
 const AnimatedLogo = () => {
   const container = useRef<HTMLDivElement>(null);
+  const scrollSpeed = useScrollSpeed();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
   const [open, setOpen] = useState(false);
+  const [titleOpacity, setTitleOpacity] = useState(1);
 
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    const alreadyScrolled = window.scrollY > 100;
+    const alreadyScrolled = window.scrollY > 70;
     setIsScrolled(alreadyScrolled);
     setHasMounted(true);
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      setIsScrolled(window.scrollY > 110);
+
+      const scrollY = window.scrollY;
+
+      if (scrollY > 100 && scrollY < 850 && scrollSpeed > 250) {
+        setTitleOpacity(0.4);
+      } else {
+        setTitleOpacity(1);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [scrollSpeed]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,18 +73,25 @@ const AnimatedLogo = () => {
             <div
               className={clsx(
                 "fixed z-50 transition-all duration-700 ease-in-out",
-                hasMounted && !isScrolled
+                hasMounted && !isScrolled && animate
                   ? "w-full lg:w-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   : "top-4.5 left-4.5 lg:top-7.5 lg:left-[35px]"
               )}
             >
-              <Title
-                className={clsx(
-                  hasMounted && !isScrolled && animate
-                    ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
-                    : "!text-[32px] !lg:text-[44px] transition-all ease-in-out duration-800"
-                )}
-              />
+              <div
+                style={{
+                  opacity: titleOpacity,
+                  transition: "opacity 0.5s ease-in-out",
+                }}
+              >
+                <Title
+                  className={clsx(
+                    hasMounted && !isScrolled && animate
+                      ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
+                      : "!text-[32px] !lg:text-[44px] transition-all ease-in-out duration-800"
+                  )}
+                />
+              </div>
             </div>
           )}
 
@@ -90,13 +108,13 @@ const AnimatedLogo = () => {
                 className="ml-auto"
               >
                 <div className="hidden lg:flex items-center gap-[42px]">
-                  {NavLinks.map((link) => (
+                  {/* {NavLinks.map((link) => (
                     <Navlink
                       key={link.text}
                       href={link.href}
                       text={link.text}
                     />
-                  ))}
+                  ))} */}
 
                   <Button size="nav">
                     <span>BOOK A DEMO</span>
@@ -125,11 +143,11 @@ const AnimatedLogo = () => {
             transition={{ duration: 0.5, ease: "easeInOut", type: "spring" }}
             className="fixed top-0 bg-white w-full h-screen flex lg:hidden flex-col justify-between pt-32 pb-7 px-5 z-30"
           >
-            <div className="max-w-fit flex flex-col gap-10">
+            {/* <div className="max-w-fit flex flex-col gap-10">
               {NavLinks.map((link) => (
                 <Navlink key={link.text} href={link.href} text={link.text} />
               ))}
-            </div>
+            </div> */}
 
             <Button size="nav" className="max-w-[212px]">
               <span>BOOK A DEMO</span>

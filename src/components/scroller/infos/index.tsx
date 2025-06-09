@@ -31,7 +31,7 @@ const Infos = () => {
         <Info
           position="top-32 left-[410px]"
           dropPosition="-bottom-25"
-          delay={0.8}
+          delay={0.6}
           title="Finance Metadata"
           content="Identifies tickers, executives, products, and financial figures instantly"
           handleEnter={() => setShowThree(true)}
@@ -43,7 +43,7 @@ const Infos = () => {
       {showThree && (
         <Info
           position="top-[50%] transform -translate-y-[50%] left-[485px]"
-          delay={1.3}
+          delay={1.1}
           title="Speaker Attribution"
           content="Names, titles, and roles tagged automatically while staying GDPR compliant voice fingerprinting"
           handleEnter={() => setShowFour(true)}
@@ -56,7 +56,7 @@ const Infos = () => {
         <Info
           position="bottom-30 left-[430px]"
           dropPosition="top-0"
-          delay={1.8}
+          delay={1.6}
           title="Contextual Processing"
           content={`EBITDA isn't "a bit da" - our AI knows finance terminology`}
           handleEnter={() => setShowFive(true)}
@@ -69,7 +69,7 @@ const Infos = () => {
         <Info
           position="-bottom-8 left-[345px]"
           dropPosition="-top-24"
-          delay={2.3}
+          delay={2}
           title="Live Glossary"
           content="Continuously updated dictionaries for industry jargon and emerging terms"
         >
