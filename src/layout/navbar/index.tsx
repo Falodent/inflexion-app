@@ -75,8 +75,8 @@ const AnimatedLogo = () => {
                       opacity: titleOpacity,
                     }
                   : {
-                      top: "18px",
-                      left: "24px",
+                      top: "30px",
+                      left: "32px",
                       x: 0,
                       y: 0,
                       opacity: titleOpacity,
