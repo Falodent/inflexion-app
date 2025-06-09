@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import Title from "@/components/title";
-// import { NavLinks } from "@/content/navbar";
-// import Navlink from "@/components/navlink";
 import Button from "@/components/button";
 import { AlignJustify, MoveRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -18,7 +16,6 @@ const AnimatedLogo = () => {
   const [hasMounted, setHasMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [titleOpacity, setTitleOpacity] = useState(1);
-
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -27,11 +24,10 @@ const AnimatedLogo = () => {
     setHasMounted(true);
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 110);
-
       const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 110);
 
-      if (scrollY > 100 && scrollY < 850 && scrollSpeed > 250) {
+      if (scrollY > 100 && scrollY < 1000 && scrollSpeed > 250) {
         setTitleOpacity(0.4);
       } else {
         setTitleOpacity(1);
@@ -44,12 +40,8 @@ const AnimatedLogo = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setAnimate(entry.isIntersecting);
-      },
-      {
-        threshold: 0.8,
-      }
+      ([entry]) => setAnimate(entry.isIntersecting),
+      { threshold: 0.8 }
     );
 
     const target = container.current;
@@ -70,29 +62,40 @@ const AnimatedLogo = () => {
           )}
         >
           {hasMounted && (
-            <div
-              className={clsx(
-                "fixed z-50 transition-all duration-700 ease-in-out",
+            <motion.div
+              className="fixed z-50"
+              initial={false}
+              animate={
                 hasMounted && !isScrolled && animate
-                  ? "w-full lg:w-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                  : "top-4.5 left-4.5 lg:top-7.5 lg:left-[35px]"
-              )}
+                  ? {
+                      top: "50%",
+                      left: "50%",
+                      x: "-50%",
+                      y: "-50%",
+                      opacity: titleOpacity,
+                    }
+                  : {
+                      top: "18px",
+                      left: "24px",
+                      x: 0,
+                      y: 0,
+                      opacity: titleOpacity,
+                    }
+              }
+              transition={{
+                duration: 0.6,
+                ease: [0.25, 0.1, 0.25, 1], // ease-in-out
+              }}
+              style={{ transformOrigin: "top left" }}
             >
-              <div
-                style={{
-                  opacity: titleOpacity,
-                  transition: "opacity 0.5s ease-in-out",
-                }}
-              >
-                <Title
-                  className={clsx(
-                    hasMounted && !isScrolled && animate
-                      ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
-                      : "!text-[32px] !lg:text-[44px] transition-all ease-in-out duration-800"
-                  )}
-                />
-              </div>
-            </div>
+              <Title
+                className={clsx(
+                  hasMounted && !isScrolled && animate
+                    ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
+                    : "!text-[32px] !lg:text-[44px]"
+                )}
+              />
+            </motion.div>
           )}
 
           <AnimatePresence>
@@ -101,21 +104,10 @@ const AnimatedLogo = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="ml-auto"
               >
                 <div className="hidden lg:flex items-center gap-[42px]">
-                  {/* {NavLinks.map((link) => (
-                    <Navlink
-                      key={link.text}
-                      href={link.href}
-                      text={link.text}
-                    />
-                  ))} */}
-
                   <Button size="nav">
                     <span>BOOK A DEMO</span>
                     <MoveRight />
@@ -138,17 +130,11 @@ const AnimatedLogo = () => {
         {open && isScrolled && (
           <motion.div
             initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: -0 }}
+            animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}
             transition={{ duration: 0.5, ease: "easeInOut", type: "spring" }}
             className="fixed top-0 bg-white w-full h-screen flex lg:hidden flex-col justify-between pt-32 pb-7 px-5 z-30"
           >
-            {/* <div className="max-w-fit flex flex-col gap-10">
-              {NavLinks.map((link) => (
-                <Navlink key={link.text} href={link.href} text={link.text} />
-              ))}
-            </div> */}
-
             <Button size="nav" className="max-w-[212px]">
               <span>BOOK A DEMO</span>
               <MoveRight />
