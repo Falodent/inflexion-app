@@ -60,7 +60,7 @@ const Scroller = () => {
           <Infos />
 
           <Move className="w-[480px] flex flex-col gap-4.5 shrink-0 absolute top-0 left-[745px]">
-            <h3 className="h-[190px] font-[750] text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black">
+            <h3 className="max-w-[280px] md:max-w-full h-[190px] font-[750] text-[32px] md:text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black">
               We don&apos;t just transcribe, we understand
             </h3>
           </Move>

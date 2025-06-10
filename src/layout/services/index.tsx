@@ -5,11 +5,18 @@ import Clients from "@/components/partners";
 
 // content
 import { serviceList } from "@/content/services";
+import { useIsMobile } from "@/helpers/useIsMobile";
 
 // types
 import { Service } from "@/types/service";
+import { useState } from "react";
 
 const Services = () => {
+  const isMobile = useIsMobile();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(
+    isMobile ? 0 : null
+  );
+
   return (
     <section className="w-full pt-30 flex flex-col gap-30 lg:gap-[220px]">
       <Clients />
@@ -31,8 +38,22 @@ const Services = () => {
       </div>
 
       <div className="w-full border-y border-grey-200 grid grid-cols-1 lg:grid-cols-3 md:px-3 xl:px-9">
-        {serviceList.map((service: Service) => (
-          <Card key={service.id} data={service} />
+        {serviceList.map((service: Service, index) => (
+          <div
+            key={service.id}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <Card
+              key={service.id}
+              data={service}
+              isHovered={
+                isMobile && hoveredIndex === null
+                  ? index === 0
+                  : hoveredIndex === index
+              }
+            />
+          </div>
         ))}
       </div>
     </section>

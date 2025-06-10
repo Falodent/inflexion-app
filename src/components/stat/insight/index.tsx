@@ -125,34 +125,34 @@ const InsightCounter = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full flex flex-col lg:grid lg:grid-cols-2 xl:flex xl:flex-row items-start gap-11 xl:gap-4 lg:justify-between"
+      className="w-full flex flex-col lg:grid lg:grid-cols-2 xl:flex xl:flex-row items-start gap-20 md:gap-11 xl:gap-4 lg:justify-between"
     >
       <Stat
         figure={`${accuracy.toLocaleString("en-GB")}+`}
         title="Companies in our finance dictionary"
         color="text-white"
-        subcolor="text-white/70 max-w-[270px] text-xl"
+        subcolor="text-white/70 max-w-[270px] text-base xs:text-xl"
       />
 
       <Stat
         figure={`< ${timer} %`}
         title="Acceptance rate for finance editorial team"
         color="text-white"
-        subcolor="text-white/70 max-w-[270px] text-xl"
+        subcolor="text-white/70 max-w-[270px] text-base xs:text-xl"
       />
 
       <Stat
         figure={`$${formattedFigure === "1B" ? "B" : formattedFigure}+`}
         title="Financial institutions we serve"
         color="text-white"
-        subcolor="text-white/70 max-w-[270px] text-xl"
+        subcolor="text-white/70 max-w-[270px] text-base xs:text-xl"
       />
 
       <Stat
         figure={`${formattedMinute === "1.0M" ? "Million" : formattedMinute}+`}
         title="Minutes transcribed annually"
         color="text-white"
-        subcolor="text-white/70 max-w-[270px] text-xl"
+        subcolor="text-white/70 max-w-[270px] text-base xs:text-xl"
       />
     </div>
   );

@@ -89,7 +89,7 @@ const Tabs = ({ content, tabs, order = 1, setProgress }: Props) => {
           return (
             <div
               key={tab}
-              className="w-[240px] flex flex-col gap-3 items-start relative"
+              className="w-[200px] md:w-[240px] flex flex-col gap-1 md:gap-3 items-start relative"
             >
               {isCenter && content[actualIndex] && (
                 <motion.p
@@ -97,7 +97,7 @@ const Tabs = ({ content, tabs, order = 1, setProgress }: Props) => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="max-w-[210px] h-[100px] text-lg leading-[130%] text-black text-start"
+                  className="max-w-[210px] h-[100px] md:text-lg leading-[130%] text-black text-start"
                   style={{ order }}
                 >
                   {content[actualIndex]}

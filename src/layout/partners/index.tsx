@@ -66,7 +66,7 @@ const Partners = () => {
               {"<"} 1-second and are edited with a dedicated editorial team to{" "}
               <span
                 className={clsx(
-                  "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] lg:h-[77px]",
+                  "cursor-pointer transition-all ease-in-out duration-500 border-b-2 lg:border-b-4 border-dashed border-[#BDBDBD] lg:h-[77px]",
                   openHover && "bg-blue-500 text-black rounded-lg"
                 )}
                 onMouseEnter={() => setOpenHover(true)}
@@ -86,7 +86,7 @@ const Partners = () => {
               </span>{" "}
               <span
                 className={clsx(
-                  "cursor-pointer transition-all ease-in-out duration-500 border-b-4 border-dashed border-[#BDBDBD] md:hidden",
+                  "cursor-pointer transition-all ease-in-out duration-500 border-b-2 lg:border-b-4 border-dashed border-[#BDBDBD] md:hidden",
                   openHover && "bg-blue-500 text-black rounded-lg"
                 )}
                 onMouseEnter={() => setOpenHover(true)}

@@ -1,8 +1,9 @@
 import Button from "@/components/button";
 import PageEntrance from "@/components/entrance";
 import { MoveRight } from "lucide-react";
+import Link from "next/link";
 
-const Banner = () => {
+const Banner = ({ handleClick }: { handleClick: () => void }) => {
   return (
     <PageEntrance className="pt-12 sm:pt-32 pb-[25px] flex items-center justify-center w-full">
       <div className="w-full max-w-[420px] lg:max-w-[1180px] flex flex-col items-center gap-10 md:gap-20">
@@ -17,15 +18,17 @@ const Banner = () => {
         </p>
 
         <div className="max-w-[525px] flex flex-col md:flex-row items-center gap-7">
-          <Button className="w-[230px]">
+          <Button className="w-[230px]" handleClick={handleClick}>
             <span>BOOK A DEMO</span>
             <MoveRight />
           </Button>
 
-          <Button variant="secondary" className="w-[270px]">
-            <span>SEE HOW IT WORKS</span>
-            <MoveRight />
-          </Button>
+          <Link href="/#how-it-works">
+            <Button variant="secondary" className="w-[270px]">
+              <span>SEE HOW IT WORKS</span>
+              <MoveRight />
+            </Button>
+          </Link>
         </div>
       </div>
     </PageEntrance>

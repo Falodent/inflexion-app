@@ -22,7 +22,6 @@
 
 .translating {
   display: inline-block;
-  white-space: nowrap;
   overflow: hidden;
   justify-content: start;
   animation: typing 1.5s steps(40, end) forwards;
@@ -75,7 +74,7 @@
   background-repeat: no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
-  transition: background-size 0.5s linear;
+  transition: background-size 0.1s linear;
 }
 
 .text-fill-white {

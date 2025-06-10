@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const InflxdTable = () => {
   return (
-    <PageEntrance className="w-full bg-white py-20 lg:py-40 px-4 lg:px-32 flex flex-col gap-[80px]">
-      <div className="flex flex-col gap-[50px]">
-        <p className="max-w-[380px] md:max-w-full font-[750] text-[45px] sm:text-[53px] leading-[54px] md:text-[62px] md:leading-[90%] -tracking-[0.02em] uppercase">
+    <PageEntrance className="w-full bg-white py-20 lg:py-40 pl-4 lg:px-32 flex flex-col gap-[80px]">
+      <div className="flex flex-col gap-[50px] pr-4 lg:pr-0">
+        <p className="max-w-[380px] md:max-w-full font-[750] text-[36px] leading-[42px] xs:text-[45px] sm:text-[53px] xs:leading-[54px] md:text-[62px] md:leading-[90%] -tracking-[0.02em] uppercase">
           Your Audio. <br />
           Your Transcripts. <br />
           Your IP. Forever.
@@ -30,12 +30,12 @@ const InflxdTable = () => {
         </div>
       </div>
 
-      <PageEntrance className="flex flex-col mt-10 gap-[46px]">
+      <PageEntrance className="flex flex-col mt-10 gap-[46px] pr-4 lg:pr-0">
         <p className="font-[500] text-xl -tracking-[0.01em] text-black">
           What this means:
         </p>
 
-        <p className="max-w-[325px] md:max-w-[970px] text-[32px] md:text-[40px] leading-[48px] font-[500] -tracking-[0.03em]">
+        <p className="max-w-[325px] md:max-w-[970px] text-[32px] leading-[40px] md:text-[40px] md:leading-[48px] font-[500] -tracking-[0.03em]">
           You own 100% of all transcripts and can use them however you want —
           build products, train AI models, resell to clients, create new revenue
           streams.

@@ -14,7 +14,7 @@ const Stat = ({
   return (
     <div className="w-full max-w-[350px] flex flex-col gap-7 ">
       <h3
-        className={`font-[500] text-[73px] xs:text-[80px] leading-none -tracking-[0.05em] lg:-tracking-[0.03em] ${color}`}
+        className={`font-[500] text-[65px] xs:text-[80px] leading-none -tracking-[0.05em] lg:-tracking-[0.03em] ${color}`}
       >
         {figure}
       </h3>

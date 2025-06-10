@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { MoveRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const Accuracy = () => {
+const Accuracy = ({ handleClick }: { handleClick: () => void }) => {
   const scrollContainer = useRef<HTMLDivElement>(null);
   const [hover, setHover] = useState(false);
 
@@ -30,23 +30,33 @@ const Accuracy = () => {
   }, []);
 
   return (
-    <div ref={scrollContainer} className="w-full bg-white px-4 lg:px-8 py-16 sm:py-32">
-      <div className="w-full sm:min-h-[595px] pb-[52px] pt-[52px] sm:pt-[113px] flex flex-col gap-[120px] bg-black-100 rounded-3xl">
-        <div className="font-[700] text-white text-[42px] md:text-[64px] lg:text-[80px] leading-none -tracking-[0.04em]">
-          <p className={clsx("pl-[30px] xl:pl-[82px] w-full", bordered)}>
+    <div
+      ref={scrollContainer}
+      className="w-full bg-white px-4 lg:px-8 py-16 sm:py-32"
+    >
+      <div className="w-full sm:min-h-[595px] pb-[52px] pt-[52px] sm:pt-[113px] flex flex-col gap-20 xs:gap-[120px] bg-black-100 rounded-3xl">
+        <div className="font-[700] text-white text-[36px] xs:text-[42px] md:text-[64px] lg:text-[80px] leading-none -tracking-[0.04em]">
+          <p
+            className={clsx("pl-4 xs:pl-[30px] xl:pl-[82px] w-full", bordered)}
+          >
             When accuracy <span className="hidden lg:inline">drives</span>
           </p>
 
           <p
             className={clsx(
-              "lg:hidden pl-[30px] xl:pl-[82px] w-full",
+              "lg:hidden pl-4 xs:pl-[30px] xl:pl-[82px] w-full",
               bordered
             )}
           >
             drives alpha,
           </p>
 
-          <p className={clsx("pl-[30px] xl:pl-[82px] w-full my-1", bordered)}>
+          <p
+            className={clsx(
+              "pl-4 xs:pl-[30px] xl:pl-[82px] w-full my-1",
+              bordered
+            )}
+          >
             <span className="hidden lg:inline">alpha,</span>{" "}
             <span
               className={clsx(
@@ -61,7 +71,12 @@ const Accuracy = () => {
             </span>
           </p>
 
-          <p className={clsx("pl-[30px] xl:pl-[82px] w-full my-1", bordered)}>
+          <p
+            className={clsx(
+              "pl-4 xs:pl-[30px] xl:pl-[82px] w-full my-1",
+              bordered
+            )}
+          >
             <span
               className={clsx(
                 "relative inline-flex",
@@ -80,7 +95,7 @@ const Accuracy = () => {
 
           <p
             className={clsx(
-              "lg:hidden pl-[30px] xl:pl-[82px] w-full",
+              "lg:hidden pl-4 xs:pl-[30px] xl:pl-[82px] w-full",
               bordered
             )}
           >
@@ -99,7 +114,7 @@ const Accuracy = () => {
         </div>
 
         <div className="mr-5 sm:mr-[52px] ml-auto max-w-[232px]">
-          <Button className="hover:!text-white">
+          <Button className="hover:!text-white" handleClick={handleClick}>
             <span>BOOK A DEMO</span>
             <MoveRight />
           </Button>

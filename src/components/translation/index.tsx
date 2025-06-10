@@ -1,3 +1,5 @@
+import { useIsMobile } from "@/helpers/useIsMobile";
+import clsx from "clsx";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -7,14 +9,21 @@ interface Props {
 
 const Translation = ({ text }: Props) => {
   const [animationKey, setAnimationKey] = useState(0);
+  const isMobile = useIsMobile(388);
 
   useEffect(() => {
     setAnimationKey((prev) => prev + 1);
   }, [text]);
 
   return (
-    <div className="absolute bottom-4 lg:bottom-0 left-4 lg:left-24 flex flex-col gap-5 text-black-100">
-      <div className="translating" key={animationKey}>
+    <div className="absolute bottom-4 lg:bottom-0 left-2 sm:left-4 lg:left-24 flex flex-col gap-5 text-black-100">
+      <div
+        className={clsx(
+          "break-words xs:whitespace-nowrap",
+          !isMobile && "translating"
+        )}
+        key={animationKey}
+      >
         <p className="font-[700] sm:text-lg md:text-[32px] lg:text-2xl xl:text-[32px] md:leading-[40px] -tracking-[0.02em]">
           {text}
         </p>

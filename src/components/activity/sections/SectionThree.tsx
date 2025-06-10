@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const SectionThree = () => {
   return (
@@ -10,14 +9,18 @@ const SectionThree = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="w-full h-[350px] flex items-center justify-center relative"
     >
-      <Image
-        src="/assets/svg/human.svg"
-        alt="Human"
-        fill
-        sizes="100%"
-        className="w-full h-full object-contain"
-        quality={100}
-      />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="w-full h-auto object-cover"
+      >
+        <source src="/assets/video/draft.mp4" type="video/mp4" />
+        <source src="/assets/video/draft.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
     </motion.div>
   );
 };

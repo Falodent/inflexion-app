@@ -16,7 +16,7 @@ const Process = () => {
 
   return (
     <div className="w-[360px] flex flex-col gap-4.5 shrink-0 absolute top-0 -right-17">
-      <Move className="h-[190px] font-[750] text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black">
+      <Move className="max-w-[280px] md:max-w-full h-[190px] font-[750] text-[32px] md:text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black">
         We enhance before we process
       </Move>
 

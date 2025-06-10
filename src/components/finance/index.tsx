@@ -17,7 +17,7 @@ const Finance = () => {
 
   return (
     <div className="w-[545px] flex flex-col shrink-0 absolute top-0 left-[1500px]">
-      <Move className="h-[190px] font-[750] text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black -ml-16">
+      <Move className="max-w-[280px] md:max-w-full h-[190px] font-[750] text-[32px] md:text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black -ml-16">
         Finance Editorial Team. Not Generic Transcribers
       </Move>
 

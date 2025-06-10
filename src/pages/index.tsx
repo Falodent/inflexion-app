@@ -23,12 +23,15 @@ import Carousel from "@/layout/carousel";
 import Banner from "@/layout/banner";
 import Footer from "@/layout/footer";
 import { useEffect, useRef, useState } from "react";
+import GetInTouch from "@/components/modal/get-in-touch";
 
 const Home = () => {
   const { isComplete } = useScrollingStore();
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const target = sectionRef.current;
@@ -50,32 +53,39 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      <GetInTouch
+        isOpen={open}
+        handleClose={() => {
+          setOpen(false);
+        }}
+      />
+
+      <Navbar handleClick={() => setOpen(true)} />
       <Hero />
-      <About />
+      <About handleClick={() => setOpen(true)} />
       <Services />
       <Partners />
       <Mock />
       <HowItWorks />
       {isComplete && (
         <div className="w-full bg-white relative">
-          <Purpose />
-          <Transform />
+          <Purpose handleClick={() => setOpen(true)} />
+          <Transform handleClick={() => setOpen(true)} />
 
           <section ref={sectionRef}>
             <Insight isVisible={isVisible} />
-            <Security isVisible={isVisible} />
+            <Security isVisible={isVisible} handleClick={() => setOpen(true)} />
           </section>
 
           <Capacity />
           <Specialty />
           <InflxdTable />
-          <Accuracy />
+          <Accuracy handleClick={() => setOpen(true)} />
           <Coverage />
-          <Mission />
+          <Mission handleClick={() => setOpen(true)} />
           <FAQ />
           <Carousel />
-          <Banner />
+          <Banner handleClick={() => setOpen(true)} />
           <Footer />
         </div>
       )}

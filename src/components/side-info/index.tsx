@@ -15,16 +15,16 @@ const SideInfo = ({ displayed }: { displayed: boolean }) => {
         ease: "easeInOut",
       }}
       className={clsx(
-        "w-[476px] shrink-0 flex items-start justify-start transition-all ease-in-out duration-500 relative"
+        "max-w-[476px] lg:w-[476px] shrink-0 flex items-start justify-start transition-all ease-in-out duration-500 relative"
       )}
     >
-      <div className="h-full flex flex-col items-start justify-between py-20 md:py-[140px]">
+      <div className="h-full flex flex-col items-start gap-16 justify-between py-20 md:py-[140px]">
         <div className="pt-2 flex flex-col items-start gap-4 md:gap-12">
           <h5 className="font-jetbrains leading-none uppercase tracking-[0.01em] text-blue-100">
             How it works
           </h5>
 
-          <p className="max-w-[340px] md:max-w-full font-[700] text-[28px] leading-[36px] sm:text-[32px] lg:text-[40px] sm:leading-[43px] lg:leading-[49px] -tracking-[0.03em] text-black-100">
+          <p className="xs:max-w-[340px] md:max-w-full font-[700] text-lg xs:text-[28px] xs:leading-[36px] sm:text-[32px] lg:text-[40px] sm:leading-[43px] lg:leading-[49px] -tracking-[0.03em] text-black-100">
             While others choose between speed or accuracy, our workflow delivers
             both — enabling you to build and monetize transcript libraries at
             unprecedented scale.

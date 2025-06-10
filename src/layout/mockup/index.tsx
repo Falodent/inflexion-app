@@ -11,7 +11,7 @@ const Mock = () => {
       />
 
       <Image
-        src="/assets/png/mockup-mobile.png"
+        src="/assets/png/mobile-mock.png"
         alt="Mockup"
         fill
         className="px-20 w-full h-[80vh] object-contain lg:hidden"

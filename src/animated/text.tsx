@@ -25,7 +25,7 @@ export const ScrollFillText: React.FC<ScrollFillTextProps> = ({
       const rect = ref.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      const start = windowHeight * 0.5;
+      const start = windowHeight * 0.3;
       const end = windowHeight * 0.5 + rect.height;
 
       const distance = end - start;

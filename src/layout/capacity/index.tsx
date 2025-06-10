@@ -39,7 +39,7 @@ const Capacity = () => {
         {data.map((item) => (
           <div
             key={item.title}
-            className="min-w-[320px] flex items-center gap-8 text-black"
+            className="xs:min-w-[320px] flex items-center gap-8 text-black"
           >
             {item.icon}
 

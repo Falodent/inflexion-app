@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { useState } from "react";
-import ClickAwayListener from "react-click-away-listener";
+// import { useState } from "react";
+// import ClickAwayListener from "react-click-away-listener";
 
 interface Props {
   item: {
@@ -8,28 +8,29 @@ interface Props {
     title: string;
     content: string;
   };
+  isHovered: boolean;
 }
 
-const MissionCard = ({ item }: Props) => {
-  const [isHovered, setIsHovered] = useState(false);
+const MissionCard = ({ item, isHovered }: Props) => {
+  // const [isHovered, setIsHovered] = useState(false);
 
-  const handleEnter = () => setIsHovered(true);
-  const handleLeave = () => setIsHovered(false);
+  // const handleEnter = () => setIsHovered(true);
+  // const handleLeave = () => setIsHovered(false);
   return (
-    <ClickAwayListener onClickAway={handleLeave}>
+    // <ClickAwayListener onClickAway={handleLeave}>
       <div
         className={clsx(
           "group h-[425px] flex flex-col md:border-x border-b border-[#D6DAE0] overflow-y-hidden",
-          "pl-10 pr-8 pt-15 pb-4 lg:px-2 xx:px-6 xl:pl-10 xl:pr-8",
+          "pl-4 xs:pl-10 pr-8 pt-15 pb-4 lg:px-2 xx:px-6 xl:pl-10 xl:pr-8",
           "transition-all ease-in-out duration-500",
           isHovered
             ? "bg-black text-white gap-[65px]"
             : "text-[#1E1E1E] gap-[245px]"
         )}
         key={item.figure}
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-        onClick={handleEnter}
+        // onMouseEnter={handleEnter}
+        // onMouseLeave={handleLeave}
+        // onClick={handleEnter}
         // onTouchEnd={handleLeave}
       >
         <p
@@ -66,7 +67,7 @@ const MissionCard = ({ item }: Props) => {
           </p>
         </div>
       </div>
-    </ClickAwayListener>
+    // </ClickAwayListener>
   );
 };
 

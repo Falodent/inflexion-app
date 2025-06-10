@@ -7,10 +7,12 @@ import Button from "@/components/button";
 import { AlignJustify, MoveRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import useScrollSpeed from "@/helpers/useScrollSpeed";
+import { useIsMobile } from "@/helpers/useIsMobile";
 
-const AnimatedLogo = () => {
+const AnimatedLogo = ({ handleClick }: { handleClick: () => void }) => {
   const container = useRef<HTMLDivElement>(null);
   const scrollSpeed = useScrollSpeed();
+  const isMobile = useIsMobile();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
@@ -69,14 +71,13 @@ const AnimatedLogo = () => {
                 hasMounted && !isScrolled && animate
                   ? {
                       top: "50%",
-                      left: "50%",
-                      x: "-50%",
+                      left: "0",
                       y: "-50%",
                       opacity: titleOpacity,
                     }
                   : {
-                      top: "30px",
-                      left: "32px",
+                      top: isMobile ? "16px" : "26px",
+                      left: isMobile ? "12px" : "32px",
                       x: 0,
                       y: 0,
                       opacity: titleOpacity,
@@ -84,14 +85,14 @@ const AnimatedLogo = () => {
               }
               transition={{
                 duration: 0.6,
-                ease: [0.25, 0.1, 0.25, 1], // ease-in-out
+                ease: [0.25, 0.1, 0.25, 1],
               }}
               style={{ transformOrigin: "top left" }}
             >
               <Title
                 className={clsx(
                   hasMounted && !isScrolled && animate
-                    ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[393px] 2xl:text-[420px] 3xl:text-[480px]"
+                    ? "text-[85px] xs:text-[105px] sm:text-[140px] md:text-[200px] lg:text-[280px] xl:text-[398px] 2xl:text-[420px] 3xl:text-[480px]"
                     : "!text-[32px] !lg:text-[44px]"
                 )}
               />
@@ -108,7 +109,7 @@ const AnimatedLogo = () => {
                 className="ml-auto"
               >
                 <div className="hidden lg:flex items-center gap-[42px]">
-                  <Button size="nav">
+                  <Button size="nav" handleClick={handleClick}>
                     <span>BOOK A DEMO</span>
                     <MoveRight />
                   </Button>
@@ -135,7 +136,11 @@ const AnimatedLogo = () => {
             transition={{ duration: 0.5, ease: "easeInOut", type: "spring" }}
             className="fixed top-0 bg-white w-full h-screen flex lg:hidden flex-col justify-between pt-32 pb-7 px-5 z-30"
           >
-            <Button size="nav" className="max-w-[212px]">
+            <Button
+              size="nav"
+              className="max-w-[212px]"
+              handleClick={handleClick}
+            >
               <span>BOOK A DEMO</span>
               <MoveRight />
             </Button>

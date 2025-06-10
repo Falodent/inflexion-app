@@ -110,7 +110,7 @@ const FiveTabs = ({
           return (
             <div
               key={tab}
-              className="w-[190px] flex flex-col gap-6 items-start relative"
+              className="w-[190px] flex flex-col gap-4 items-start relative"
             >
               {isCenter && content[actualIndex] && (
                 <motion.p

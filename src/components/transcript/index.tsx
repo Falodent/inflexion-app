@@ -17,7 +17,7 @@ const Transcript = () => {
 
   return (
     <div className="w-[472px] flex flex-col shrink-0 absolute top-0 right-40">
-      <Move className="h-[190px] font-[750] text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black -ml-12">
+      <Move className="max-w-[280px] md:max-w-full h-[190px] font-[750] text-[32px] md:text-[50px] leading-[90%] -tracking-[0.05em] uppercase text-black -ml-12">
         Transcripts that work how you work
       </Move>
 

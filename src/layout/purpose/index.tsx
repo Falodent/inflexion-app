@@ -5,7 +5,7 @@ import Button from "@/components/button";
 import Frame from "@/components/frame";
 import { MoveRight } from "lucide-react";
 
-const Purpose = () => {
+const Purpose = ({ handleClick }: { handleClick: () => void }) => {
   const data = [
     {
       icon: "purpose1.svg",
@@ -42,13 +42,13 @@ const Purpose = () => {
           transcripts.
         </p>
 
-        <Button className="max-w-[232px]">
+        <Button className="max-w-[232px]" handleClick={handleClick}>
           <span>BOOK A DEMO</span>
           <MoveRight />
         </Button>
       </div>
 
-      <div className="flex flex-col gap-7 pl-4 lg:pl-0">
+      <div className="flex flex-col gap-7 pl-4 pr-2 lg:pl-0">
         {data.map((item, index) => (
           <div
             key={item.icon}

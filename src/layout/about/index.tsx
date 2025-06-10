@@ -4,8 +4,9 @@ import { MoveRight } from "lucide-react";
 import Counter from "@/components/stat/counter";
 import Button from "@/components/button";
 import { ScrollFillText } from "@/animated/text";
+import Link from "next/link";
 
-const About = () => {
+const About = ({ handleClick }: { handleClick: () => void }) => {
   return (
     <section className="w-full pt-[180px] pl-2.5 pr-7 md:px-8">
       <div className="w-full max-w-[1200px] flex flex-col">
@@ -23,15 +24,17 @@ const About = () => {
         <Counter />
 
         <div className="py-30 flex flex-col md:flex-row lg:items-center gap-6 lg:gap-10">
-          <Button className="w-[236px]">
+          <Button className="w-[236px]" handleClick={handleClick}>
             <span>BOOK A DEMO</span>
             <MoveRight />
           </Button>
 
-          <Button variant="secondary" className="w-[270px]">
-            <span>SEE HOW IT WORKS</span>
-            <MoveRight />
-          </Button>
+          <Link href="/#how-it-works">
+            <Button variant="secondary" className="w-[270px]">
+              <span>SEE HOW IT WORKS</span>
+              <MoveRight />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

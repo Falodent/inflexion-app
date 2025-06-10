@@ -6,6 +6,8 @@ interface Props {
   variant?: "primary" | "secondary" | "scroller";
   size?: "large" | "scroller" | "nav";
   className?: string;
+  handleClick?: () => void;
+  type?: "button" | "submit";
 }
 
 const Button = ({
@@ -14,6 +16,8 @@ const Button = ({
   variant = "primary",
   size = "large",
   className,
+  handleClick,
+  type = "button",
 }: Props) => {
   const VARIANT = {
     primary:
@@ -34,12 +38,14 @@ const Button = ({
   return (
     <button
       ref={ref}
+      type={type}
       className={clsx(
         "rounded-lg cursor-pointer flex items-center justify-center gap-12 transition-all ease-in-out duration-500 whitespace-nowrap",
         VARIANT[variant],
         SIZE[size],
         className
       )}
+      onClick={handleClick}
     >
       {children}
     </button>

@@ -2,10 +2,16 @@ import Button from "@/components/button";
 import clsx from "clsx";
 import { MoveRight, ShieldCheck, ShieldEllipsis } from "lucide-react";
 
-const Security = ({ isVisible }: { isVisible: boolean }) => {
+const Security = ({
+  isVisible,
+  handleClick,
+}: {
+  isVisible: boolean;
+  handleClick: () => void;
+}) => {
   const data = [
     {
-      icon: <ShieldCheck size={64} />,
+      icon: <ShieldCheck size={64} strokeWidth={1} />,
       title: "Enterprise-Grade Security",
       list: [
         "Upcoming MNPI flagging engine and compliance dashboards mirror expert-network best practice.",
@@ -14,7 +20,7 @@ const Security = ({ isVisible }: { isVisible: boolean }) => {
       ],
     },
     {
-      icon: <ShieldEllipsis size={64} />,
+      icon: <ShieldEllipsis size={64} strokeWidth={1} />,
       title: "Compliance Workflow Support",
       list: [
         "Options to deploy in your cloud or route straight to S3/GCS buckets.",
@@ -41,7 +47,7 @@ const Security = ({ isVisible }: { isVisible: boolean }) => {
           finance-grade data end-to-end.
         </p>
 
-        <Button className="max-w-[232px]">
+        <Button className="max-w-[232px]" handleClick={handleClick}>
           <span>BOOK A DEMO</span>
           <MoveRight />
         </Button>

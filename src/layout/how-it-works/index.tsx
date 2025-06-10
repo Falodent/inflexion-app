@@ -7,9 +7,11 @@ import Scroller from "@/components/scroller";
 import SideInfo from "@/components/side-info";
 import ScrollProgress from "@/components/scroll-progress";
 import { useScrollingStore } from "@/store/useScrollingStore";
+import { useIsMobile } from "@/helpers/useIsMobile";
 
 const HowItWorks = () => {
   const { setIsComplete } = useScrollingStore();
+  const isMobile = useIsMobile();
 
   const [scrollProgress, setScrollProgress] = useState(0);
   const horizontalRef = useRef<HTMLDivElement>(null);
@@ -20,7 +22,6 @@ const HowItWorks = () => {
 
   const scrollFactor = 0.3; // consistent with scroll logic
 
-  // Measure scrollable width and update height accordingly
   useEffect(() => {
     const horizontal = horizontalRef.current;
     const container = containerRef.current;
@@ -28,11 +29,11 @@ const HowItWorks = () => {
     if (!horizontal || !container) return;
 
     const scrollableWidth = horizontal.scrollWidth - horizontal.clientWidth;
-    const dynamicHeight =
-      scrollableWidth / scrollFactor + window.innerHeight;
+    const dynamicHeight = scrollableWidth / scrollFactor + window.innerHeight;
 
-    setContainerHeight(dynamicHeight - 1000);
-  }, []);
+    const remove = isMobile ? 1300 : 3000;
+    setContainerHeight(dynamicHeight - remove);
+  }, [isMobile]);
 
   // Handle scroll syncing
   useEffect(() => {
@@ -108,7 +109,7 @@ const HowItWorks = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full">
+    <div ref={containerRef} className="relative w-full" id="how-it-works">
       <div className="relative" style={{ height: `${containerHeight}px` }}>
         <section className="sticky top-0 h-screen pl-8 flex flex-col lg:flex-row overflow-hidden">
           <AnimatePresence mode="wait">
