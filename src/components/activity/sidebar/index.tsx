@@ -24,7 +24,7 @@ const Sidebar = ({ active, progress, handleClick }: Props) => {
 
       <div
         className={clsx(
-          'flex flex-col gap-[57px] h-[450vh] overflow-y-auto scrollbar-none'
+          'flex flex-col gap-10 sm:gap-[57px] h-[450vh] overflow-y-auto scrollbar-none'
         )}
       >
         {SideMenuItems.map((item) => (

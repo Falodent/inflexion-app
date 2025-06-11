@@ -9,6 +9,7 @@ import clsx from "clsx";
 import Button from "../button";
 import SuccessModal from "./success-modal";
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 type FormData = {
   name: string;
@@ -41,15 +42,45 @@ export default function GetInTouch({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    mode: "onBlur",
+  });
 
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    reset();
-    handleClose();
-    setIsSuccess(true);
+  const onSubmit = async (data: FormData) => {
+    const formData = new FormData();
+    formData.append("Name", data.name);
+    formData.append("Email", data.email);
+    formData.append("Company", data.company);
+    formData.append("Phone", data.phone);
+    formData.append("Volume", data.monthVolume);
+    formData.append("Interest", data.interests.join(", "));
+    formData.append("Challenge", data.challenge);
+
+    try {
+      setIsLoading(true);
+
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbwPV4l1PAtnj_xFbaeKzc5kS8hla3KXNmsgc0mmXrZlv_Xx4CIuWBDGCnmUDVu-YzPX/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response) {
+        setIsLoading(false);
+        reset();
+        handleClose();
+        setIsSuccess(true);
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("An error occured. Try again!");
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -159,9 +190,12 @@ export default function GetInTouch({
                         label="Monthly Audio Volume"
                         placeholder="Select monthly audio volume"
                         options={[
-                          { value: "low", label: "Less than 10 hours" },
-                          { value: "medium", label: "10 - 50 hours" },
-                          { value: "high", label: "50+ hours" },
+                          {
+                            value: "Less than 10 hours",
+                            label: "Less than 10 hours",
+                          },
+                          { value: "10 - 50 hours", label: "10 - 50 hours" },
+                          { value: "50+ hours", label: "50+ hours" },
                         ]}
                         value={field.value}
                         onChange={field.onChange}
@@ -233,7 +267,7 @@ export default function GetInTouch({
 
                   <div className="flex justify-start">
                     <Button type="submit">
-                      <span>SUBMIT REQUEST</span>
+                      <span>{isLoading ? "SENDING..." : "SUBMIT REQUEST"}</span>
                       <MoveRight />
                     </Button>
                   </div>

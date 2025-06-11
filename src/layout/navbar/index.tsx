@@ -59,7 +59,7 @@ const AnimatedLogo = ({ handleClick }: { handleClick: () => void }) => {
       <div ref={container} className="relative h-[82vh] lg:h-[95vh] bg-white">
         <div
           className={clsx(
-            "fixed top-0 left-0 w-full z-50 bg-white",
+            "fixed top-0 left-0 w-full z-[120] bg-white",
             "lg:pl-[35px] pr-8 py-5 flex items-center"
           )}
         >
@@ -135,7 +135,7 @@ const AnimatedLogo = ({ handleClick }: { handleClick: () => void }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}
             transition={{ duration: 0.5, ease: "easeInOut", type: "spring" }}
-            className="fixed top-0 bg-white w-full h-screen flex lg:hidden flex-col justify-between pt-32 pb-7 px-5 z-30"
+            className="fixed top-0 bg-white w-full h-screen flex lg:hidden flex-col justify-between pt-32 pb-7 px-5 z-[100]"
           >
             <Button
               size="nav"

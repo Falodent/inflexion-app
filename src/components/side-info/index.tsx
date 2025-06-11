@@ -34,7 +34,7 @@ const SideInfo = ({ displayed }: { displayed: boolean }) => {
         <div
           role="button"
           className={clsx(
-            "hidden lg:flex px-5 border border-black rounded-[20px] cursor-pointer transition-all ease-in-out duration-500 mt-auto"
+            "flex px-5 border border-black rounded-[20px] cursor-pointer transition-all ease-in-out duration-500 mt-auto"
           )}
         >
           <MoveRight size={24} />

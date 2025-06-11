@@ -111,7 +111,7 @@ const HowItWorks = () => {
   return (
     <div ref={containerRef} className="relative w-full" id="how-it-works">
       <div className="relative" style={{ height: `${containerHeight}px` }}>
-        <section className="sticky top-0 h-screen pl-8 flex flex-col lg:flex-row overflow-hidden">
+        <section className="sticky top-0 h-screen pl-2 sm:pl-8 flex flex-col lg:flex-row overflow-hidden">
           <AnimatePresence mode="wait">
             {!hideLeft && (
               <motion.div
