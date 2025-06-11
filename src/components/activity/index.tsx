@@ -53,6 +53,71 @@ const Activity = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      const atTop = scrollTop === 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight;
+      const isScrollingDown = e.deltaY > 0;
+      const isScrollingUp = e.deltaY < 0;
+
+      if ((atTop && isScrollingUp) || (atBottom && isScrollingDown)) {
+        e.preventDefault();
+        window.scrollBy({
+          top: e.deltaY * 1.5, // Increase speed
+          behavior: "smooth", // Disable smooth scrolling delay
+        });
+      }
+    };
+
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    return () => container.removeEventListener("wheel", handleWheel);
+  }, []);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let startY = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      startY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const deltaY = startY - e.touches[0].clientY;
+      const { scrollTop, scrollHeight, clientHeight } = container;
+
+      const atTop = scrollTop <= 0.1;
+      const atBottom = scrollTop + clientHeight >= scrollHeight;
+
+      const isScrollingDown = deltaY > 0;
+      const isScrollingUp = deltaY < 0;
+
+      if ((atTop && isScrollingUp) || (atBottom && isScrollingDown)) {
+        window.scrollBy({
+          top: deltaY * 1.5,
+          behavior: "smooth",
+        });
+      }
+    };
+
+    container.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
+    container.addEventListener("touchmove", handleTouchMove, {
+      passive: false,
+    });
+
+    return () => {
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
+
   // Manual scroll to section
   const handleScroll = (id: number) => {
     const container = scrollContainerRef.current;
@@ -76,8 +141,8 @@ const Activity = () => {
     >
       <div
         className={clsx(
-          "w-full h-full pt-25 pb-8 grid grid-cols-1 lg:grid-cols-[1fr_660px] xl:grid-cols-2 gap-3 pr-4 lg:pr-0 scrollbar-none",
-          shouldStick ? "overflow-y-auto" : "overflow-hidden"
+          "w-full h-full pt-25 pb-8 grid grid-cols-1 lg:grid-cols-[1fr_660px] xl:grid-cols-2 gap-3 pr-4 lg:pr-0 scrollbar-none scroll-momentum",
+          shouldStick ? "overflow-y-auto overscroll-contain md:overscroll-auto touch-pan-y" : "overflow-hidden"
         )}
         ref={scrollContainerRef}
       >

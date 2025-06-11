@@ -36,6 +36,11 @@ body {
   @apply font-helvetica;
 }
 
+.scroll-momentum {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
 /* Footer Bg */
 .footer-bg {
   background-image: url("../../public/assets/png/footer-bg.png");
