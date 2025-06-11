@@ -123,7 +123,7 @@ const CoverageMap = () => {
           src="/assets/png/map.png"
           alt="Map"
           fill
-          className="w-full h-[420px] md:h-[557px] object-cover px-4 lg:px-0"
+          className="w-full h-[350px] xs:h-[420px] md:h-[557px] object-cover px-4 lg:px-0"
         />
         <Image
           src={`/assets/svg/country/${Translations[active]?.icon}`}

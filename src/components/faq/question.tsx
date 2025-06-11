@@ -14,7 +14,7 @@ const FaqQuestion = ({ index, q, a }: Props) => {
   return (
     <div
       className={clsx(
-        "overflow-hidden py-8 px-3 xs:px-6 xx:py-4 xl:py-8 lg:px-10 lg:border-t border-b border-[#C5CAD2] flex flex-col transition-all duration-500 ease-in-out",
+        "overflow-hidden py-8 px-3 xs:px-6 lg:px-10 lg:border-t border-b border-[#C5CAD2] flex flex-col transition-all duration-500 ease-in-out",
         index === 0 && "lg:!border-t-0",
         "hover:bg-[#0000000D] transition-all ease-in-out duration-500",
         isExpanded ? "gap-6" : "gap-0"

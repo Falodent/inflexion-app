@@ -2,6 +2,7 @@
 
 import { SideMenuItems } from "@/content/activity";
 import SideMenu from "./side-menu";
+import clsx from "clsx";
 
 interface Props {
   active: number;
@@ -21,7 +22,11 @@ const Sidebar = ({ active, progress, handleClick }: Props) => {
         />
       </div>
 
-      <div className="flex flex-col gap-[57px]">
+      <div
+        className={clsx(
+          'flex flex-col gap-[57px] h-[450vh] overflow-y-auto scrollbar-none'
+        )}
+      >
         {SideMenuItems.map((item) => (
           <SideMenu
             key={item.title}

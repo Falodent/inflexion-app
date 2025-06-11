@@ -7,8 +7,10 @@ import Stat from "..";
 
 // helpers
 import { formatFigure } from "@/helpers/formatFigure";
+import { useIsMobile } from "@/helpers/useIsMobile";
 
 const InsightCounter = () => {
+  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -28,11 +30,11 @@ const InsightCounter = () => {
           observer.disconnect();
         }
       },
-      { threshold: 1 }
+      { threshold: isMobile ? 0.4 : 1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     if (!visible) return;

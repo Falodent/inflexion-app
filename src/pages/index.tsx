@@ -63,7 +63,7 @@ const Home = () => {
       <Navbar handleClick={() => setOpen(true)} />
       <Hero />
       <About handleClick={() => setOpen(true)} />
-      <Services />
+      <Services /> 
       <Partners />
       <Mock />
       <HowItWorks />

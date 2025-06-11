@@ -77,7 +77,7 @@ const Activity = () => {
       <div
         className={clsx(
           "w-full h-full pt-25 pb-8 grid grid-cols-1 lg:grid-cols-[1fr_660px] xl:grid-cols-2 gap-3 pr-4 lg:pr-0 scrollbar-none",
-          "overflow-y-auto"
+          shouldStick ? "overflow-y-auto" : "overflow-hidden"
         )}
         ref={scrollContainerRef}
       >

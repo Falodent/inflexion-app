@@ -34,14 +34,14 @@ const Footer = () => {
           </div> */}
 
           <div className="flex flex-col lg:flex-row items-start gap-14 lg:gap-[135px]">
-            <div className="flex flex-col gap-1">
+            {/* <div className="flex flex-col gap-1">
               <p className="text-sm leading-[140%] text-white">
                 +1 999 888-77-64
               </p>
               <p className="text-sm leading-[140%] text-white">
                 hello@inflxd.ai
               </p>
-            </div>
+            </div> */}
 
             <div className="flex flex-col gap-1">
               <a
