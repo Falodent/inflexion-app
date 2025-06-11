@@ -21,7 +21,7 @@ const Sidebar = ({ active, progress, handleClick }: Props) => {
         />
       </div>
 
-      <div className="flex flex-col gap-[57px] h-[450vh] overflow-y-auto">
+      <div className="flex flex-col gap-[57px]">
         {SideMenuItems.map((item) => (
           <SideMenu
             key={item.title}

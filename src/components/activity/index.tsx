@@ -66,64 +66,6 @@ const Activity = () => {
     });
   };
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    // Wheel event handler (desktop)
-    const handleWheel = (e: WheelEvent) => {
-      const { scrollTop, scrollHeight, clientHeight } = container;
-      const atTop = scrollTop <= 1;
-      const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-
-      const scrollingDown = e.deltaY > 0;
-      const scrollingUp = e.deltaY < 0;
-
-      if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
-        e.preventDefault();
-        window.scrollBy({ top: e.deltaY });
-      }
-    };
-
-    // Touch scroll handlers (mobile)
-    let touchStartY = 0;
-    const handleTouchStart = (e: TouchEvent) => {
-      if (e.touches.length === 1) {
-        touchStartY = e.touches[0].clientY;
-      }
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length !== 1) return;
-
-      const touchCurrentY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchCurrentY;
-
-      const { scrollTop, scrollHeight, clientHeight } = container;
-      const atTop = scrollTop <= 1;
-      const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-
-      const scrollingDown = deltaY > 0;
-      const scrollingUp = deltaY < 0;
-
-      if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
-        e.preventDefault();
-        window.scrollBy({ top: deltaY, behavior: "smooth" });
-        touchStartY = touchCurrentY; // reset to avoid jumpy scroll
-      }
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    container.addEventListener("touchstart", handleTouchStart, { passive: true });
-    container.addEventListener("touchmove", handleTouchMove, { passive: false });
-
-    return () => {
-      container.removeEventListener("wheel", handleWheel);
-      container.removeEventListener("touchstart", handleTouchStart);
-      container.removeEventListener("touchmove", handleTouchMove);
-    };
-  }, []);
-
   return (
     <div
       ref={wrapperRef}
@@ -134,8 +76,8 @@ const Activity = () => {
     >
       <div
         className={clsx(
-          "w-full h-full pt-25 grid grid-cols-1 lg:grid-cols-[1fr_660px] xl:grid-cols-2 gap-3 pr-4 lg:pr-0 scrollbar-none",
-          shouldStick ? "overflow-y-auto" : "overflow-hidden"
+          "w-full h-full pt-25 pb-8 grid grid-cols-1 lg:grid-cols-[1fr_660px] xl:grid-cols-2 gap-3 pr-4 lg:pr-0 scrollbar-none",
+          "overflow-y-auto"
         )}
         ref={scrollContainerRef}
       >

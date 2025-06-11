@@ -40,7 +40,7 @@ const AutoScrollSVG = ({
             alt="Auto scrolling SVG"
             fill
             className={`w-full ${imageHeight} object-left-top`}
-            objectFit="cover"
+            objectFit="fill"
           />
         </div>
       </div>

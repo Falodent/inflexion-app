@@ -42,7 +42,7 @@ const CoverageMap = () => {
         >
           <button
             onClick={() => setDropdownOpen((prev) => !prev)}
-            className="w-full p-4 flex justify-between items-center"
+            className="w-full p-4 flex justify-between items-center cursor-pointer"
           >
             <div className="flex items-center gap-4 text-lg font-[700] leading-none text-black-100">
               <div className="w-2 h-2 bg-blue-100" />
@@ -59,7 +59,7 @@ const CoverageMap = () => {
             </div>
           </button>
 
-          <div className="flex flex-col gap-1 items-start">
+          <div className="w-full flex flex-col gap-1">
             {languages
               .filter((lang) => lang !== active)
               .map((option) => (
@@ -69,7 +69,7 @@ const CoverageMap = () => {
                     setDropdownOpen(false);
                     setActive(option);
                   }}
-                  className="p-4 pl-10 text-lg font-[700] leading-none text-black-100"
+                  className="max-w-full p-4 pl-10 text-lg font-[700] leading-none text-black-100 cursor-pointer text-start"
                 >
                   {option}
                 </button>
@@ -106,8 +106,12 @@ const CoverageMap = () => {
           </div>
         ))}
 
-        <div className="hidden mt-8 ml-8 lg:flex items-center justify-start pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 cursor-pointer">
-          <p className="font-[700] text-lg xl:text-[26px] leading-none -tracking-[0.02em] text-start">
+        <div className="hidden mt-8 ml-8 w-fit lg:flex items-center justify-start pb-[22px] gap-[11px] text-black border-b-4 border-blue-100 cursor-pointer">
+          <p
+            className={clsx(
+              "font-[700] text-xl xl:text-[26px] leading-none -tracking-[0.02em] text-start"
+            )}
+          >
             and much more
           </p>
         </div>
@@ -116,7 +120,7 @@ const CoverageMap = () => {
       {/* Map */}
       <div className="w-full max-w-[900px] h-[420px] md:h-[557px] relative">
         <Image
-          src="/assets/svg/map2.svg"
+          src="/assets/png/map.png"
           alt="Map"
           fill
           className="w-full h-[420px] md:h-[557px] object-cover px-4 lg:px-0"

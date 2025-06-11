@@ -36,6 +36,7 @@ const Process = () => {
             styles={buildStyles({
               pathColor: "#0000FF",
               trailColor: "transparent",
+              strokeLinecap: "butt",
             })}
           />
         </div>

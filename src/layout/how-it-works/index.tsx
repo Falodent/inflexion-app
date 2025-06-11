@@ -20,7 +20,7 @@ const HowItWorks = () => {
   const [rightSideOffset, setRightSideOffset] = useState(0);
   const [containerHeight, setContainerHeight] = useState(5000);
 
-  const scrollFactor = 0.3; // consistent with scroll logic
+  const scrollFactor = 0.4; // consistent with scroll logic
 
   useEffect(() => {
     const horizontal = horizontalRef.current;

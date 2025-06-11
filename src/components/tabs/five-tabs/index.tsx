@@ -110,7 +110,7 @@ const FiveTabs = ({
           return (
             <div
               key={tab}
-              className="w-[190px] flex flex-col gap-4 items-start relative"
+              className="w-[210px] flex flex-col gap-6 md:gap-4 items-start relative"
             >
               {isCenter && content[actualIndex] && (
                 <motion.p
@@ -128,7 +128,7 @@ const FiveTabs = ({
               <p
                 key={tab}
                 className={clsx(
-                  "font-jetbrains text-[10px] tracking-[0.01em] uppercase cursor-pointer transition-all duration-300 whitespace-nowrap",
+                  "font-jetbrains text-[11px] tracking-[0.01em] uppercase cursor-pointer transition-all duration-300 whitespace-nowrap h-10",
                   isCenter
                     ? "text-blue-100 scale-105"
                     : "text-[#ACACACB2] hover:text-black",

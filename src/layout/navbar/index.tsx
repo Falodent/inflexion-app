@@ -71,8 +71,9 @@ const AnimatedLogo = ({ handleClick }: { handleClick: () => void }) => {
                 hasMounted && !isScrolled && animate
                   ? {
                       top: "50%",
-                      left: "0",
+                      left: isMobile ? "50%" : "0",
                       y: "-50%",
+                      x: isMobile ? "-50%" : "0",
                       opacity: titleOpacity,
                     }
                   : {

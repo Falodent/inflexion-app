@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <p className="text-sm leading-[140%] text-white">Privacy Policy</p>
+            {/* <p className="text-sm leading-[140%] text-white">Privacy Policy</p> */}
             <p className="text-sm leading-[140%] text-white">
               © {String(year)} — Copyright
             </p>
